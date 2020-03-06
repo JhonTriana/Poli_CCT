@@ -1,0 +1,173 @@
+<!--ESQUELETO DE HTML EN LA INTERFAZ DE LOS CCT-->
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CCT</title>
+        <link rel="stylesheet" href="CSS/estilos.css">
+    </head>
+    <body>
+         <!-- ENCABEZADO -->
+         <img src="IMG/logo-poli.png" alt="logo politecnico grancolombiano">
+         <header id="home" class="header" >
+           
+           
+        
+        <div class="titulo_2">
+            Poli CCT
+        </div>
+       <!--MENU-->
+       <nav class="menu">
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#contratista">CONTRATISTA</a></li>
+                <li><a href= "#consecion">CONSECION</a></li>
+                <li><a href="#temporal">TEMPORAL</a></li>
+            </ul>
+       </nav>
+
+        
+         <!--Contratista-->
+ <div class="contratista-box">
+     <section  ID="contratista">
+        <form>
+            CONTRATISTA <br/><br/>
+            <label for="NIT">NIT de la empresa:</label><br/>
+            <input type= "text" placeholder ="NIT" name="NIT" id="NIT"><br/>
+            <label for="nombre_1">Nombre de la empresa:</label><br/>
+            <input type= "text" placeholder ="Nombre" name="Nombre" id="nombre_1"><br/>
+            <h1>Datos de la persona que va a ingresar:</h1><br/>
+
+            <select name="" id="">
+                <option value="cc">Cedula de Ciudadania</option>
+                <option value="cE">Cedula Extranjera</option>
+                <option value="Nit">NIT</option>
+             </select><br/>
+            <label for="nombre">Ingrese su nombre:</label><br/>
+            <input type= "text" placeholder ="Nombres" name="Nombres" id="nombre"><br/>
+            <label for="apellido">Ingrese sus apellidos:</label><br/>
+            <input type= "text" placeholder ="Apellidos" name="Apellidos" id="apellido"><br/>
+            <label for="correo">Ingrese su correo:</label><br/>
+            <input type="mail" placeholder ="Mail" name="mail" id="correo"><br/>
+            <label for="tel">Ingrese su numeor de contacto:</label><br/>
+            <input type="number" placeholder ="Telefono" name="telefono" id="tel"><br/>
+            <label for="gen">Genero:</label><br/>
+            <input type="radio" name="genero" id="gen">Masculino
+            <input type="radio" name="genero" id="gen">Femenino<br/>
+            <input type="submit"><br/>
+            <h2>Documentos necesarios para el ingreso</h2><br/>
+            <label for="cc">Fotocopia de Cedula o Identificacion:</label><br/>
+            <input type= "text" placeholder ="Identificacion" name="Identificacion" id="cc"><br/>
+            <label for="segsoc">Planilla de seguridad social:</label><br/>
+            <input type= "text" placeholder ="Planilla" name="seguridad social" id="segsoc"><br/>
+            <label for="ARL">Aporte ARL:</label><br/>
+            <input type= "text" placeholder ="Aporte ARL" name="ARL" id="ARL"><br/>
+            <input type="submit"><br/>
+            <h3>Certificados de tareas de alto riesgo</h3><br/>
+            <label for="certificado">Ingrese el certificado:</label><br/>
+            <input type= "text" placeholder ="Certificado" name="certificado" id="certificado"><br/>
+            <label for="permiso">Ingrese aca sus permisos:</label><br/>
+            <input type= "text" placeholder ="permiso" name="permisos" id="permiso"><br/>
+            <input type="submit"><br/><br/> <br/>
+
+
+        </form>
+    </section>
+ </div>
+           <!--Consecion-->
+           <div class="consecion-box"></div>
+    <section id="consecion">
+           <form>
+               CONSECION <br/><br/>
+            <label for="NIT">NIT de la empresa:</label><br/>
+            <input type= "text" placeholder ="NIT" name="NIT" id="NIT"><br/>
+            <label for="nombre_1">Nombre de la empresa:</label><br/>
+            <input type= "text" placeholder ="Nombre" name="Nombre" id="nombre_1"><br/>
+            <h1>Datos de la persona que va a ingresar:</h1><br/>
+
+            <select name="" id="">
+                <option value="cc">Cedula de Ciudadania</option>
+                <option value="cE">Cedula Extranjera</option>
+                <option value="Nit">NIT</option>
+             </select><br/>
+            <label for="nombre">Ingrese su nombre:</label><br/>
+            <input type= "text" placeholder ="Nombres" name="Nombres" id="nombre"><br/>
+            <label for="apellido">Ingrese sus apellidos:</label><br/>
+            <input type= "text" placeholder ="Apellidos" name="Apellidos" id="apellido"><br/>
+            <label for="correo">Ingrese su correo:</label><br/>
+            <input type="mail" placeholder ="Mail" name="mail" id="correo"><br/>
+            <label for="tel">Ingrese su numeor de contacto:</label><br/>
+            <input type="number" placeholder ="Telefono" name="telefono" id="tel"><br/>
+            <label for="gen">Genero:</label><br/>
+            <input type="radio" name="genero" id="gen">Masculino
+            <input type="radio" name="genero" id="gen">Femenino<br/>
+            <input type="submit"><br/>
+            <h2>Documentos necesarios para el ingreso</h2><br/>
+            <label for="cc">Fotocopia de Cedula o Identificacion:</label><br/>
+            <input type= "text" placeholder ="Identificacion" name="Identificacion" id="cc"><br/>
+            <label for="segsoc">Planilla de seguridad social:</label><br/>
+            <input type= "text" placeholder ="Planilla" name="seguridad social" id="segsoc"><br/>
+            <label for="ARL">Aporte ARL:</label><br/>
+            <input type= "text" placeholder ="Aporte ARL" name="ARL" id="ARL"><br/>
+            <h3>Certificados de tareas de alto riesgo</h3><br/>
+            <label for="certificado">Ingrese el certificado:</label><br/>
+            <input type= "text" placeholder ="Certificado" name="certificado" id="certificado"><br/>
+            <label for="permiso">Ingrese aca sus permisos:</label><br/>
+            <input type= "text" placeholder ="permiso" name="permisos" id="permiso"><br/>
+            <input type="submit"><br/><br/> <br/>
+
+
+        </form>
+   </section>
+</div>
+           <!--Temporal-->
+        <section id="temporal">
+           <form>
+               TEMPORAL <br/><br/>
+            <label for="NIT">NIT de la empresa:</label><br/>
+            <input type= "text" placeholder ="NIT" name="NIT" id="NIT"><br/>
+            <label for="nombre_1">Nombre de la empresa:</label><br/>
+            <input type= "text" placeholder ="Nombres" name="Nombres" id="nombre_1"><br/>
+            <h1>Datos de la persona que va a ingresar:</h1><br/>
+
+            <select name="" id="">
+                <option value="cc">Cedula de Ciudadania</option>
+                <option value="cE">Cedula Extranjera</option>
+                <option value="Nit">NIT</option>
+             </select><br/>
+            <label for="nombre">Ingrese su nombre:</label><br/>
+            <input type= "text" placeholder ="Nombres" name="Nombres" id="nombre"><br/>
+            <label for="apellido">Ingrese sus apellidos:</label><br/>
+            <input type= "text" placeholder ="Apellidos" name="Apellidos" id="apellido"><br/>
+            <label for="correo">Ingrese su correo:</label><br/>
+            <input type="mail" placeholder ="Mail" name="mail" id="correo"><br/>
+            <label for="tel">Ingrese su numeor de contacto:</label><br/>
+            <input type="number" placeholder ="Telefono" name="telefono" id="tel"><br/>
+            <label for="gen">Genero:</label><br/>
+            <input type="radio" name="genero" id="gen">Masculino
+            <input type="radio" name="genero" id="gen">Femenino<br/>
+            <input type="submit"><br/>
+            <h2>Documentos necesarios para el ingreso</h2><br/>
+            <label for="cc">Fotocopia de Cedula o Identificacion:</label><br/>
+            <input type= "text" placeholder ="Identificacion" name="Identificacion" id="cc"><br/>
+            <label for="segsoc">Planilla de seguridad social:</label><br/>
+            <input type= "text" placeholder ="Planilla" name="seguridad social" id="segsoc"><br/>
+            <label for="ARL">Aporte ARL:</label><br/>
+            <input type= "text" placeholder ="Aporte ARL" name="ARL" id="ARL"><br/>
+            <h3>Certificados de tareas de alto riesgo</h3><br/>
+            <label for="certificado">Ingrese el certificado:</label><br/>
+            <input type= "text" placeholder ="Certificado" name="certificado" id="certificado"><br/>
+            <label for="permiso">Ingrese aca sus permisos:</label><br/>
+            <input type= "text" placeholder ="permiso" name="permisos" id="permiso"><br/>
+            <input type="submit"><br/><br/> <br/>
+
+
+        </form>
+    </section>
+</header>
+    </body>
+</html>
