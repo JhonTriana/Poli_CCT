@@ -1,0 +1,20 @@
+{
+  "name": "RegistroDependencias",
+  "version": "1.0.0",
+  "description": "",
+  "main": "servidor2.js",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "express": "^4.17.1",
+    "util": "^0.12.2",
+    "query-string": "^6.11.1",
+    "strict": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jhon Triana",
+  "license": "ISC"
+}
