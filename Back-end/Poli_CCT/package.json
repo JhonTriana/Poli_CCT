@@ -1,0 +1,29 @@
+{
+  "name": "mybackpolitwitter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "mysql2": "^2.1.0",
+    "npm": "^6.14.3",
+    "sequelize": "^5.21.5"
+  },
+  "description": "Back end para un ejmplo de aplicación tipo twitter",
+  "main": "app.js",
+  "keywords": [
+    "expressjs",
+    "twittersample",
+    "sequalize",
+    "nodejs",
+    "mysql"
+  ],
+  "author": "Carlos Ivan Rivera Parra",
+  "license": "MIT",
+  "devDependencies": {}
+}
