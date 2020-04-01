@@ -14,7 +14,7 @@ var verVideosRouter = require('./routes/verVideos.route');
 
 
 // IMPORT DB CONNECTION MANAGER
-const dbManager = require ("./database.config/database.manager");
+const dbManager = require ("./database.config/db.manager");
 
 var app = express();
 
