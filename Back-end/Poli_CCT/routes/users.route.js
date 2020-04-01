@@ -20,6 +20,6 @@ router.put ('/:idUser',userController.updateUser);
 /**
  * DELETE Route to delete an user by username
  */
-router.delete ('/:username',userController.deleteUserByUsername);
+router.delete ('/:idUser',userController.deleteUserByidUser);
 
 module.exports = router;
