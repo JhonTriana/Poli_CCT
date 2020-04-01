@@ -1,4 +1,4 @@
-const dbManager = require ('../database.config/database.manager');
+const dbManager = require ('../database.config/db.manager');
 
 /**
  * Creation of an user
@@ -93,9 +93,9 @@ async function updateUser (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteUserByUsername (req, res){ 
-    const { username } = req.params;//Execute query
-    dbManager.User.destroy( { where: { username: username } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+function deleteUserByidUser (req, res){ 
+    const { idUser } = req.params;//Execute query
+    dbManager.User.destroy( { where: { idUser: idUser } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
         e => {
@@ -126,5 +126,5 @@ exports.createUser = createUser;
 exports.findAllUsers = findAllUsers; 
 exports.findOneUser = findOneUser; 
 exports.updateUser = updateUser;
-exports.deleteUserByUsername = deleteUserByUsername;
+exports.deleteUserByidUser = deleteUserByidUser;
 exports.deleteAllUsers = deleteAllUsers;
