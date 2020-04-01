@@ -7,6 +7,10 @@ var logger = require('morgan');
 // IMPORT ROUTES
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users.route');
+var actividadesRouter = require('./routes/actividades.route');
+var criteriosRouter = require('./routes/criterios.route');
+var documentosRouter = require('./routes/documentos.route');
+var verVideosRouter = require('./routes/verVideos.route');
 
 
 // IMPORT DB CONNECTION MANAGER
@@ -23,6 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Set the routing routes to the each script
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/actividades', actividadesRouter);
+app.use('/criterios', criteriosRouter);
+app.use('/documentos', documentosRouter);
+app.use('/vervideos', verVideosRouter);
 
 
 /**
