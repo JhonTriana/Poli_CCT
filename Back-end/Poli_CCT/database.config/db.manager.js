@@ -8,12 +8,15 @@ const ActividadModel = require("../model/actividades.model");
 const CriterioModel = require("../model/criterios.model");
 const VerVideoModel = require("../model/verVideo.model");
 const DocumentoModel = require("../model/documentos.model");
+const EmpleadoModel = require("../model/empleado.model");
 //INITIALIZE MODELS
 const User = UserModel (sequelizeConnection, Sequelize);
 const Actividad = ActividadModel (sequelizeConnection, Sequelize);
 const Criterio = CriterioModel (sequelizeConnection, Sequelize);
 const VerVideo = VerVideoModel (sequelizeConnection, Sequelize);
 const Documento = DocumentoModel (sequelizeConnection, Sequelize);
+const Empleado = EmpleadoModel (sequelizeConnection,Sequelize);
+
 
 //CREATE RELATIONS BETWEEN MODELS
 //Post.belongsTo( User, { foreignKey: 'idUser', sourceKey: 'idPost' });
@@ -23,7 +26,8 @@ const models = {
   Actividad: Actividad,
   Criterio: Criterio,
   VerVideo: VerVideo,
-  Documento: Documento
+  Documento: Documento,
+  Empleado : Empleado
 };
 /**
  * Create object to manage the models and database
