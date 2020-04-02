@@ -12,6 +12,7 @@ var criteriosRouter = require('./routes/criterios.route');
 var documentosRouter = require('./routes/documentos.route');
 var verVideosRouter = require('./routes/verVideos.route');
 var regempleadosRouter = require('./routes/regempleados.route');
+var dependencias1Router = require('./routes/dependencias1.route');
 
 
 // IMPORT DB CONNECTION MANAGER
@@ -33,6 +34,7 @@ app.use('/criterios', criteriosRouter);
 app.use('/documentos', documentosRouter);
 app.use('/vervideos', verVideosRouter);
 app.use('/regempleados', regempleadosRouter);
+app.use('/dependencias1', dependencias1Router);
 
 
 /**

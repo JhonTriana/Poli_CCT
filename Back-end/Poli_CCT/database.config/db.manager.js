@@ -10,6 +10,8 @@ const VerVideoModel = require("../model/verVideo.model");
 const DocumentoModel = require("../model/documentos.model");
 const EmpleadoModel = require("../model/empleado.model");
 const RegEmpleadoModel = require("../model/regempleado.model");
+const DependenciasModel = require("../model/dependencias.model");
+
 //INITIALIZE MODELS
 const User = UserModel (sequelizeConnection, Sequelize);
 const Actividad = ActividadModel (sequelizeConnection, Sequelize);
@@ -18,6 +20,7 @@ const VerVideo = VerVideoModel (sequelizeConnection, Sequelize);
 const Documento = DocumentoModel (sequelizeConnection, Sequelize);
 const Empleado = EmpleadoModel (sequelizeConnection,Sequelize);
 const RegEmpleado = RegEmpleadoModel (sequelizeConnection,Sequelize);
+const Dependencias = DependenciasModel (sequelizeConnection,Sequelize);
 
 
 //CREATE RELATIONS BETWEEN MODELS
@@ -30,7 +33,8 @@ const models = {
   VerVideo: VerVideo,
   Documento: Documento,
   Empleado : Empleado,
-  RegEmpleado : RegEmpleado
+  RegEmpleado : RegEmpleado,
+  Dependencias : Dependencias
 };
 /**
  * Create object to manage the models and database
