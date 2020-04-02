@@ -9,6 +9,7 @@ const CriterioModel = require("../model/criterios.model");
 const VerVideoModel = require("../model/verVideo.model");
 const DocumentoModel = require("../model/documentos.model");
 const EmpleadoModel = require("../model/empleado.model");
+const RegEmpleadoModel = require("../model/regempleado.model");
 //INITIALIZE MODELS
 const User = UserModel (sequelizeConnection, Sequelize);
 const Actividad = ActividadModel (sequelizeConnection, Sequelize);
@@ -16,6 +17,7 @@ const Criterio = CriterioModel (sequelizeConnection, Sequelize);
 const VerVideo = VerVideoModel (sequelizeConnection, Sequelize);
 const Documento = DocumentoModel (sequelizeConnection, Sequelize);
 const Empleado = EmpleadoModel (sequelizeConnection,Sequelize);
+const RegEmpleado = RegEmpleadoModel (sequelizeConnection,Sequelize);
 
 
 //CREATE RELATIONS BETWEEN MODELS
@@ -27,7 +29,8 @@ const models = {
   Criterio: Criterio,
   VerVideo: VerVideo,
   Documento: Documento,
-  Empleado : Empleado
+  Empleado : Empleado,
+  RegEmpleado : RegEmpleado
 };
 /**
  * Create object to manage the models and database
