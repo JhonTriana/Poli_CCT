@@ -11,6 +11,7 @@ var actividadesRouter = require('./routes/actividades.route');
 var criteriosRouter = require('./routes/criterios.route');
 var documentosRouter = require('./routes/documentos.route');
 var verVideosRouter = require('./routes/verVideos.route');
+var empleadoRouter = require('./routes/empleado.route');
 var regempleadosRouter = require('./routes/regempleados.route');
 var dependencias1Router = require('./routes/dependencias1.route');
 //verificar la ruta de empleados
@@ -34,6 +35,7 @@ app.use('/actividades', actividadesRouter);
 app.use('/criterios', criteriosRouter);
 app.use('/documentos', documentosRouter);
 app.use('/vervideos', verVideosRouter);
+app.use('/empleado', empleadoRouter);
 app.use('/regempleados', regempleadosRouter);
 app.use('/dependencias1', dependencias1Router);
 //Verificar la ruta de empleados
