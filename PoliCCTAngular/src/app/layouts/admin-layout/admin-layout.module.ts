@@ -11,6 +11,9 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
+import { ActividadComponent } from 'app/actividad/actividad.component';
+import { DocumentoComponent } from 'app/documento/documento.component';
+import { CriterioComponent } from 'app/criterio/criterio.component';
 
 import {
   MatButtonModule,
@@ -41,7 +44,10 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    RequestManagementComponent
+    RequestManagementComponent,
+    ActividadComponent,
+    DocumentoComponent,
+    CriterioComponent
   ]
 })
 
