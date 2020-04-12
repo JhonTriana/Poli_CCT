@@ -1,2 +1,0 @@
-Incluir los codigos del Frontend en esta carpeta.
-Gracias.
