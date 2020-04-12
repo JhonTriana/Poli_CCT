@@ -3,6 +3,7 @@ El proyecto Poli_CCT fue creado con el ánimo de suplir la necesidad que existe 
 
 Instalación: Con el fin de que el proyecto corra sin inconvenientes al clonarlo, al abrir el proyecto, deben ejecutarse los siguientes comandos:
 
+  npm init: para actualizar el package.json
   npm install: Para que se inicialicen todas las instancias necesarias.
   ng serve: Para que se ejecute el proyecto en el puerto 4200.
   ng serve -- port puerto: para ejecutar el proyecto en otro puerto.
