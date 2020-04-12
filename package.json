@@ -1,0 +1,19 @@
+{
+  "name": "poli_cct",
+  "version": "1.0.1",
+  "description": "Proyecto de Aula",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhonTriana/Poli_CCT.git"
+  },
+  "author": "JaVargasGue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JhonTriana/Poli_CCT/issues"
+  },
+  "homepage": "https://github.com/JhonTriana/Poli_CCT#readme"
+}

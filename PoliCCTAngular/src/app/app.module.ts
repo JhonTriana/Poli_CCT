@@ -23,6 +23,10 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { RequestManagementComponent } from './request-management/request-management.component';
 import { MatExpansionModule, MatButtonModule} from '@angular/material/';
+import { ActividadComponent } from './actividad/actividad.component';
+import { CriterioComponent } from './criterio/criterio.component';
+import { DocumentoComponent } from './documento/documento.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -44,6 +48,10 @@ import { MatExpansionModule, MatButtonModule} from '@angular/material/';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    ActividadComponent,
+    CriterioComponent,
+    DocumentoComponent,
+    PageNotFoundComponent,
 
   ],
   providers: [],
