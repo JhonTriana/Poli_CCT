@@ -19,7 +19,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {
   AgmCoreModule
 } from '@agm/core';
-import { EmpleadoComponent } from './empleado/empleado.component';
 import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 
 @NgModule({
