@@ -11,7 +11,6 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
@@ -27,6 +26,8 @@ import { ActividadComponent } from './actividad/actividad.component';
 import { CriterioComponent } from './criterio/criterio.component';
 import { DocumentoComponent } from './documento/documento.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EmpleadoComponent } from './empleado/empleado.component';
+import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 
 
 
@@ -52,6 +53,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CriterioComponent,
     DocumentoComponent,
     PageNotFoundComponent,
+    
+   
 
   ],
   providers: [],
