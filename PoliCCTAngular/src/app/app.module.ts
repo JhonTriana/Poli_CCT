@@ -13,13 +13,14 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { MatExpansionModule, MatButtonModule} from '@angular/material/';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import {
   AgmCoreModule
 } from '@agm/core';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { MatExpansionModule, MatButtonModule} from '@angular/material/';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
