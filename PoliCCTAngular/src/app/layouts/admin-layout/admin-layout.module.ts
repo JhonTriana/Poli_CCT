@@ -11,6 +11,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
+import { VideoComponent } from 'app/video/video.component';
 
 import {
   MatButtonModule,
@@ -41,7 +42,8 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    RequestManagementComponent
+    RequestManagementComponent,
+    VideoComponent
   ]
 })
 
