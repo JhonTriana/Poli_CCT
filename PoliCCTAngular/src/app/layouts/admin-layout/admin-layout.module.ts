@@ -15,18 +15,18 @@ import { ActividadComponent } from 'app/actividad/actividad.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
+import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
+import { RegistroComponent } from 'app/registro/registro.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
 import { UsuarioComponent } from 'app/usuario/usuario.component';
+import { MatTableModule } from '@angular/material/table';
 
 import {
-  MatButtonModule,
-  MatInputModule,
-  MatRippleModule,
-  MatFormFieldModule,
-  MatTooltipModule,
-  MatSelectModule
+  MatButtonModule,   MatInputModule,   MatRippleModule,   MatFormFieldModule,
+  MatTooltipModule,  MatSelectModule,  MatTableDataSource,
 } from '@angular/material';
 
 
@@ -34,14 +34,9 @@ import {
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatRippleModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTooltipModule
+    FormsModule,        ReactiveFormsModule,        MatButtonModule,        MatRippleModule,
+    MatFormFieldModule, MatInputModule,             MatSelectModule,        MatTooltipModule,
+    MatExpansionModule, MatTableDataSource,         MatTableModule
   ],
   declarations: [
     DashboardComponent,
