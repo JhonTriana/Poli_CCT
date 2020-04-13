@@ -17,6 +17,7 @@ import { RegistroComponent } from 'app/registro/registro.component';
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+import { UsuarioComponent } from 'app/usuario/usuario.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -37,5 +38,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'ciudad',      component: CiudadComponent },
     { path: 'sede',       component: SedeComponent },
     { path: 'ubicacion',      component: UbicacionComponent },
+    { path: 'Formulario-Usuario', component: UsuarioComponent },
 
 ];

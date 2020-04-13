@@ -40,7 +40,6 @@ import { EmployeeRegistrationComponent } from './employee-registration/employee-
     AppComponent,
     AdminLayoutComponent,
     PageNotFoundComponent,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

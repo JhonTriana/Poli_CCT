@@ -21,13 +21,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+import { UsuarioComponent } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
-
 
 import {
   MatButtonModule,   MatInputModule,   MatRippleModule,   MatFormFieldModule,
   MatTooltipModule,  MatSelectModule,  MatTableDataSource,
 } from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -38,10 +39,23 @@ import {
     MatExpansionModule, MatTableDataSource,         MatTableModule
   ],
   declarations: [
-    DashboardComponent,    TypographyComponent,    IconsComponent,    MapsComponent,    NotificationsComponent,
-    UpgradeComponent,    RequestManagementComponent,    EmployeeRegistrationComponent,    ActividadComponent,
-    DocumentoComponent,    CriterioComponent,    RequestManagementComponent,    SeguridadFisicaComponent,
-    RegistroDependenciasComponent,    RegistroComponent,    CiudadComponent,    SedeComponent,    UbicacionComponent
+    DashboardComponent,
+    TypographyComponent,
+    IconsComponent,
+    MapsComponent,
+    NotificationsComponent,
+    UpgradeComponent,
+    RequestManagementComponent,
+    EmployeeRegistrationComponent,
+    ActividadComponent,
+    DocumentoComponent,
+    CriterioComponent,
+    RequestManagementComponent,
+    SeguridadFisicaComponent,
+    CiudadComponent,
+    SedeComponent,
+    UbicacionComponent,
+    UsuarioComponent
   ]
 })
 
