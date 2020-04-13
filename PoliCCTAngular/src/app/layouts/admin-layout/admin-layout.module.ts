@@ -21,50 +21,27 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 import {
-  MatButtonModule,
-  MatInputModule,
-  MatRippleModule,
-  MatFormFieldModule,
-  MatTooltipModule,
-  MatSelectModule,
+  MatButtonModule,   MatInputModule,   MatRippleModule,   MatFormFieldModule,
+  MatTooltipModule,  MatSelectModule,  MatTableDataSource,
 } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatRippleModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTooltipModule,
-    MatExpansionModule
+    FormsModule,        ReactiveFormsModule,        MatButtonModule,        MatRippleModule,
+    MatFormFieldModule, MatInputModule,             MatSelectModule,        MatTooltipModule,
+    MatExpansionModule, MatTableDataSource,         MatTableModule
   ],
   declarations: [
-    DashboardComponent,
-    TypographyComponent,
-    IconsComponent,
-    MapsComponent,
-    NotificationsComponent,
-    UpgradeComponent,
-    RequestManagementComponent,
-    EmployeeRegistrationComponent,
-    ActividadComponent,
-    DocumentoComponent,
-    CriterioComponent,
-    RequestManagementComponent,
-    SeguridadFisicaComponent,
-    RegistroDependenciasComponent,
-    RegistroComponent,
-    CiudadComponent,
-    SedeComponent,
-    UbicacionComponent
+    DashboardComponent,    TypographyComponent,    IconsComponent,    MapsComponent,    NotificationsComponent,
+    UpgradeComponent,    RequestManagementComponent,    EmployeeRegistrationComponent,    ActividadComponent,
+    DocumentoComponent,    CriterioComponent,    RequestManagementComponent,    SeguridadFisicaComponent,
+    RegistroDependenciasComponent,    RegistroComponent,    CiudadComponent,    SedeComponent,    UbicacionComponent
   ]
 })
 
