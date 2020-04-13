@@ -8,6 +8,9 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component';
+import { ActividadComponent } from 'app/actividad/actividad.component';
+import { CriterioComponent } from 'app/criterio/criterio.component';
+import { DocumentoComponent } from 'app/documento/documento.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent }, 
@@ -18,4 +21,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'employee-registration', component : EmployeeRegistrationComponent},
+    { path: 'actividad',      component: ActividadComponent },
+    { path: 'criterio',       component: CriterioComponent },
+    { path: 'documento',      component: DocumentoComponent },
+
 ];
