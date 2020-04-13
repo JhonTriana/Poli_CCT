@@ -39,7 +39,7 @@ import { EmployeeRegistrationComponent } from './employee-registration/employee-
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

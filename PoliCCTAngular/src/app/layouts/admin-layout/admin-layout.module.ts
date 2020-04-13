@@ -18,6 +18,7 @@ import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+import { UsuarioComponent } from 'app/usuario/usuario.component';
 
 import {
   MatButtonModule,
@@ -27,6 +28,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -57,7 +59,8 @@ import {
     SeguridadFisicaComponent,
     CiudadComponent,
     SedeComponent,
-    UbicacionComponent
+    UbicacionComponent,
+    UsuarioComponent
   ]
 })
 
