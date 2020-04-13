@@ -61,7 +61,7 @@ import {
     RequestManagementComponent,
     SeguridadFisicaComponent,
     RegistroDependenciasComponent,
-    RegistroComponent
+    RegistroComponent,
     CiudadComponent,
     SedeComponent,
     UbicacionComponent
