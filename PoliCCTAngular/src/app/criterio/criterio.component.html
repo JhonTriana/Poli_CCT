@@ -9,7 +9,24 @@
 
     <div class="col-md-3">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Criterio">
+        <h4>Actividades</h4>
+        <mat-form-field>
+          <mat-label>Seleccione la Actividad</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let actividad of listaActividades" [value]="actividad.nombreActividad">
+              {{ actividad.nombreActividad }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <h4>Documentos</h4>
+        <mat-form-field>
+          <mat-label>Seleccione el Documento</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let documento of listaDocumentos" [value]="documento.nombreDocumento">
+              {{ documento.nombreDocumento }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </mat-form-field>
     </div>
   
@@ -18,7 +35,6 @@
 
     <div class="fondoInferior">
       <button mat-raised-button type="submit" class="colorButton">Registrar</button>
-      <button mat-raised-button type="submit" class="colorButton">Limpiar</button>
       <button mat-raised-button type="submit" class="colorButton">Editar</button>
       <button mat-raised-button type="submit" class="colorButton">Eliminar</button>
     </div>

@@ -17,6 +17,11 @@ import { CriterioComponent } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
 import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
 import { RegistroComponent } from 'app/registro/registro.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { CiudadComponent } from 'app/ciudad/ciudad.component';
+import { SedeComponent } from 'app/sede/sede.component';
+import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+
 
 import {
   MatButtonModule,
@@ -24,7 +29,7 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
 } from '@angular/material';
 
 @NgModule({
@@ -38,7 +43,8 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule
   ],
   declarations: [
     DashboardComponent,
@@ -56,6 +62,9 @@ import {
     SeguridadFisicaComponent,
     RegistroDependenciasComponent,
     RegistroComponent
+    CiudadComponent,
+    SedeComponent,
+    UbicacionComponent
   ]
 })
 
