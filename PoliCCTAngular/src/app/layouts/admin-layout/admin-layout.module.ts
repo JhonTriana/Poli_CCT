@@ -14,6 +14,7 @@ import { EmployeeRegistrationComponent} from '../../employee-registration/employ
 import { ActividadComponent } from 'app/actividad/actividad.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
+import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
 
 import {
   MatButtonModule,
@@ -23,6 +24,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -47,7 +49,9 @@ import {
     EmployeeRegistrationComponent,
     ActividadComponent,
     DocumentoComponent,
-    CriterioComponent
+    CriterioComponent,
+    RequestManagementComponent,
+    SeguridadFisicaComponent
   ]
 })
 
