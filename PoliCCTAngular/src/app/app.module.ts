@@ -40,9 +40,6 @@ import { EmployeeRegistrationComponent } from './employee-registration/employee-
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    ActividadComponent,
-    CriterioComponent,
-    DocumentoComponent,
     PageNotFoundComponent
   ],
   providers: [],
