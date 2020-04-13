@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
@@ -20,6 +19,8 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MatExpansionModule, MatButtonModule} from '@angular/material/';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EmpleadoComponent } from './empleado/empleado.component';
+import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    ActividadComponent,
+    CriterioComponent,
+    DocumentoComponent,
     PageNotFoundComponent
   ],
   providers: [],
