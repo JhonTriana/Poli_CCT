@@ -12,6 +12,10 @@ import { ActividadComponent } from 'app/actividad/actividad.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
+import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
+import { RegistroComponent } from 'app/registro/registro.component';
+
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent }, 
@@ -26,4 +30,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'criterio',       component: CriterioComponent },
     { path: 'documento',      component: DocumentoComponent },
     { path: 'seguridadFisica', component: SeguridadFisicaComponent },
+    { path: 'registrodependencias', component: RegistroDependenciasComponent },
+    { path: 'registro', component: RegistroComponent },
 ];

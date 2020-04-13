@@ -15,6 +15,8 @@ import { ActividadComponent } from 'app/actividad/actividad.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
+import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
+import { RegistroComponent } from 'app/registro/registro.component';
 
 import {
   MatButtonModule,
@@ -51,7 +53,9 @@ import {
     DocumentoComponent,
     CriterioComponent,
     RequestManagementComponent,
-    SeguridadFisicaComponent
+    SeguridadFisicaComponent,
+    RegistroDependenciasComponent,
+    RegistroComponent
   ]
 })
 

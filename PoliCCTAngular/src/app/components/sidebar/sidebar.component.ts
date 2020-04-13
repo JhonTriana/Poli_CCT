@@ -10,13 +10,15 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     
     { path: '/request-management', title: 'Gestion De Solicitudes',  icon:'content_paste', class: '' },
+    { path: '/registro', title:'Registro', icon: 'person', class:''},
     { path: '/employee-registration', title:'Empleados', icon: 'person', class:''},
     { path: '/empleado', title: 'Registro de empleado', icon:'person', class:''},
     { path: '/user-profile', title: 'Usuarios',  icon:'person', class: '' },
     { path: '/actividad', title: 'Actividad',  icon:'assignment_ind', class: '' },
     { path: '/criterio', title: 'Criterio',  icon:'assignment_late', class: '' },
     { path: '/documento', title: 'Documento',  icon:'assignment', class: '' },
-     { path: '/seguridadFisica', title: 'Consulta Autorización',  icon:'search', class: '' },
+    { path: '/registrodependencias', title: 'Registro de Dependencias',  icon:'assignment', class: '' },
+    { path: '/seguridadFisica', title: 'Consulta Autorización',  icon:'search', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' }
 
     
