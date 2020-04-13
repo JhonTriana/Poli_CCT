@@ -15,6 +15,9 @@ import { ActividadComponent } from 'app/actividad/actividad.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
+import { CiudadComponent } from 'app/ciudad/ciudad.component';
+import { SedeComponent } from 'app/sede/sede.component';
+import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
 
 import {
   MatButtonModule,
@@ -51,7 +54,10 @@ import {
     DocumentoComponent,
     CriterioComponent,
     RequestManagementComponent,
-    SeguridadFisicaComponent
+    SeguridadFisicaComponent,
+    CiudadComponent,
+    SedeComponent,
+    UbicacionComponent
   ]
 })
 

@@ -17,7 +17,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/criterio', title: 'Criterio',  icon:'assignment_late', class: '' },
     { path: '/documento', title: 'Documento',  icon:'assignment', class: '' },
      { path: '/seguridadFisica', title: 'Consulta Autorización',  icon:'search', class: '' },
-    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' }
+    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+    { path: '/ciudad', title: 'Ciudad',  icon:'assignment_city', class: '' },
+    { path: '/sede', title: 'Sede',  icon:'assignment_campus', class: '' },
+    { path: '/ubicacion', title: 'Ubicacion',  icon:'assignment_location', class: '' }
 
     
     // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
