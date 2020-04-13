@@ -12,6 +12,9 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
 import { EmpleadoComponent} from '../../empleado/empleado.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
+import { ActividadComponent } from 'app/actividad/actividad.component';
+import { DocumentoComponent } from 'app/documento/documento.component';
+import { CriterioComponent } from 'app/criterio/criterio.component';
 
 import {
   MatButtonModule,
@@ -44,6 +47,9 @@ import {
     RequestManagementComponent,
     EmpleadoComponent,
     EmployeeRegistrationComponent,
+    ActividadComponent,
+    DocumentoComponent,
+    CriterioComponent
   ]
 })
 

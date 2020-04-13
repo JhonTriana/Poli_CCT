@@ -3,33 +3,24 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
-
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
-
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { RequestManagementComponent } from './request-management/request-management.component';
 import { MatExpansionModule, MatButtonModule} from '@angular/material/';
-import { ActividadComponent } from './actividad/actividad.component';
-import { CriterioComponent } from './criterio/criterio.component';
-import { DocumentoComponent } from './documento/documento.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
-
-
 
 @NgModule({
   imports: [
@@ -52,10 +43,7 @@ import { EmployeeRegistrationComponent } from './employee-registration/employee-
     ActividadComponent,
     CriterioComponent,
     DocumentoComponent,
-    PageNotFoundComponent,
-    
-   
-
+    PageNotFoundComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
