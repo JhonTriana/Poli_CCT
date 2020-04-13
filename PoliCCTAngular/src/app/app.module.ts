@@ -21,6 +21,7 @@ import {
 } from '@agm/core';
 import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -38,7 +39,8 @@ import { EmployeeRegistrationComponent } from './employee-registration/employee-
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

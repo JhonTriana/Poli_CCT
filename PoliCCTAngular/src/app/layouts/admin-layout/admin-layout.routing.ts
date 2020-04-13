@@ -12,9 +12,12 @@ import { ActividadComponent } from 'app/actividad/actividad.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
+import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
+import { RegistroComponent } from 'app/registro/registro.component';
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent }, 
@@ -29,7 +32,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'criterio',       component: CriterioComponent },
     { path: 'documento',      component: DocumentoComponent },
     { path: 'seguridadFisica', component: SeguridadFisicaComponent },
+    { path: 'registrodependencias', component: RegistroDependenciasComponent },
+    { path: 'registro', component: RegistroComponent },
     { path: 'ciudad',      component: CiudadComponent },
     { path: 'sede',       component: SedeComponent },
     { path: 'ubicacion',      component: UbicacionComponent },
+
 ];

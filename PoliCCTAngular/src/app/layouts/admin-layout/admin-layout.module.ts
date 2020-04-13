@@ -15,10 +15,13 @@ import { ActividadComponent } from 'app/actividad/actividad.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
+import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
+import { RegistroComponent } from 'app/registro/registro.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+
 
 import {
   MatButtonModule,
@@ -57,6 +60,8 @@ import {
     CriterioComponent,
     RequestManagementComponent,
     SeguridadFisicaComponent,
+    RegistroDependenciasComponent,
+    RegistroComponent
     CiudadComponent,
     SedeComponent,
     UbicacionComponent
