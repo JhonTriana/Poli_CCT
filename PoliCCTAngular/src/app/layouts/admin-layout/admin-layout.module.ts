@@ -10,7 +10,6 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
-import { EmpleadoComponent} from '../../empleado/empleado.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
 
 import {
@@ -42,7 +41,6 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     RequestManagementComponent,
-    EmpleadoComponent,
     EmployeeRegistrationComponent,
   ]
 })

@@ -26,7 +26,6 @@ import { ActividadComponent } from './actividad/actividad.component';
 import { CriterioComponent } from './criterio/criterio.component';
 import { DocumentoComponent } from './documento/documento.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { EmpleadoComponent } from './empleado/empleado.component';
 import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 
 
