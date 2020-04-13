@@ -16,6 +16,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/actividad', title: 'Actividad',  icon:'assignment_ind', class: '' },
     { path: '/criterio', title: 'Criterio',  icon:'assignment_late', class: '' },
     { path: '/documento', title: 'Documento',  icon:'assignment', class: '' },
+    { path: '/seguridadFisica', title: 'Consulta Autorización',  icon:'search', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' }
     
     // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },

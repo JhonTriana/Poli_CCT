@@ -12,6 +12,7 @@ import { EmployeeRegistrationComponent} from '../../employee-registration/employ
 import { ActividadComponent } from 'app/actividad/actividad.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
+import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent }, 
@@ -26,5 +27,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'actividad',      component: ActividadComponent },
     { path: 'criterio',       component: CriterioComponent },
     { path: 'documento',      component: DocumentoComponent },
-
+    { path: 'seguridadFisica', component: SeguridadFisicaComponent },
 ];
