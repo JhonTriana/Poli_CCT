@@ -10,17 +10,17 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
 
     { path: '/actividad', title: 'Actividad',  icon:'assignment_ind', class: '' },
-    { path: '/ciudad', title: 'Ciudad',  icon:'assignment_city', class: '' },
+    { path: '/ciudad', title: 'Ciudad',  icon:'location_city', class: '' },
     { path: '/seguridadFisica', title: 'Consulta Autorización',  icon:'search', class: '' },
-    { path: '/registro', title:'Contratistas', icon: 'person', class:''},
+    { path: '/registro', title:'Contratistas', icon: 'business_center', class:''},
     { path: '/criterio', title: 'Criterio',  icon:'assignment_late', class: '' },
-    { path: '/registrodependencias', title: 'Dependencias',  icon:'assignment', class: '' },
+    { path: '/registrodependencias', title: 'Dependencias',  icon:'home_work', class: '' },
     { path: '/documento', title: 'Documento',  icon:'assignment', class: '' },
-    { path: '/employee-registration', title:'Empleados', icon: 'person', class:''},
+    { path: '/employee-registration', title:'Empleados', icon: 'group_add', class:''},
     { path: '/request-management', title: 'Gestion De Solicitudes',  icon:'content_paste', class: '' },
-    { path: '/sede', title: 'Sede',  icon:'assignment_campus', class: '' },
-    { path: '/ubicacion', title: 'Ubicacion',  icon:'assignment_location', class: '' },
-    { path: '/Formulario-Usuario', title: 'Usuario',  icon:'person', class: '' },
+    { path: '/sede', title: 'Sede',  icon:'apartment', class: '' },
+    { path: '/ubicacion', title: 'Ubicacion',  icon:'place', class: '' },
+    { path: '/Formulario-Usuario', title: 'Usuario',  icon:'face', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' }
 ];
 
