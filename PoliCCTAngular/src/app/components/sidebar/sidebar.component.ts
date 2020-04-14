@@ -8,25 +8,20 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    
-    { path: '/request-management', title: 'Gestion De Solicitudes',  icon:'content_paste', class: '' },
-    { path: '/registro', title:'Registro', icon: 'person', class:''},
-    { path: '/employee-registration', title:'Empleados', icon: 'person', class:''},
+
     { path: '/actividad', title: 'Actividad',  icon:'assignment_ind', class: '' },
-    { path: '/criterio', title: 'Criterio',  icon:'assignment_late', class: '' },
-    { path: '/documento', title: 'Documento',  icon:'assignment', class: '' },
-    { path: '/registrodependencias', title: 'Registro de Dependencias',  icon:'assignment', class: '' },
-    { path: '/seguridadFisica', title: 'Consulta Autorización',  icon:'search', class: '' },
     { path: '/ciudad', title: 'Ciudad',  icon:'assignment_city', class: '' },
+    { path: '/seguridadFisica', title: 'Consulta Autorización',  icon:'search', class: '' },
+    { path: '/registro', title:'Contratistas', icon: 'person', class:''},
+    { path: '/criterio', title: 'Criterio',  icon:'assignment_late', class: '' },
+    { path: '/registrodependencias', title: 'Dependencias',  icon:'assignment', class: '' },
+    { path: '/documento', title: 'Documento',  icon:'assignment', class: '' },
+    { path: '/employee-registration', title:'Empleados', icon: 'person', class:''},
+    { path: '/request-management', title: 'Gestion De Solicitudes',  icon:'content_paste', class: '' },
     { path: '/sede', title: 'Sede',  icon:'assignment_campus', class: '' },
     { path: '/ubicacion', title: 'Ubicacion',  icon:'assignment_location', class: '' },
+    { path: '/Formulario-Usuario', title: 'Usuario',  icon:'person', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' }
-    
-    // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 ];
 
 @Component({
