@@ -6,12 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MatButtonModule } from '@angular/material/';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -19,9 +13,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {
   AgmCoreModule
 } from '@agm/core';
-import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
-
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
