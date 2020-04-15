@@ -1,0 +1,41 @@
+.colorButton{
+    background-color: #1fb2de;
+    color: white;
+    width: 150px;
+    height: 35px;
+    margin: 20px;
+}
+.fondoInferior{
+    background-color: #0f385a;    
+}
+/* Structure */
+table {
+    width: 100%;
+  }
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.DiseñoTabla{
+    position: relative;
+    width: 100%;
+    min-height: 10px;
+    padding-right: 100px;
+    padding-left: 100px; 
+  }
+.inputLocal{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px; 
+} 
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  } 
+.example-full-width {
+    width: 100%;
+}
