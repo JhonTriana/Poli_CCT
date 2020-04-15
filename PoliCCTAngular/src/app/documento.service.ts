@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Documento } from './models/Documentos.model';
+import { Documento } from './models/documentos.model';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

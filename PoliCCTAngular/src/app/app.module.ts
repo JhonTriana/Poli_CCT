@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {
   AgmCoreModule
 } from '@agm/core';
+import { DocumentEntryComponent } from './document-entry/document-entry.component';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -31,6 +32,7 @@ import {
     AppComponent,
     AdminLayoutComponent,
     PageNotFoundComponent,
+    DocumentEntryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

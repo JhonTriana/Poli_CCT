@@ -22,11 +22,13 @@ import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
 import { UsuarioComponent } from 'app/usuario/usuario.component';
+<<<<<<< Updated upstream
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 
 import {
@@ -34,7 +36,10 @@ import {
   MatInputModule,
   MatRippleModule,
   MatFormFieldModule,
-  MatTooltipModule, 
+  MatTooltipModule,
+  MatPaginatorModule,
+  MatMenuModule,
+  MatDialogModule
 } from '@angular/material';
 
 @NgModule({
@@ -53,7 +58,8 @@ import {
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
   ],
   declarations: [
     DashboardComponent,    
