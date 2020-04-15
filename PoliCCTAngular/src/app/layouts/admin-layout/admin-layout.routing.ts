@@ -26,7 +26,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent }, 
-    { path: 'video',          component: VideoComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'employee-registration', component : EmployeeRegistrationComponent},
     { path: 'actividad',      component: ActividadComponent },
@@ -40,6 +39,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'ubicacion',      component: UbicacionComponent },
     { path: 'Formulario-Usuario', component: UsuarioComponent },
     { path: 'dashboard',      component: DashboardComponent },
+    { path: 'video',          component: VideoComponent },
 
 
 ];
