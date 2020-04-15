@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 
 import {
@@ -33,8 +34,7 @@ import {
   MatInputModule,
   MatRippleModule,
   MatFormFieldModule,
-  MatTooltipModule,
-  MatSelectModule, 
+  MatTooltipModule, 
 } from '@angular/material';
 
 @NgModule({
@@ -46,14 +46,14 @@ import {
     MatButtonModule,        
     MatRippleModule,
     MatFormFieldModule, 
-    MatInputModule,             
-    MatSelectModule,        
+    MatInputModule,                     
     MatTooltipModule,
     MatExpansionModule,
     MatTableModule,
     MatMenuModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   declarations: [
     DashboardComponent,    
@@ -74,7 +74,7 @@ import {
     CiudadComponent,    
     SedeComponent,   
     UbicacionComponent,
-    UsuarioComponent
+    UsuarioComponent,
   ]
 })
 
