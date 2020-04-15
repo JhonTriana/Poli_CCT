@@ -8,8 +8,9 @@ import { Observable, of } from 'rxjs';
 export class ActividadService {
 
   ALL_Actividades: Actividad [] = [
-    {   idActividad: 1,   nombreActividad: "Cualquie cosa"   },
-    {   idActividad: 2,   nombreActividad: "Otra cosa"       }
+    {   idActividad: 1,   nombreActividad: "Cualquie cosa dato largo para ver el comportamiento"   },
+    {   idActividad: 2,   nombreActividad: "Otra cosa"       },
+    {   idActividad: 3,   nombreActividad: "Nueva cosa"       }
   //{   id: 3,   texto: "Nueva cosa",      autor: "Tatiana",  fecha: "2020/04/06"   },
   //{   id: 4,   texto: "Diferente cosa",  autor: "Cañon",    fecha: "2020/04/06"   }
 ]

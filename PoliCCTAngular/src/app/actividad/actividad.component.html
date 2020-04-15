@@ -2,25 +2,46 @@
   <div class="card">
     <div class="card-header card-header-danger">
         <h4 class="card-title">Actividad</h4>
-        <p class="card-category">Se Crean Actividades Necesarias</p>
     </div>
     <div class="card-body">
-    </div>
-
-    <div class="col-md-3">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Descripción de la Actividad">
+      <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Ingrese La Actividad</mat-label>
+            <span matPrefix> &nbsp;</span>
+            <input type="text" matInput  placeholder="Nombre de la Actividad" [(ngModel)]="newActividad.nombreActividad">
+            <mat-icon matSuffix (click) = "nuevaActividad()"  title="Crear Nuevo Registro">add_circle</mat-icon>
+          </mat-form-field>
+      </div>
+    </div>    
+    <div class="DiseñoTabla">
+      <mat-form-field>
+        <mat-label>Busqueda</mat-label>
+        <input matInput (keyup)="Filtro($event)" placeholder="Busqueda de Actividades">
       </mat-form-field>
-    </div>
-  
-    <div class="card-body">
-    </div>
-
-    <div class="fondoInferior">
-      <button mat-raised-button type="submit" class="colorButton">Registrar</button>
-      <button mat-raised-button type="submit" class="colorButton">Editar</button>
-      <button mat-raised-button type="submit" class="colorButton">Eliminar</button>
-    </div>
-    
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >      
+        <ng-container matColumnDef="idActividad">
+          <th mat-header-cell *matHeaderCellDef > Número </th>
+          <td mat-cell *matCellDef="let element"> {{element.idActividad}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nombreActividad">
+          <th mat-header-cell *matHeaderCellDef> Nombre Actividad </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombreActividad}} </td>
+        </ng-container>
+        <ng-container matColumnDef="star" >
+          <th mat-header-cell *matHeaderCellDef> Opciones </th>
+          <td mat-cell *matCellDef="let element">          
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item> <mat-icon>edit   </mat-icon> <span> Editar   </span> </button>
+              <button mat-menu-item> <mat-icon>delete </mat-icon> <span> Eliminar </span> </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+    </table>      
+    </div>  
   </div>
 </div>

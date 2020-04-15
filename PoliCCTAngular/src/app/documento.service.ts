@@ -9,8 +9,6 @@ export class DocumentoService {
   ALL_Documentos: Documento [] = [
     {   idDocumento: 1,   nombreDocumento: "Cédula"          },
     {   idDocumento: 2,   nombreDocumento: "Curso Alturas"   }
-  //{   id: 3,   texto: "Nueva cosa",      autor: "Tatiana",  fecha: "2020/04/06"   },
-  //{   id: 4,   texto: "Diferente cosa",  autor: "Cañon",    fecha: "2020/04/06"   }
 ]
   constructor() { }
   getAllDocumentos() : Observable<Documento[]>{
