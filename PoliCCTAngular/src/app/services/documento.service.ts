@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Documento } from './models/documentos.model';
+import { Documento } from '../models/Documentos.model';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -15,7 +15,6 @@ export class DocumentoService {
     return of (this.ALL_Documentos);
   }
   createNewDocumento(nuevoDocumento){ 
-    console.log(nuevoDocumento);
     this.ALL_Documentos.push(nuevoDocumento);
   }
 }

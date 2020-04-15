@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Criterio } from '../models/criterios.model';
-import { CriterioService } from '../criterio.service';
+import { CriterioService } from '../services/criterio.service';
 import { MatTableDataSource } from '@angular/material';
 import { Actividad } from '../models/actividades.model';
-import { ActividadService } from '../actividad.service';
+import { ActividadService } from '../services/actividad.service';
 import { Documento } from '../models/documentos.model';
-import { DocumentoService } from '../documento.service';
+import { DocumentoService } from '../services/documento.service';
 
 @Component({
   selector: 'app-criterio',
@@ -15,11 +15,9 @@ import { DocumentoService } from '../documento.service';
 export class CriterioComponent implements OnInit {
   
   newCriterio: Criterio ;
-  misCriterios ; 
- 
+  misCriterios ;  
   documento: Documento ;
   misDocumentos ; 
- 
   actividad: Actividad ; 
   misActividades ; 
 
@@ -31,7 +29,6 @@ export class CriterioComponent implements OnInit {
     this.getAllDocumentos();
     this.dataSource = new MatTableDataSource(this.misCriterios);
   }
-
   nuevoCriterio(){
     if (this.newCriterio.idCriterio === undefined ){
     }
@@ -48,15 +45,20 @@ export class CriterioComponent implements OnInit {
   }
   getAllCriterios(){
     this.CriterioService.getAllCriterios().subscribe(   misCriteriosObs => {   this.misCriterios = misCriteriosObs;   }   )
+    console.log("Paso");
+    this.getActividadById(this.misCriterios.idCriterio);
     this.dataSource = new MatTableDataSource(this.misCriterios);
   }
   getAllActividades(){
     this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   this.misActividades = misActividadesObs;   }   )
-    this.dataSource = new MatTableDataSource(this.misActividades);
+    //this.dataSource = new MatTableDataSource(this.misActividades);
+  }
+  getActividadById(id){
+    this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   this.misActividades = misActividadesObs;   }   )
   }
   getAllDocumentos(){
     this.DocumentoService.getAllDocumentos().subscribe(   misDocumentosObs => {   this.misDocumentos = misDocumentosObs;   }   )
-    this.dataSource = new MatTableDataSource(this.misDocumentos);
+    //this.dataSource = new MatTableDataSource(this.misDocumentos);
   }
   columnas: string[] = ['idCriterio', 'nombreActividad', 'nombreDocumento', "star"];
   dataSource = new MatTableDataSource(this.misCriterios);

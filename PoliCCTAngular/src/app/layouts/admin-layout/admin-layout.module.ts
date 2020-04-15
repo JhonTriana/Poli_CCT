@@ -37,9 +37,7 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatPaginatorModule,
-  MatMenuModule,
-  MatDialogModule
+  MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Documento } from '../models/documentos.model';
-import { DocumentoService } from '../documento.service';
+import { DocumentoService } from '../services/documento.service';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
