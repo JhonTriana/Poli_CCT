@@ -6,6 +6,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { VideoComponent } from '../../video/video.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component';
 import { ActividadComponent } from 'app/actividad/actividad.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
@@ -20,12 +21,11 @@ import { UsuarioComponent } from 'app/usuario/usuario.component';
 
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent }, 
     { path: 'request-management',     component: RequestManagementComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
+    { path: 'notifications',  component: NotificationsComponent }, 
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'employee-registration', component : EmployeeRegistrationComponent},
     { path: 'actividad',      component: ActividadComponent },
@@ -38,5 +38,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'sede',       component: SedeComponent },
     { path: 'ubicacion',      component: UbicacionComponent },
     { path: 'Formulario-Usuario', component: UsuarioComponent },
+    { path: 'dashboard',      component: DashboardComponent },
+    { path: 'video',          component: VideoComponent },
+
 
 ];

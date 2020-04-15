@@ -10,6 +10,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
+import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
 import { ActividadComponent } from 'app/actividad/actividad.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
@@ -27,6 +28,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 
 import {
@@ -34,7 +36,8 @@ import {
   MatInputModule,
   MatRippleModule,
   MatFormFieldModule,
-  MatTooltipModule, 
+  MatTooltipModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -53,7 +56,9 @@ import {
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   declarations: [
     DashboardComponent,    
@@ -61,6 +66,9 @@ import {
     IconsComponent,    
     MapsComponent,    
     NotificationsComponent,
+    UpgradeComponent,
+    RequestManagementComponent,
+    VideoComponent,
     UpgradeComponent,    
     RequestManagementComponent,    
     EmployeeRegistrationComponent,    
