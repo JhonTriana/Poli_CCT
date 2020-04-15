@@ -59,6 +59,7 @@ import {
     MatDialogModule,
     MatSelectModule,
     MatCardModule,
+    MatPaginatorModule
   ],
   declarations: [
     DashboardComponent,    
