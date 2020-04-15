@@ -75,5 +75,8 @@
     "ts-node": "8.2.0",
     "tslint": "5.17.0",
     "typescript": "3.4.5"
-  }
+  },
+  "description": "![Product Gif](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-dashboard-angular/material-dashboard-angular.gif)",
+  "main": "karma.conf.js",
+  "author": ""
 }

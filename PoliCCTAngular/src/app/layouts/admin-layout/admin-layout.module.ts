@@ -10,6 +10,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
+import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
 import { ActividadComponent } from 'app/actividad/actividad.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
@@ -67,6 +68,9 @@ import {
     IconsComponent,    
     MapsComponent,    
     NotificationsComponent,
+    UpgradeComponent,
+    RequestManagementComponent,
+    VideoComponent,
     UpgradeComponent,    
     RequestManagementComponent,    
     EmployeeRegistrationComponent,    
