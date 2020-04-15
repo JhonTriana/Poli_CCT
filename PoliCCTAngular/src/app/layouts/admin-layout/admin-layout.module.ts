@@ -22,6 +22,7 @@ import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
 import { UsuarioComponent } from 'app/usuario/usuario.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 import {
@@ -29,8 +30,7 @@ import {
   MatInputModule,
   MatRippleModule,
   MatFormFieldModule,
-  MatTooltipModule,
-  MatSelectModule, 
+  MatTooltipModule, 
 } from '@angular/material';
 
 @NgModule({
@@ -42,10 +42,10 @@ import {
     MatButtonModule,        
     MatRippleModule,
     MatFormFieldModule, 
-    MatInputModule,             
-    MatSelectModule,        
+    MatInputModule,                     
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule
   ],
   declarations: [
     DashboardComponent,    
@@ -66,7 +66,7 @@ import {
     CiudadComponent,    
     SedeComponent,   
     UbicacionComponent,
-    UsuarioComponent
+    UsuarioComponent,
   ]
 })
 
