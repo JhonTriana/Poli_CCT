@@ -1,44 +1,72 @@
 <div class="main-content">
   <div class="card">
-    <div class="card-header card-header-danger">
-        <h4 class="card-title">Criterios</h4>
-        <p class="card-category">Se Crean Los Criterios Necesarios</p>
+      <div class="card-header card-header-danger">
+        <h4 class="card-title">Criterio</h4>
     </div>
-    <div class="card-body">
+    <div class="card-body-local">
+      <div class="div">
+        <div class="row-local"> 
+          <div class="div"> 
+            <mat-form-field class="seleccion">
+              <mat-label>Seleccione el usuario</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let documento of misDocumentos" [value]="documento.nombreDocumento">
+                  {{ documento.nombreDocumento }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="div">  
+            <mat-form-field class="seleccion">
+              <mat-label >Seleccione la actividad</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let actividad of misActividades" [value]="actividad.nombreActividad">
+                  {{ actividad.nombreActividad }}
+                </mat-option>
+              </mat-select>
+              <mat-icon matSuffix (click) = "nuevoCriterio()"  title="Crear Nuevo Registro">add_circle</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="col-md-3">
-      <mat-form-field class="example-full-width">
-        <h4>Actividades</h4>
-        <mat-form-field>
-          <mat-label>Seleccione la Actividad</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let actividad of listaActividades" [value]="actividad.nombreActividad">
-              {{ actividad.nombreActividad }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <h4>Documentos</h4>
-        <mat-form-field>
-          <mat-label>Seleccione el Documento</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let documento of listaDocumentos" [value]="documento.nombreDocumento">
-              {{ documento.nombreDocumento }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-form-field>
-    </div>
-  
-    <div class="card-body">
-    </div>
-
-    <div class="fondoInferior">
-      <button mat-raised-button type="submit" class="colorButton">Registrar</button>
-      <button mat-raised-button type="submit" class="colorButton">Editar</button>
-      <button mat-raised-button type="submit" class="colorButton">Eliminar</button>
-    </div>
-
   </div>
-</div>
 
+  <div class="DiseñoTabla">
+    <mat-form-field>
+      <mat-label>Busqueda</mat-label>
+      <input matInput (keyup)="Filtro($event)" placeholder="Busqueda de Criterios">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >      
+      <ng-container matColumnDef="idCriterio">
+        <th mat-header-cell *matHeaderCellDef > Número </th>
+        <td mat-cell *matCellDef="let element"> {{element.idCriterio}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nombreActividad">
+        <th mat-header-cell *matHeaderCellDef> Nombre Actividad </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreActividad}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nombreDocumento">
+        <th mat-header-cell *matHeaderCellDef> Nombre Documento </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreDocumento}} </td>
+      </ng-container>
+      <ng-container matColumnDef="star" >
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let element">          
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item> <mat-icon>edit   </mat-icon> <span> Editar   </span> </button>
+            <button mat-menu-item> <mat-icon>delete </mat-icon> <span> Eliminar </span> </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+  </table>      
+  </div>  
+
+
+
+</div>
