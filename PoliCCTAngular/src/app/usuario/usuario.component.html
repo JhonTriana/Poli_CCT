@@ -1,62 +1,65 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header card-header-success card-usuarios">
-                        <h4 class="card-title">Formulario usuarios</h4>
-                        <p class="card-category">Por favor ingrese los datos del usuario</p>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Tipo de Documento">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="N° de documento" type="number">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-success card-usuarios">
+                      <h4 class="card-title">Formulario Usuario</h4>
+                      <p class="card-category">Por favor ingrese los datos del usuario</p>
+                  </div>
+                  <div class="card-body">
+                      <form>
+                          <div class="row">
+                              <div class="col-md-3">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Nombre" type="text">
+                                    <input matInput placeholder="Tipo de Documento">
                                   </mat-form-field>
-                                </div>
-                                <div class="col-md-6">
+                              </div>
+                              <div class="col-md-4">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Apellido" type="text">
+                                    <input matInput placeholder="N° de documento" type="number">
                                   </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="seleccion">
-                            <mat-form-field class="example-full-width">
-                              <h4>Tipo de usuario</h4>
-                              <mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Nombre" type="text">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Apellido" type="text">
+                                </mat-form-field>
+                              </div>
+                          </div>
+
+                          <div class="col-md-3">
+                        
+                              <h6>Tipo de Usuario</h6>
+                              <mat-form-field class="seleccion">
                                 <mat-label>Seleccione el tipo de usuario</mat-label>
                                 <mat-select>
-                                  <mat-option *ngFor="let actividad of listaActividades" [value]="actividad.nombreActividad">
-                                    {{ actividad.nombreActividad }}
+                                  <mat-option *ngFor="let documento of listaDocumentos" [value]="documento.nombreDocumento">
+                                    {{ documento.nombreDocumento }}
                                   </mat-option>
                                 </mat-select>
                               </mat-form-field>
-                            </mat-form-field>
-                            </div>
-                            <div class="fondoInferior">
-                              <button mat-raised-button type="submit" class="colorButton">Registrar</button>
-                              <button mat-raised-button type="submit" class="colorButton">Editar</button>
-                              <button mat-raised-button type="submit" class="colorButton">Eliminar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4"></div>
-             
-        </div>
-    </div>
+                           
+                          </div>  
+                          <br>                    
+                          <br>
+                          <div class="fondoInferior">
+                            <button mat-raised-button type="submit" class="colorButton">Registrar</button>
+                            <button mat-raised-button type="submit" class="colorButton">Editar</button>
+                            <button mat-raised-button type="submit" class="colorButton">Eliminar</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4"></div>
+           
+      </div>
   </div>
+</div>
