@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actividad } from './models/actividades.model';
+import { Actividad } from '../models/actividades.model';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,11 @@ export class ActividadService {
     return of (this.ALL_Actividades);
   }
   createNewActividad(nuevaActividad){ 
-    console.log(nuevaActividad);
     this.ALL_Actividades.push(nuevaActividad);
+  }
+  async getActividadById(id){
+    const index = await this.ALL_Actividades.findIndex( nombre => nombre.idActividad === id  );
+    console.log("Indice:" + index);
+    return this.ALL_Actividades[index] ;
   }
 }
