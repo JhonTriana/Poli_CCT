@@ -9,10 +9,28 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MatButtonModule } from '@angular/material/';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TypographyComponent } from './typography/typography.component';
+import { IconsComponent } from './icons/icons.component';
+import { MapsComponent } from './maps/maps.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { UpgradeComponent } from './upgrade/upgrade.component';
+import { AgmCoreModule} from '@agm/core';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { RequestManagementComponent } from './request-management/request-management.component';
+import { MatExpansionModule, MatButtonModule} from '@angular/material/';
+import { ActividadComponent } from './actividad/actividad.component';
+import { CriterioComponent } from './criterio/criterio.component';
+import { DocumentoComponent } from './documento/documento.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { VideoComponent } from './video/video.component';
 
 import {
   AgmCoreModule
 } from '@agm/core';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -31,6 +49,7 @@ import {
     AppComponent,
     AdminLayoutComponent,
     PageNotFoundComponent,
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
