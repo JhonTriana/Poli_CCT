@@ -26,10 +26,12 @@ import { DocumentoComponent } from './documento/documento.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { VideoComponent } from './video/video.component';
+import { DocumentEntryComponent } from './document-entry/document-entry.component';
 
 import {
   AgmCoreModule
 } from '@agm/core';
+
 
 @NgModule({
   imports: [
@@ -49,6 +51,7 @@ import {
     AppComponent,
     AdminLayoutComponent,
     PageNotFoundComponent,
+    DocumentEntryComponent,
     LoginComponent,
   ],
   providers: [],

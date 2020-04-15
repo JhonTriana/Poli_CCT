@@ -29,6 +29,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/ubicacion', title: 'Ubicacion',  icon:'place', class: '' },
     { path: '/Formulario-Usuario', title: 'Usuario',  icon:'face', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' }
+
+];   
   
 @Component({
   selector: 'app-sidebar',
