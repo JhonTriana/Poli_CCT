@@ -28,6 +28,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 
 import {
@@ -35,7 +36,8 @@ import {
   MatInputModule,
   MatRippleModule,
   MatFormFieldModule,
-  MatTooltipModule, 
+  MatTooltipModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -54,7 +56,9 @@ import {
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   declarations: [
     DashboardComponent,    
@@ -64,7 +68,7 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     RequestManagementComponent,
-    VideoComponent
+    VideoComponent,
     UpgradeComponent,    
     RequestManagementComponent,    
     EmployeeRegistrationComponent,    

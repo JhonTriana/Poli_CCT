@@ -18,17 +18,13 @@ export const ROUTES: RouteInfo[] = [
     { path: '/documento', title: 'Documento',  icon:'assignment', class: '' },
     { path: '/employee-registration', title:'Empleados', icon: 'group_add', class:''},
     { path: '/request-management', title: 'Gestion De Solicitudes',  icon:'content_paste', class: '' },
-    { path: '/user-profile', title: 'Usuarios',  icon:'person', class: '' },
-    { path: '/video', title: 'video',  icon:'videocam', class: '' },
-    // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+    { path: '/video', title: 'video',  icon:'video_library', class: '' },
     { path: '/sede', title: 'Sede',  icon:'apartment', class: '' },
     { path: '/ubicacion', title: 'Ubicacion',  icon:'place', class: '' },
     { path: '/Formulario-Usuario', title: 'Usuario',  icon:'face', class: '' },
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' }
+
+];   
   
 @Component({
   selector: 'app-sidebar',
