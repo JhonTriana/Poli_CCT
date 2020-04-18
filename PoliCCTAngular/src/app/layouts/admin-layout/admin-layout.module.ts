@@ -29,6 +29,7 @@ import { MatIconModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { LoginComponent} from 'app/login/login.component';
 
 
 import {
@@ -37,10 +38,9 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatPaginatorModule,
-  MatMenuModule,
-  MatDialogModule
+  MatPaginatorModule
 } from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -71,6 +71,7 @@ import {
     UpgradeComponent,
     RequestManagementComponent,
     VideoComponent,
+    LoginComponent,
     UpgradeComponent,    
     RequestManagementComponent,    
     EmployeeRegistrationComponent,    
@@ -85,6 +86,7 @@ import {
     SedeComponent,   
     UbicacionComponent,
     UsuarioComponent,
+    
   ]
 })
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Actividad } from '../models/actividades.model';
-import { ActividadService } from '../actividad.service';
+import { ActividadService } from '../services/actividad.service';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({

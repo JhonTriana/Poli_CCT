@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Criterio } from './models/criterios.model';
+import { Criterio } from '../models/criterios.model';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -17,7 +17,6 @@ export class CriterioService {
     return of (this.ALL_Criterios);
   }
   createNewCriterio(nuevoCriterio){ 
-    console.log(nuevoCriterio);
     this.ALL_Criterios.push(nuevoCriterio);
   }
 }
