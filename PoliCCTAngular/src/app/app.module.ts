@@ -46,8 +46,8 @@ import {
     AppComponent,
     AdminLayoutComponent,
     PageNotFoundComponent,
-    DocumentEntryComponent
-    
+    DocumentEntryComponent,
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
