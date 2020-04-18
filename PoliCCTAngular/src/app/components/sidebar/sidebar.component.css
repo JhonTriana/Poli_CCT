@@ -6,6 +6,9 @@
     background:  #A6CE38 !important;
 }
 
+.logo{
+  background: white !important;
+}
 .caja{
   display: flex;
   flex-flow: column wrap;
