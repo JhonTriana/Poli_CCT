@@ -18,6 +18,7 @@ import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
 import { UsuarioComponent } from 'app/usuario/usuario.component';
+import { LoginComponent } from 'app/login/login.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -40,6 +41,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'Formulario-Usuario', component: UsuarioComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'video',          component: VideoComponent },
+    { path: 'login',    component: LoginComponent},
+
 
 
 ];
