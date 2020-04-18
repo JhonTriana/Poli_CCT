@@ -29,7 +29,7 @@ import { MatIconModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
-  import { LoginComponent} from 'app/login/login.component';
+import { LoginComponent} from 'app/login/login.component';
 
 
 import {
