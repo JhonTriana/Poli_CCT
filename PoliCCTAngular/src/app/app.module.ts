@@ -19,7 +19,6 @@ import { ActividadComponent } from './actividad/actividad.component';
 import { CriterioComponent } from './criterio/criterio.component';
 import { DocumentoComponent } from './documento/documento.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
 import { VideoComponent } from './video/video.component';
 import { DocumentEntryComponent } from './document-entry/document-entry.component';
 
@@ -46,8 +45,7 @@ import {
     AppComponent,
     AdminLayoutComponent,
     PageNotFoundComponent,
-    DocumentEntryComponent,
-    LoginComponent,
+    DocumentEntryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
