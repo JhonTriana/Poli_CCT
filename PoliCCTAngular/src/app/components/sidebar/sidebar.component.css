@@ -1,7 +1,6 @@
 .card-usuarios{
   background: green !important;
 }
-
 .boton-Update {
   background:  #A6CE38 !important;
 }
@@ -33,7 +32,6 @@ height: auto;
     object-position: center center;
   }
 }
-
 .img {
   padding-top:10px; 
   padding-bottom:10px; 
