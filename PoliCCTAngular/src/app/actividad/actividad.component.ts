@@ -1,7 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Actividad } from '../models/actividades.model';
 import { ActividadService } from '../services/actividad.service';
 import { MatTableDataSource } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-actividad',
@@ -11,10 +13,11 @@ import { MatTableDataSource } from '@angular/material';
 
 export class ActividadComponent implements OnInit {
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   newActividad: Actividad;
   misActividades ; 
   No = 4 ; 
-  constructor(private ActividadService: ActividadService ) { 
+  constructor(private ActividadService: ActividadService , public dialog: MatDialog ) { 
     this.newActividad = new Actividad;
     this.getAllActividades();
     this.dataSource = new MatTableDataSource(this.misActividades);
@@ -31,17 +34,19 @@ export class ActividadComponent implements OnInit {
     }
   }
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
   }  
   getAllActividades(){
     this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   this.misActividades = misActividadesObs;   }   )
     this.dataSource = new MatTableDataSource(this.misActividades);
   }
-  columnas: string[] = ['idActividad', 'nombreActividad', "star"];
+  
+  displayedColumns: string[] = ['idActividad', 'nombreActividad', "star"];
   dataSource = new MatTableDataSource(this.misActividades);
-
-  Filtro(event: Event) {
+  applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+  openDialog(): void {   
+  }
 }
