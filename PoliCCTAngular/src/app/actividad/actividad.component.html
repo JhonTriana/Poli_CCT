@@ -1,47 +1,54 @@
 <div class="main-content">
   <div class="card">
     <div class="card-header card-header-danger">
-        <h4 class="card-title">Actividad</h4>
+        <p class="card-category">Nombre del trabajo a realizar dentro de la Institución
+          <button class = "botonAdd" mat-fab aria-label="Example icon-button with a heart icon" title="Crear nuevo registro">
+            <mat-icon>add</mat-icon>
+          </button>
+        </p>
     </div>
     <div class="card-body">
-      <div class="col-md-3">
-          <mat-form-field class="example-full-width">
-            <mat-label>Ingrese La Actividad</mat-label>
-            <span matPrefix> &nbsp;</span>
-            <input type="text" matInput  placeholder="Nombre de la Actividad" [(ngModel)]="newActividad.nombreActividad">
-            <mat-icon matSuffix (click) = "nuevaActividad()"  title="Crear Nuevo Registro">add_circle</mat-icon>
-          </mat-form-field>
-      </div>
+      <div class="card">
+        <div class="card-header header">
+            <mat-form-field style="color: white; ">
+              <mat-label style="color: white;">Filtro De Busqueda</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Cambio de Teja" style="color: white;">
+            </mat-form-field>
+        </div>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="idActividad">
+              <th mat-header-cell *matHeaderCellDef><b>Número</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.idActividad}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="nombreActividad">
+              <th mat-header-cell *matHeaderCellDef><b>Nombre Actividad</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombreActividad}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="star" >
+              <th mat-header-cell *matHeaderCellDef> Opciones </th>
+              <td mat-cell *matCellDef="let element">          
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="openDialog()"> <mat-icon>edit   </mat-icon> <span> Ver Documentos   </span> </button>
+                </mat-menu>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
     </div>    
-    <div class="DiseñoTabla">
-      <mat-form-field>
-        <mat-label>Filtro De Busqueda</mat-label>
-        <input matInput (keyup)="Filtro($event)" placeholder="Busqueda de Actividades">
-      </mat-form-field>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >      
-        <ng-container matColumnDef="idActividad">
-          <th mat-header-cell *matHeaderCellDef > Número </th>
-          <td mat-cell *matCellDef="let element"> {{element.idActividad}} </td>
-        </ng-container>
-        <ng-container matColumnDef="nombreActividad">
-          <th mat-header-cell *matHeaderCellDef> Nombre Actividad </th>
-          <td mat-cell *matCellDef="let element"> {{element.nombreActividad}} </td>
-        </ng-container>
-        <ng-container matColumnDef="star" >
-          <th mat-header-cell *matHeaderCellDef> Opciones </th>
-          <td mat-cell *matCellDef="let element">          
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item> <mat-icon>edit   </mat-icon> <span> Editar   </span> </button>
-              <button mat-menu-item> <mat-icon>delete </mat-icon> <span> Eliminar </span> </button>
-            </mat-menu>
-          </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
-    </table>      
-    </div>  
   </div>
 </div>
