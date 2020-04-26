@@ -38,8 +38,10 @@
   color: white	;
   opacity: 1; /* Firefox */
 }
-.example-button-row button,
-.example-button-row a {
-  margin-left: 600px;
-  background-color: #FBAF17;
+.mat-fab{
+    background-color: #FBAF17;
+    margin-left: 500px;
+}
+mat-label{
+    color: white;
 }
