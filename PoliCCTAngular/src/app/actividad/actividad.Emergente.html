@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Crear Nuevo Registro</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Nombre de la Actividad</mat-label>
+      <input type="text" matInput  placeholder="Ingrese la Actividad" [(ngModel)]="newActividad.nombreActividad">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Regresar</button>
+    <button mat-button (click)="nuevaActividad()">Guardar</button>
+</div>

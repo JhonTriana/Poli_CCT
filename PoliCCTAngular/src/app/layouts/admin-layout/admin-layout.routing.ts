@@ -43,6 +43,4 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'video',          component: VideoComponent },
     { path: 'login',    component: LoginComponent},
 
-
-
 ];

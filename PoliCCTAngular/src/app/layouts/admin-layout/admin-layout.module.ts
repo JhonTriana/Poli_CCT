@@ -12,7 +12,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
 import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
-import { ActividadComponent } from 'app/actividad/actividad.component';
+import { ActividadComponent, VentanaEmergente } from 'app/actividad/actividad.component';
 import { DocumentoComponent } from 'app/documento/documento.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
@@ -31,7 +31,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent} from 'app/login/login.component';
 
-
 import {
   MatButtonModule,
   MatInputModule,
@@ -40,7 +39,6 @@ import {
   MatTooltipModule,
   MatPaginatorModule
 } from '@angular/material';
-
 
 @NgModule({
   imports: [
@@ -86,8 +84,9 @@ import {
     SedeComponent,   
     UbicacionComponent,
     UsuarioComponent,
-    
-  ]
+    VentanaEmergente
+  ],
+  entryComponents: [VentanaEmergente]
 })
 
 export class AdminLayoutModule {}
