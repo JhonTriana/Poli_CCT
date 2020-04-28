@@ -16,7 +16,6 @@ export class ActividadComponent implements OnInit {
   misActividades ; 
   newActividad: Actividad;
   dataSource = new MatTableDataSource(this.misActividades);
-  Editar = 0 ;
   No = 0 ;
   
   constructor(private ActividadService: ActividadService , public dialog: MatDialog ) { 
@@ -40,7 +39,7 @@ export class ActividadComponent implements OnInit {
     }
   }
   openDialogNuevaActividad(): void {
-    const dialogRef = this.dialog.open(VentanaEmergente, {
+    const dialogRef = this.dialog.open(ActividadEmergente, {
       width: '300px',
       data: {idActividad: this.misActividades.idActividad , nombreActividad: this.misActividades.nombreActividad}
     });
@@ -56,7 +55,7 @@ export class ActividadComponent implements OnInit {
     });
   }
   openDialogEditarActividad(element): void {
-    const dialogRef = this.dialog.open(VentanaEmergente, {
+    const dialogRef = this.dialog.open(ActividadEmergente, {
       width: '300px',
       data: {idActividad: this.misActividades[element].idActividad , nombreActividad: this.misActividades[element].nombreActividad}
     });
@@ -87,8 +86,8 @@ export class ActividadComponent implements OnInit {
   selector: 'actividad.Emergente',
   templateUrl: 'actividad.Emergente.html',
 })
-export class VentanaEmergente {
-  constructor(public dialogRef: MatDialogRef<VentanaEmergente>,
+export class ActividadEmergente {
+  constructor(public dialogRef: MatDialogRef<ActividadEmergente>,
     @Inject(MAT_DIALOG_DATA)  public data: Actividad ) {    }
   onNoClick(): void {
     this.dialogRef.close();

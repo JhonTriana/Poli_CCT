@@ -22,9 +22,4 @@ export class ActividadService {
   eliminarActividad(element){
     this.ALL_Actividades.splice(element,1);
   }
-  async getActividadById(id){
-    const index = await this.ALL_Actividades.findIndex( nombre => nombre.idActividad === id  );
-    console.log("Indice:" + index);
-    return this.ALL_Actividades[index] ;
-  }
 }

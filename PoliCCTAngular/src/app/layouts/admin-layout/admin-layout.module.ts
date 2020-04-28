@@ -12,8 +12,8 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
 import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
-import { ActividadComponent, VentanaEmergente } from 'app/actividad/actividad.component';
-import { DocumentoComponent } from 'app/documento/documento.component';
+import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.component';
+import { DocumentoComponent, DocumentoEmergente } from 'app/documento/documento.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
 import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
@@ -84,9 +84,12 @@ import {
     SedeComponent,   
     UbicacionComponent,
     UsuarioComponent,
-    VentanaEmergente
+    ActividadEmergente,
+    DocumentoEmergente
   ],
-  entryComponents: [VentanaEmergente]
+  entryComponents: [
+    ActividadEmergente, DocumentoEmergente
+  ]
 })
 
 export class AdminLayoutModule {}
