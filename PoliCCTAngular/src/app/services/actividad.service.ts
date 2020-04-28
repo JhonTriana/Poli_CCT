@@ -8,11 +8,9 @@ import { Observable, of } from 'rxjs';
 export class ActividadService {
 
   ALL_Actividades: Actividad [] = [
-    {   idActividad: 1,   nombreActividad: "Cualquie cosa dato largo para ver el comportamiento"   },
-    {   idActividad: 2,   nombreActividad: "Otra cosa"       },
-    {   idActividad: 3,   nombreActividad: "Nueva cosa"       }
-  //{   id: 3,   texto: "Nueva cosa",      autor: "Tatiana",  fecha: "2020/04/06"   },
-  //{   id: 4,   texto: "Diferente cosa",  autor: "Cañon",    fecha: "2020/04/06"   }
+    {   idActividad: 1,   nombreActividad: "Cambio de Tejas"   },
+    {   idActividad: 2,   nombreActividad: "Mantenimiento de cerca"       },
+    {   idActividad: 3,   nombreActividad: "Jardinería"       }
 ]
   constructor() { }
   getAllActividades() : Observable<Actividad[]>{
@@ -20,6 +18,9 @@ export class ActividadService {
   }
   createNewActividad(nuevaActividad){ 
     this.ALL_Actividades.push(nuevaActividad);
+  }
+  eliminarActividad(element){
+    this.ALL_Actividades.splice(element,1);
   }
   async getActividadById(id){
     const index = await this.ALL_Actividades.findIndex( nombre => nombre.idActividad === id  );
