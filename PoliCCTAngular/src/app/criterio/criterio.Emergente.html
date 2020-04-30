@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Crear Nuevo Registro </h1>
+  <div mat-dialog-content>
+    <div class="row-local"> 
+      <div class="div"> 
+        <mat-form-field class="seleccion">
+            <mat-label >Seleccione la actividad</mat-label>
+          <mat-select> 
+            <mat-option *ngFor="let actividad of data.misActividades" [value]="actividad.nombreActividad" [(ngModel)]="data.misActividades.nombreActividad"> 
+              {{ actividad.nombreActividad }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="seleccion">
+          <mat-label>Seleccione el Documento</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let documento of data.misDocumentos" [value]="documento.nombreDocumento">
+              {{ documento.nombreDocumento }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Regresar</button>
+    <button mat-button [mat-dialog-close]="data.misActividades.nombreActividad" cdkFocusInitial >Guardar</button>
+  </div>
+
