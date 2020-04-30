@@ -16,8 +16,8 @@ import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.
 import { DocumentoComponent, DocumentoEmergente } from 'app/documento/documento.component';
 import { CriterioComponent } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
-import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
-import { RegistroComponent } from 'app/registro/registro.component';
+import { RegistroDependenciasComponent, RegistroDependenciasEmergente } from 'app/registrodependencias/registrodependencias.component';
+import { RegistroComponent, RegistroEmergente } from 'app/registro/registro.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
@@ -85,10 +85,12 @@ import {
     UbicacionComponent,
     UsuarioComponent,
     ActividadEmergente,
-    DocumentoEmergente
+    DocumentoEmergente,
+    RegistroEmergente,
+    RegistroDependenciasEmergente
   ],
   entryComponents: [
-    ActividadEmergente, DocumentoEmergente
+    ActividadEmergente, DocumentoEmergente, RegistroEmergente, RegistroDependenciasEmergente
   ]
 })
 

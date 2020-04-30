@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Crear Nuevo Registro </h1>
+  <div mat-dialog-content>
+
+    <mat-form-field>
+      <mat-label>NT / CC</mat-label>
+      <input type="number" matInput  placeholder="Ingrese el NT o la CC" [(ngModel)]="data.ntCcRegistroDependencias">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput  placeholder="Ingrese el Nombre" [(ngModel)]="data. nombreRegistroDependencias">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Cargo</mat-label>
+      <input type="text" matInput  placeholder="Ingrese el Cargo" [(ngModel)]="data.cargoRegistroDependencias">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Área</mat-label>
+      <input type="text" matInput  placeholder="Ingrese el Area " [(ngModel)]="data.areaRegistroDependencias">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Celular</mat-label>
+      <input type="number" matInput  placeholder="Ingrese el Numero Celular" [(ngModel)]="data.celularRegistroDependencias">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Teléfono</mat-label>
+      <input type="number" matInput  placeholder="Ingrese el número de Teléfono" [(ngModel)]="data.telefonoRegistroDependencias">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Extensión</mat-label>
+        <input type="number" matInput  placeholder="Ingrese el número de Extensión" [(ngModel)]="data.extensionRegistroDependencias">
+      </mat-form-field>
+
+            <mat-form-field>
+        <mat-label>Correo Electrónico</mat-label>
+        <input type="text" matInput  placeholder="Ingrese el Correo Electrónico" [(ngModel)]="data.correoElectronicoRegistroDependencias">
+      </mat-form-field>
+  
+  </div>
+ 
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Regresar</button>
+    <button mat-button [mat-dialog-close]="submit" cdkFocusInitial >Guardar</button>
+</div>
