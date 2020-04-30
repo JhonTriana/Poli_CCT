@@ -86,7 +86,9 @@ import {
     UsuarioComponent,
     ActividadEmergente,
     DocumentoEmergente, 
-    CriterioEmergente
+    CriterioEmergente,
+    RegistroEmergente,
+    RegistroDependenciasEmergente
   ],
   entryComponents: [
     ActividadEmergente, DocumentoEmergente, CriterioEmergente, RegistroEmergente,

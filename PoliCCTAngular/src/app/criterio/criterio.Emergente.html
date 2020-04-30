@@ -5,7 +5,7 @@
         <mat-form-field class="seleccion">
             <mat-label >Seleccione la actividad</mat-label>
           <mat-select> 
-            <mat-option *ngFor="let actividad of data.misActividades" [value]="actividad.nombreActividad" [(ngModel)]="data.misActividades.nombreActividad"> 
+            <mat-option *ngFor="let actividad of data.misActividades" [value]="actividad.nombreActividad" > 
               {{ actividad.nombreActividad }}
             </mat-option>
           </mat-select>
@@ -23,6 +23,6 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Regresar</button>
-    <button mat-button [mat-dialog-close]="data.misActividades.nombreActividad" cdkFocusInitial >Guardar</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
   </div>
 
