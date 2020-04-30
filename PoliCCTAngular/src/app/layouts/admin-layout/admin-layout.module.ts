@@ -14,7 +14,7 @@ import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
 import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.component';
 import { DocumentoComponent, DocumentoEmergente } from 'app/documento/documento.component';
-import { CriterioComponent } from 'app/criterio/criterio.component';
+import { CriterioComponent, CriterioEmergente } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
 import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
 import { RegistroComponent } from 'app/registro/registro.component';
@@ -85,10 +85,11 @@ import {
     UbicacionComponent,
     UsuarioComponent,
     ActividadEmergente,
-    DocumentoEmergente
+    DocumentoEmergente, 
+    CriterioEmergente
   ],
   entryComponents: [
-    ActividadEmergente, DocumentoEmergente
+    ActividadEmergente, DocumentoEmergente, CriterioEmergente
   ]
 })
 

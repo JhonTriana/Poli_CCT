@@ -41,7 +41,7 @@ export class ActividadComponent implements OnInit {
   openDialogNuevaActividad(): void {
     const dialogRef = this.dialog.open(ActividadEmergente, {
       width: '300px',
-      data: {idActividad: this.misActividades.idActividad , nombreActividad: this.misActividades.nombreActividad}
+      data: { Actividad }
     });
     dialogRef.afterClosed().subscribe(result => {
       this.newActividad.nombreActividad = result;
@@ -57,7 +57,7 @@ export class ActividadComponent implements OnInit {
   openDialogEditarActividad(element): void {
     const dialogRef = this.dialog.open(ActividadEmergente, {
       width: '300px',
-      data: {idActividad: this.misActividades[element].idActividad , nombreActividad: this.misActividades[element].nombreActividad}
+      data: { nombreActividad: this.misActividades[element].nombreActividad }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === undefined ){

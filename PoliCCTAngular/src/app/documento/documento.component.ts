@@ -41,7 +41,7 @@ export class DocumentoComponent implements OnInit {
   openDialogNuevoDocumento(): void {
     const dialogRef = this.dialog.open(DocumentoEmergente, {
       width: '300px',
-      data: {idDocumento: this.misDocumentos.idDocumento , nombreDocumento: this.misDocumentos.nombreDocumento}
+      data: { Documento }
     });
     dialogRef.afterClosed().subscribe(result => {
       this.newDocumento.nombreDocumento = result;
@@ -57,7 +57,7 @@ export class DocumentoComponent implements OnInit {
   openDialogEditarDocumento(element): void {
     const dialogRef = this.dialog.open(DocumentoEmergente, {
       width: '300px',
-      data: {idDocumento: this.misDocumentos[element].idDocumento , nombreDocumento: this.misDocumentos[element].nombreDocumento}
+      data: {nombreDocumento: this.misDocumentos[element].nombreDocumento}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === undefined ){
@@ -93,3 +93,7 @@ export class DocumentoEmergente {
     this.dialogRef.close();
   } 
 }
+
+
+
+
