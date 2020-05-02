@@ -23,6 +23,10 @@ export class CriterioService {
   eliminarCriterio(element){
     this.ALL_Criterios.splice(element,1);
   }
+  editarCriterio(element, idActividad, idDocumento){
+    this.ALL_Criterios[element].idActividad = idActividad ;
+    this.ALL_Criterios[element].idDocumento = idDocumento ;
+  }
 }
 
 

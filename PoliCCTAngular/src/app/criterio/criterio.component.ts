@@ -67,12 +67,20 @@ export class CriterioComponent implements OnInit {
       data: { misActividades: this.misActividades , misDocumentos: this.misDocumentos }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Retorno: ", result);
-      //this.newCriterio.nombreActividad = result;
-      if (this.newCriterio.idActividad === undefined ){
+      if ( result.nombreActividad === undefined || result.nombreDocumento === undefined ){
       }
       else{
         this.newCriterio.idCriterio = this.No ; 
+        for (let b = 0; b < this.misActividades.length; b++) {
+          if ( result.nombreActividad === this.misActividades[b].nombreActividad ){
+            this.newCriterio.idActividad = this.misActividades[b].idActividad ; 
+          }
+        }
+        for (let c = 0; c < this.misDocumentos.length; c++) {
+          if ( result.nombreDocumento === this.misDocumentos[c].nombreDocumento ){
+            this.newCriterio.idDocumento = this.misDocumentos[c].idDocumento ; 
+          }
+        }  
         this.CriterioService.crearNuevoCriterio(this.newCriterio);
         this.getAllCriterios();
       }
@@ -81,18 +89,14 @@ export class CriterioComponent implements OnInit {
   openDialogEditarCriterio(element): void {
     const dialogRef = this.dialog.open(CriterioEmergente, {
       width: '300px',
-      //igual a create// data: {idActividad: this.misActividades[element].idActividad , nombreActividad: this.misActividades[element].nombreActividad}
+      data: { misActividades: this.misActividades , misDocumentos: this.misDocumentos , nombreActividad: this.misCriterios[element].idActividad , nombreDocumento: this.misCriterios[element].idDocumento }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined ){
+      if ( result.nombreActividad === undefined || result.nombreDocumento === undefined ){
       }
       else{
-        /*let número = this.misActividades[element].idActividad ; 
-        this.eliminarActividad(element);
-        this.newActividad.idActividad = número ;
-        this.newActividad.nombreActividad = result;
-        this.ActividadService.createNewActividad(this.newActividad);
-        this.getAllActividades();*/
+        this.CriterioService.editarCriterio(element, result.nombreActividad, result.nombreDocumento);
+        this.getAllCriterios();
       }
     });
   }
@@ -100,7 +104,6 @@ export class CriterioComponent implements OnInit {
     this.CriterioService.eliminarCriterio(element);
     this.getAllCriterios();
   } 
-
   displayedColumns: string[] = ['idCriterio', 'nombreActividad', 'nombreDocumento', "star"];
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -113,7 +116,7 @@ export class CriterioComponent implements OnInit {
 })
 export class CriterioEmergente {
   constructor(public dialogRef: MatDialogRef<CriterioEmergente>,
-    @Inject(MAT_DIALOG_DATA)  public data: {  misActividades , misDocumentos } ){       }
+    @Inject(MAT_DIALOG_DATA)  public data: { misActividades , misDocumentos, nombreActividad, nombreDocumento } ){    }
   onNoClick(): void {
     this.dialogRef.close();
   } 

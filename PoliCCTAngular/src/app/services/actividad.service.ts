@@ -22,4 +22,7 @@ export class ActividadService {
   eliminarActividad(element){
     this.ALL_Actividades.splice(element,1);
   }
+  editarActividad(element, result){
+    this.ALL_Actividades[element].nombreActividad = result ;
+  }
 }

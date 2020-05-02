@@ -63,11 +63,7 @@ export class DocumentoComponent implements OnInit {
       if (result === undefined ){
       }
       else{
-        let número = this.misDocumentos[element].idDocumento ; 
-        this.eliminarDocumento(element);
-        this.newDocumento.idDocumento = número ;
-        this.newDocumento.nombreDocumento = result;
-        this.DocumentoService.createNewDocumento(this.newDocumento);
+        this.DocumentoService.editarDocumento(element, result);
         this.getAllDocumentos();
       }
     });
