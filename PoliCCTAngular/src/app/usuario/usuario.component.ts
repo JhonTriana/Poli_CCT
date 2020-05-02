@@ -5,8 +5,6 @@ import { MatTableDataSource } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
-
-
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -42,12 +40,38 @@ export class UsuarioComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.misUsuarios);
   }
   
+  openDialogNuevoUsuario(): void { 
+    const dialogRef = this.dialog.open(UsuarioEmergente, {
+      width: '300px',
+      data: { usuario }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.newUsuario.nombreCompletoUsuario = result;
+      if (this.newUsuario.nombreCompletoUsuario === undefined ){
+      }
+      else{
+        this.newUsuario.numeroDocumentoUsuario = this.No ; 
+        this.UsuarioService.createNewUsuario(this.newUsuario);
+        this.getAllUsuarios();
+      }
+    });
+  }
+
   displayedColumns: string[] = ['numeroDocumentoUsuario', 'nombreCompletoUsuario', 'tipoUsuario',"star"];
   dataSource = new MatTableDataSource(this.misUsuarios);
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  openDialog(): void {   
-  }
+}
+@Component({
+  selector: 'usuario.emergente',
+  templateUrl: 'usuario.emergente.html',
+})
+export class UsuarioEmergente {
+  constructor(public dialogRef: MatDialogRef<UsuarioEmergente>,
+    @Inject(MAT_DIALOG_DATA)  public data: usuario ) {    }
+  onNoClick(): void {
+    this.dialogRef.close();
+  } 
 }
