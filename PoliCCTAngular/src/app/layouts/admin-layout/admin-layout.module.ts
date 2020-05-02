@@ -19,7 +19,7 @@ import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.
 import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
 import { RegistroComponent } from 'app/registro/registro.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { CiudadComponent } from 'app/ciudad/ciudad.component';
+import { CiudadComponent, CiudadEmergente } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
 import { UsuarioComponent } from 'app/usuario/usuario.component';
@@ -85,10 +85,11 @@ import {
     UbicacionComponent,
     UsuarioComponent,
     ActividadEmergente,
-    DocumentoEmergente
+    DocumentoEmergente, 
+    CiudadEmergente
   ],
   entryComponents: [
-    ActividadEmergente, DocumentoEmergente
+    ActividadEmergente, DocumentoEmergente, CiudadEmergente,
   ]
 })
 
