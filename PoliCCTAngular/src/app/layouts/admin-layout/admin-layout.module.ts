@@ -22,7 +22,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
-import { UsuarioComponent } from 'app/usuario/usuario.component';
+import { UsuarioComponent, UsuarioEmergente } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material';
@@ -88,11 +88,12 @@ import {
     DocumentoEmergente, 
     CriterioEmergente,
     RegistroEmergente,
-    RegistroDependenciasEmergente
+    RegistroDependenciasEmergente,
+    UsuarioEmergente
   ],
   entryComponents: [
     ActividadEmergente, DocumentoEmergente, CriterioEmergente, RegistroEmergente,
-    RegistroDependenciasEmergente
+    RegistroDependenciasEmergente, UsuarioEmergente,
   ]
 })
 
