@@ -14,15 +14,15 @@ import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
 import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.component';
 import { DocumentoComponent, DocumentoEmergente } from 'app/documento/documento.component';
-import { CriterioComponent } from 'app/criterio/criterio.component';
+import { CriterioComponent, CriterioEmergente } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
-import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
-import { RegistroComponent } from 'app/registro/registro.component';
+import { RegistroDependenciasComponent, RegistroDependenciasEmergente } from 'app/registrodependencias/registrodependencias.component';
+import { RegistroComponent, RegistroEmergente } from 'app/registro/registro.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent, CiudadEmergente } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
-import { UsuarioComponent } from 'app/usuario/usuario.component';
+import { UsuarioComponent, UsuarioEmergente } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material';
@@ -90,6 +90,14 @@ import {
   ],
   entryComponents: [
     ActividadEmergente, DocumentoEmergente, CiudadEmergente,
+    CriterioEmergente,
+    RegistroEmergente,
+    RegistroDependenciasEmergente,
+    UsuarioEmergente
+  ],
+  entryComponents: [
+    ActividadEmergente, DocumentoEmergente, CriterioEmergente, RegistroEmergente,
+    RegistroDependenciasEmergente, UsuarioEmergente,
   ]
 })
 

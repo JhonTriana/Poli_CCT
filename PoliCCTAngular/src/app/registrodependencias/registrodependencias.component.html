@@ -1,72 +1,97 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header card-header-success card-danger">
-                        <h4 class="card-title">Registro de Dependencias</h4>
-                        <p class="card-category">Sistema de Contratistas, Concesiones y Temporales</p>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Nit / Cédula" type="number">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Nombre" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Cargo" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Área" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Celular" type="number">
-                                </mat-form-field>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-3">
-                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Teléfono" type="number">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-3">
-                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="N° Extensión" type="number">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Correo Electrónico" type="email">
-                                </mat-form-field>
-                              </div>
-                            </div>
-                          
-  
-                            <div class="fondoInferior">
-                              <button mat-raised-button type="submit" class="colorButton">Registrar</button>
-                              <button mat-raised-button type="submit" class="colorButton">Editar</button>
-                              <button mat-raised-button type="submit" class="colorButton">Eliminar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4"></div>
-             
-        </div>
+  <div class="card">
+    <div class="card-header card-header-success card-usuarios">
+      <h3 class="card-title"><b>DEPENDENCIAS</b>
+      <button mat-fab aria-label="Example icon-button with a heart icon" (click) = "openDialogNuevaRegistroDependencias()" title="Crear nuevo registro">
+        <mat-icon>add</mat-icon>
+      </button>
+    </h3>
     </div>
+    <div class="card-body">
+      <div class="card">
+        <div class="card-header header">
+            <mat-form-field style="color: white; ">
+              <mat-label style="color: white;">Filtro De Busqueda</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Algun Área" style="color: white;">
+            </mat-form-field>
+        </div>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Primera columna de la Tabla -->
+            <ng-container matColumnDef="idRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Número</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.idRegistroDependencias}} </td>
+            </ng-container>
+
+            <!-- Segunda columna de la Tabla -->
+            <ng-container matColumnDef="ntCcRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Nt / CC</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.ntCcRegistroDependencias}} </td>
+            </ng-container>
+
+            <!-- Tercera columna de la Tabla -->
+            <ng-container matColumnDef="nombreRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Nombre</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombreRegistroDependencias}} </td>
+            </ng-container>
+
+            <!-- Cuarta columna de la Tabla -->
+            <ng-container matColumnDef="cargoRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Cargo</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.cargoRegistroDependencias}} </td>
+            </ng-container>
+
+            <!-- Quinta columna de la Tabla -->
+            <ng-container matColumnDef="areaRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Área</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.areaRegistroDependencias}} </td>
+            </ng-container>
+
+             <!-- Sexta columna de la Tabla -->
+             <ng-container matColumnDef="celularRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Celuar</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.celularRegistroDependencias}} </td>
+            </ng-container>
+
+             <!-- Septima columna de la Tabla -->
+             <ng-container matColumnDef="telefonoRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Teléfono</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.telefonoRegistroDependencias}} </td>
+            </ng-container>
+
+            <!-- Octava columna de la Tabla -->
+            <ng-container matColumnDef="extensionRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Extensión</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.extensionRegistroDependencias}} </td>
+            </ng-container>
+
+            <!-- Novena columna de la Tabla -->
+            <ng-container matColumnDef="correoElectronicoRegistroDependencias">
+              <th mat-header-cell *matHeaderCellDef><b>Correo Electrónico</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.correoElectronicoRegistroDependencias}} </td>
+            </ng-container>
+
+
+
+            <!-- Columna de Opciones -->
+            <ng-container matColumnDef="star" >
+              <th mat-header-cell *matHeaderCellDef> Opciones </th>
+              <td mat-cell *matCellDef="let element = index;">          
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click) = "openDialogEditarRegistroDependencias(element)"  > <mat-icon>edit </mat-icon> <span> Editar </span> </button>
+                  <button mat-menu-item (click) = "eliminarRegistroDependencias(element)" > <mat-icon>delete </mat-icon> <span> Eliminar </span> </button>
+                </mat-menu>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>    
   </div>
-  
+</div>
