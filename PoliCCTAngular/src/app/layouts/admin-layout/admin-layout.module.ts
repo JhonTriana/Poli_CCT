@@ -91,7 +91,8 @@ import {
     RegistroEmergente,
     RegistroDependenciasEmergente,
     EmpleadoEmergente,
-    UsuarioEmergente
+    UsuarioEmergente,
+    CiudadEmergente
   ],
   entryComponents: [
     ActividadEmergente, 
@@ -101,6 +102,7 @@ import {
     RegistroDependenciasEmergente,
     EmpleadoEmergente,
     UsuarioEmergente,
+    CiudadEmergente
   ]
 
 })
