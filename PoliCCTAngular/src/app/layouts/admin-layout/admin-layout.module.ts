@@ -90,7 +90,7 @@ import {
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
-
+    EmpleadoEmergente,
     UsuarioEmergente
 
   ],
