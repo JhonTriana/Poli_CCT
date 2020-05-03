@@ -20,8 +20,8 @@ import { RegistroDependenciasComponent, RegistroDependenciasEmergente } from 'ap
 import { RegistroComponent, RegistroEmergente } from 'app/registro/registro.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent, CiudadEmergente } from 'app/ciudad/ciudad.component';
-import { SedeComponent } from 'app/sede/sede.component';
-import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+import { SedeComponent, SedeEmergente } from 'app/sede/sede.component';
+import { UbicacionComponent, UbicacionEmergente } from 'app/ubicacion/ubicacion.component';
 import { UsuarioComponent, UsuarioEmergente } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
@@ -90,7 +90,10 @@ import {
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
-    UsuarioEmergente
+    UsuarioEmergente,
+    SedeEmergente,
+    UbicacionEmergente
+    
 
   ],
   entryComponents: [
@@ -98,7 +101,11 @@ import {
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
-    UsuarioEmergente
+    UsuarioEmergente,
+    SedeEmergente,
+    UbicacionEmergente
+
+   
   ]
      
     
