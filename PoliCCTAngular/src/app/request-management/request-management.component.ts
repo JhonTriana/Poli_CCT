@@ -61,8 +61,8 @@ export class RequestManagementComponent implements OnInit {
 
   openDialogNuevaSolicitud(): void {
     const dialogRef = this.dialog.open(SolicitudEmergente, {
-      width: '30%',
-      height: '70%',
+      width: '50%',
+      height: '95%',
       data: { Solicitud }
     });
     dialogRef.afterClosed().subscribe(result => {
