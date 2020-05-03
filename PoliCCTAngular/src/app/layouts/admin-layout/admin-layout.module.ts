@@ -4,9 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
@@ -20,8 +18,8 @@ import { RegistroDependenciasComponent, RegistroDependenciasEmergente } from 'ap
 import { RegistroComponent, RegistroEmergente } from 'app/registro/registro.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CiudadComponent, CiudadEmergente } from 'app/ciudad/ciudad.component';
-import { SedeComponent } from 'app/sede/sede.component';
-import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
+import { SedeComponent, SedeEmergente } from 'app/sede/sede.component';
+import { UbicacionComponent, UbicacionEmergente } from 'app/ubicacion/ubicacion.component';
 import { UsuarioComponent, UsuarioEmergente } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
@@ -30,6 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent} from 'app/login/login.component';
+import { MatSelectFilterModule } from 'mat-select-filter';
+import { SolicitudEmergente } from '../../request-management/SolicitudEmergente';
 
 import {
   MatButtonModule,
@@ -58,13 +58,12 @@ import {
     MatDialogModule,
     MatSelectModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectFilterModule
   ],
   declarations: [
     DashboardComponent,    
-    TypographyComponent,    
     IconsComponent,    
-    MapsComponent,    
     NotificationsComponent,
     UpgradeComponent,
     RequestManagementComponent,
@@ -92,7 +91,10 @@ import {
     RegistroDependenciasEmergente,
     EmpleadoEmergente,
     UsuarioEmergente,
-    CiudadEmergente
+    CiudadEmergente,
+    SolicitudEmergente,
+    SedeEmergente, 
+    UbicacionEmergente
   ],
   entryComponents: [
     ActividadEmergente, 
@@ -102,7 +104,10 @@ import {
     RegistroDependenciasEmergente,
     EmpleadoEmergente,
     UsuarioEmergente,
-    CiudadEmergente
+    CiudadEmergente,
+    SolicitudEmergente,
+    SedeEmergente, 
+    UbicacionEmergente
   ]
 
 })

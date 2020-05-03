@@ -1,0 +1,36 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Formulario Nueva Solicitud</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container-form">
+      <mat-form-field appearance="fill" class="select">
+        <mat-label>Empleado</mat-label>
+        <mat-select #empleados>
+          <mat-select-filter *ngIf="empleados.focused" [displayMember]="'nombreEmpleado'" [array]="misEmpleados" (filteredReturn)="filteredEmpleados1 =$event">
+          </mat-select-filter>
+          <mat-option *ngFor="let empleado of filteredEmpleados1" [value]="empleado" >
+            {{empleado.nombreEmpleado}}
+          </mat-option>
+        </mat-select>
+        <mat-hint align="end" style="color:#244665">Recuerde que para realizar la solicitud es necesario tener el empleado registrado.</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="select">
+        <mat-label>Actividad</mat-label>
+        <mat-select #actividades >
+          <mat-select-filter *ngIf="actividades.focused" [displayMember]="'nombreActividad'" [array]="misActividades" (filteredReturn)="filteredActividades =$event">
+          </mat-select-filter>
+          <mat-option *ngFor="let actividad of filteredActividades" [value]="actividad">
+            {{actividad.nombreActividad}}
+          </mat-option>
+        </mat-select>
+        <mat-hint align="end" style="color: #244665;">Si no encuentra la actividad contacte al administrador del sistema.</mat-hint>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onNoClick()">Regresar</button>
+    <button mat-button >Guardar</button>
+  </mat-card-actions>
+</mat-card>
