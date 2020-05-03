@@ -1,9 +1,14 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { Solicitud } from '../models/Solicitud.model'
 import { SolicitudService } from '../services/solicitud.service';
+import {MatSelectModule} from '@angular/material/select';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Empleado } from '../models/empleado.model';
+import { SolicitudEmergente } from './SolicitudEmergente';
+
 
 export interface PeriodicElement {
   name: string;
@@ -36,12 +41,15 @@ export class RequestManagementComponent implements OnInit {
   misSolicitudes;
   newSolicitud: Solicitud;
   No = 0 ;
-  constructor(public dialog: MatDialog, private SolicitudService: SolicitudService) {
+
+  constructor(public dialog: MatDialog, private SolicitudService: SolicitudService, 
+              ) {
   }
 
   ngOnInit() {
   this.dataSource.paginator = this.paginator;
   }
+  
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -53,16 +61,12 @@ export class RequestManagementComponent implements OnInit {
 
   openDialogNuevaSolicitud(): void {
     const dialogRef = this.dialog.open(SolicitudEmergente, {
-      width: '300px',
+      width: '90%',
+      height: '70%',
       data: { Solicitud }
     });
     dialogRef.afterClosed().subscribe(result => {
       this.newSolicitud = result;
-      if (this.newSolicitud.nombreSolicitud !== undefined ){
-        this.newSolicitud.idSolicitud = this.No ; 
-        this.SolicitudService.createNewSolicitud(this.newSolicitud);
-        this.getAllSolicitudes();
-      }
     });
   }
 
@@ -81,16 +85,4 @@ export class RequestManagementComponent implements OnInit {
     }
   }
 
-}
-
-@Component({
-  selector: 'Solicitud.Emergente',
-  templateUrl: 'Solicitud.Emergente.html',
-})
-export class SolicitudEmergente {
-  constructor(public dialogRef: MatDialogRef<SolicitudEmergente>,
-    @Inject(MAT_DIALOG_DATA)  public data: Solicitud ) {    }
-    onNoClick(): void {
-    this.dialogRef.close();
-  } 
 }
