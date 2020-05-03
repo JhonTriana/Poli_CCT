@@ -12,3 +12,22 @@
   color: white	;
   opacity: 1; /* Firefox */
 }
+.mat-fab{
+	background-color: #FBAF17;
+	//background-color: #1FB2DE;
+	margin-left: 80%;
+  }
+
+.container-form .mat-form-field + .mat-form-field {
+	margin-left: 8px;
+}
+
+.container-form {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.select {
+	width: 300px;
+	margin-bottom: 20px;
+}

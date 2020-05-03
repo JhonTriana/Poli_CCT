@@ -11,7 +11,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
 import { VideoComponent } from 'app/video/video.component';
-import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
+import { EmployeeRegistrationComponent, EmpleadoEmergente} from 'app/employee-registration/employee-registration.component';
 import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.component';
 import { DocumentoComponent, DocumentoEmergente } from 'app/documento/documento.component';
 import { CriterioComponent, CriterioEmergente } from 'app/criterio/criterio.component';
@@ -30,6 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent} from 'app/login/login.component';
+import { SolicitudEmergente } from '../../request-management/SolicitudEmergente'; 
+
 
 import {
   MatButtonModule,
@@ -39,6 +41,7 @@ import {
   MatTooltipModule,
   MatPaginatorModule
 } from '@angular/material';
+import { MatSelectFilterModule } from 'mat-select-filter';
 
 @NgModule({
   imports: [
@@ -58,7 +61,8 @@ import {
     MatDialogModule,
     MatSelectModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectFilterModule
   ],
   declarations: [
     DashboardComponent,    
@@ -92,23 +96,23 @@ import {
     RegistroDependenciasEmergente,
     UsuarioEmergente,
     SedeEmergente,
-    UbicacionEmergente
-    
-
+    UbicacionEmergente,
+    SolicitudEmergente,
+    EmpleadoEmergente
   ],
   entryComponents: [
-    ActividadEmergente, DocumentoEmergente, CiudadEmergente,
+    ActividadEmergente, 
+    DocumentoEmergente,
+    CiudadEmergente,
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
     UsuarioEmergente,
     SedeEmergente,
-    UbicacionEmergente
-
-   
+    UbicacionEmergente,
+    SolicitudEmergente,
+    EmpleadoEmergente  
   ]
-     
-    
 })
 
 export class AdminLayoutModule {}

@@ -1,7 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { Solicitud } from '../models/Solicitud.model'
+import { SolicitudService } from '../services/solicitud.service';
+import {MatSelectModule} from '@angular/material/select';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Empleado } from '../models/empleado.model';
+import { SolicitudEmergente } from './SolicitudEmergente';
+
 
 export interface PeriodicElement {
   name: string;
@@ -31,13 +38,18 @@ export class RequestManagementComponent implements OnInit {
  /* panelOpenState = false;
   */
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  misSolicitudes;
+  newSolicitud: Solicitud;
+  No = 0 ;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private SolicitudService: SolicitudService, 
+              ) {
   }
 
   ngOnInit() {
   this.dataSource.paginator = this.paginator;
   }
+  
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -47,8 +59,30 @@ export class RequestManagementComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  openDialog(): void {
-      
+  openDialogNuevaSolicitud(): void {
+    const dialogRef = this.dialog.open(SolicitudEmergente, {
+      width: '90%',
+      height: '70%',
+      data: { Solicitud }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.newSolicitud = result;
+    });
+  }
+
+  getAllSolicitudes(){
+    this.SolicitudService.getAllSolicitudes().subscribe(   misSolicitudesObs => {   this.misSolicitudes = misSolicitudesObs;   }   )
+    this.dataSource = new MatTableDataSource(this.misSolicitudes);
+    this.newSolicitud = new Solicitud;
+    for (let i = 0; i < this.misSolicitudes.length -1 ; i++) {
+      if(this.misSolicitudes[i].idActividad === undefined){
+        this.No = 1 ;
+      }else if(this.misSolicitudes[i].idActividad > this.misSolicitudes[i+1].idActividad) {
+        this.No = this.misSolicitudes[i].idActividad + 1 ;
+      }else{
+        this.No = this.misSolicitudes[i+1].idActividad + 1 ;
+      }
+    }
   }
 
 }

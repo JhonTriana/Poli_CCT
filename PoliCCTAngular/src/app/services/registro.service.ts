@@ -23,4 +23,13 @@ export class RegistroService {
   eliminarRegistro(element){
     this.ALL_Registros.splice(element,1);
   }
+editarregistro(element, ntCcRegistro, nombreRegistro, direccionRegistro, ciudadRegistro, telefonoRegistro, celularRegistro){
+  this.ALL_Registros[element].ntCcRegistro =ntCcRegistro;
+  this.ALL_Registros[element].nombreRegistro = nombreRegistro;
+  this.ALL_Registros[element].direccionRegistro = direccionRegistro;
+  this.ALL_Registros[element].ciudadRegistro = ciudadRegistro;
+  this.ALL_Registros[element].telefonoRegistro = telefonoRegistro;
+  this.ALL_Registros[element].celularRegistro = celularRegistro;
+}
+
 }
