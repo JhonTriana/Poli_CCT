@@ -6,7 +6,6 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
 import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent, EmpleadoEmergente} from 'app/employee-registration/employee-registration.component';
@@ -65,11 +64,9 @@ import {
     DashboardComponent,    
     IconsComponent,    
     NotificationsComponent,
-    UpgradeComponent,
     RequestManagementComponent,
     VideoComponent,
     LoginComponent,
-    UpgradeComponent,    
     RequestManagementComponent,    
     EmployeeRegistrationComponent,    
     ActividadComponent,
