@@ -8,7 +8,7 @@
       <mat-form-field appearance="fill" class="select">
         <mat-label>Empleado</mat-label>
         <mat-select #empleados>
-          <mat-select-filter *ngIf="empleados.focused" [displayMember]="'nombreEmpleado'" [array]="misEmpleados" (filteredReturn)="filteredEmpleados1 =$event">
+          <mat-select-filter  [displayMember]="'nombreEmpleado'" [array]="misEmpleados" (filteredReturn)="filteredEmpleados1 =$event">
           </mat-select-filter>
           <mat-option *ngFor="let empleado of filteredEmpleados1" [value]="empleado" >
             {{empleado.nombreEmpleado}}

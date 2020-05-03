@@ -3,7 +3,6 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { VideoComponent } from '../../video/video.component';
 import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component';
 import { ActividadComponent } from 'app/actividad/actividad.component';
@@ -23,7 +22,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'request-management',     component: RequestManagementComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'notifications',  component: NotificationsComponent }, 
-    { path: 'upgrade',        component: UpgradeComponent },
     { path: 'employee-registration', component : EmployeeRegistrationComponent},
     { path: 'actividad',      component: ActividadComponent },
     { path: 'criterio',       component: CriterioComponent },
