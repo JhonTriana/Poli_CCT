@@ -90,7 +90,8 @@ import {
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
-    EmpleadoEmergente
+    EmpleadoEmergente,
+    UsuarioEmergente
   ],
   entryComponents: [
     ActividadEmergente, 
