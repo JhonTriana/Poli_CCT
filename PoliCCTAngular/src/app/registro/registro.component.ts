@@ -43,7 +43,7 @@ export class RegistroComponent implements OnInit {
   }
   openDialogNuevaRegistro(): void {
     const dialogRef = this.dialog.open(RegistroEmergente, {
-      width: '300px',
+      width: '400px',
       data: {idRegistro: this.misRegistros.idRegistro , ntCcRegistro: this.misRegistros.ntCcRegistro , nombreRegistro: this.misRegistros.nombreRegistro , direccionRegistro: this.misRegistros.direccionRegistro , ciudadRegistro: this.misRegistros.ciudadRegistro , telefonoRegistro: this.misRegistros.telefonoRegistro , celularRegistro: this.misRegistros.celularRegistro } 
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -72,7 +72,7 @@ export class RegistroComponent implements OnInit {
       if (result === undefined ){
       }
       else{
-       this.RegistroService.editarregistro(element, result.ntCcRegistro, result.nombreRegistro, result.direccionRegistro, result.ciudadRegistro, result.telefonoRegistro, result.ciudadRegistro );
+       this.RegistroService.editarregistro(element, result.ntCcRegistro, result.nombreRegistro, result.direccionRegistro, result.ciudadRegistro, result.telefonoRegistro, result.celularRegistro );
         this.getAllRegistros();
       }
     });
