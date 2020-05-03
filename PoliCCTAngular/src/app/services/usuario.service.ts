@@ -9,25 +9,28 @@ import { Observable, of } from 'rxjs';
 export class UsuarioService {
 
   ALL_Usuarios: usuario [] = [
-    {   numeroDocumentoUsuario: 1003560,   nombreCompletoUsuario: "Tatiana Cañón", tipoUsuario: "Proveedor" },
-    {   numeroDocumentoUsuario: 1070950,   nombreCompletoUsuario: "Julián Vargas", tipoUsuario: "Empleado" },
-    {   numeroDocumentoUsuario: 1053561,   nombreCompletoUsuario: "Nasly Gordillo", tipoUsuario: "Seguridad Física" },
-    {   numeroDocumentoUsuario: 1080750,   nombreCompletoUsuario: "Gina Torres", tipoUsuario: "Administrador" },
+    {   idUsuario: 1, numeroDocumentoUsuario: 1003560,   nombreCompletoUsuario: "Tatiana Cañón", tipoUsuario: "Proveedor" },
+    {   idUsuario: 2, numeroDocumentoUsuario: 1070950,   nombreCompletoUsuario: "Julián Vargas", tipoUsuario: "Empleado" },
+    {   idUsuario: 3, numeroDocumentoUsuario: 1053561,   nombreCompletoUsuario: "Nasly Gordillo", tipoUsuario: "Seguridad Física" },
+    {   idUsuario: 4, numeroDocumentoUsuario: 1080750,   nombreCompletoUsuario: "Gina Torres", tipoUsuario: "Administrador" },
 ]
 
-  constructor() { }
-  
+  constructor() { }  
   getAllUsuarios() : Observable<usuario[]> {
     return of (this.ALL_Usuarios);
   }
   createNewUsuario(nuevoUsuario){ 
     this.ALL_Usuarios.push(nuevoUsuario);
   }
-  async getUsuarioById(id){
-    const index = await this.ALL_Usuarios.findIndex( nombre => nombre.numeroDocumentoUsuario === id  );
-    console.log("Indice:" + index);
-    return this.ALL_Usuarios[index] ;
+  eliminarUsuario(element){
+    this.ALL_Usuarios.splice(element, 1);
+  } 
+  editarUsuario(element, numeroDocumentoUsuario, nombreCompletoUsuario, nombreTipoUsuario){
+    this.ALL_Usuarios[element].numeroDocumentoUsuario = numeroDocumentoUsuario ;
+    this.ALL_Usuarios[element].nombreCompletoUsuario = nombreCompletoUsuario ;
+    this.ALL_Usuarios[element].tipoUsuario = nombreTipoUsuario ;
   }
+
 }
 
   
