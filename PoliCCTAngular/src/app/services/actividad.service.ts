@@ -10,7 +10,19 @@ export class ActividadService {
   ALL_Actividades: Actividad [] = [
     {   idActividad: 1,   nombreActividad: "Cambio de Tejas"   },
     {   idActividad: 2,   nombreActividad: "Mantenimiento de cerca"       },
-    {   idActividad: 3,   nombreActividad: "Jardinería"       }
+    {   idActividad: 3,   nombreActividad: "Jardinería"       },
+    {   idActividad: 4,   nombreActividad: "Cambio de Piso"       },
+    {   idActividad: 5,   nombreActividad: "Cocina"       },
+    {   idActividad: 6,   nombreActividad: "Arreglar Ventana"       },
+    {   idActividad: 7,   nombreActividad: "Piso"       },
+    {   idActividad: 8,   nombreActividad: "Muro"       },
+    {   idActividad: 9,   nombreActividad: "Pintura"       },
+    {   idActividad: 10,   nombreActividad: "Jardin"       },
+    {   idActividad: 11,   nombreActividad: "Sala Start"       },
+    {   idActividad: 12,   nombreActividad: "Paradero"       },
+    {   idActividad: 13,   nombreActividad: "Parqueadero"       },
+    {   idActividad: 14,   nombreActividad: "Cafetería"       },
+    {   idActividad: 15,   nombreActividad: "Hornos"       }
 ]
   constructor() { }
   getAllActividades() : Observable<Actividad[]>{

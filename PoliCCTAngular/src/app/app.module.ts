@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IconsComponent } from './icons/icons.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { RequestManagementComponent } from './request-management/request-management.component';
 import { MatExpansionModule, MatButtonModule} from '@angular/material/';
