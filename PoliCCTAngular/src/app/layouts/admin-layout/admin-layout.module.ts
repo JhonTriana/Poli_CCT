@@ -4,9 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
@@ -30,8 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent} from 'app/login/login.component';
-import { SolicitudEmergente } from '../../request-management/SolicitudEmergente'; 
-
+import { MatSelectFilterModule } from 'mat-select-filter';
+import { SolicitudEmergente } from '../../request-management/SolicitudEmergente';
 
 import {
   MatButtonModule,
@@ -41,7 +39,6 @@ import {
   MatTooltipModule,
   MatPaginatorModule
 } from '@angular/material';
-import { MatSelectFilterModule } from 'mat-select-filter';
 
 @NgModule({
   imports: [
@@ -66,9 +63,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
   ],
   declarations: [
     DashboardComponent,    
-    TypographyComponent,    
     IconsComponent,    
-    MapsComponent,    
     NotificationsComponent,
     UpgradeComponent,
     RequestManagementComponent,
@@ -94,25 +89,27 @@ import { MatSelectFilterModule } from 'mat-select-filter';
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
+    EmpleadoEmergente,
     UsuarioEmergente,
-    SedeEmergente,
-    UbicacionEmergente,
+    CiudadEmergente,
     SolicitudEmergente,
-    EmpleadoEmergente
+    SedeEmergente, 
+    UbicacionEmergente
   ],
   entryComponents: [
     ActividadEmergente, 
     DocumentoEmergente,
-    CiudadEmergente,
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
+    EmpleadoEmergente,
     UsuarioEmergente,
-    SedeEmergente,
-    UbicacionEmergente,
+    CiudadEmergente,
     SolicitudEmergente,
-    EmpleadoEmergente  
+    SedeEmergente, 
+    UbicacionEmergente
   ]
+
 })
 
 export class AdminLayoutModule {}
