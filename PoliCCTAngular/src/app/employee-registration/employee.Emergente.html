@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Crear Nuevo Registro de Empleado</h1>
+  <div mat-dialog-content>
+
+    <mat-form-field>
+      <mat-label>NIT / CC</mat-label>
+      <input type="number" matInput  placeholder="Ingrese el NIT o la CC" [(ngModel)]="data.identificacion">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput  placeholder="Ingrese el Nombre del Empelado" [(ngModel)]="data.nombreEmpleado">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Dirección</mat-label>
+      <input type="text" matInput  placeholder="Ingrese la Dirección del Empleado" [(ngModel)]="data.direccion">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Telefono</mat-label>
+      <input type="number" matInput  placeholder="Ingrese el telefono celular del Empleado" [(ngModel)]="data.telefono">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Cargo</mat-label>
+      <input type="text" matInput  placeholder="Ingrese el Cargo del Empleado" [(ngModel)]="data.cargo">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Persona de Contacto</mat-label>
+      <input type="text" matInput  placeholder="Ingrese una persona de contacto" [(ngModel)]="data.contacto">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>numero del Contacto</mat-label>
+        <input type="number" matInput  placeholder="Ingrese el numero del contacto" [(ngModel)]="data.numero_contacto">
+    </mat-form-field>
+      <mat-form-field>
+        <mat-label>mail</mat-label>
+        <input type="text" matInput  placeholder="Ingrese el mail del Empleado" [(ngModel)]="data.mail">
+      </mat-form-field>
+  </div>
+ 
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Regresar</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
+</div>

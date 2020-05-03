@@ -11,7 +11,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent } from '../../request-management/request-management.component'; 
 import { VideoComponent } from 'app/video/video.component';
-import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
+import { EmployeeRegistrationComponent, EmpleadoEmergente} from 'app/employee-registration/employee-registration.component';
 import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.component';
 import { DocumentoComponent, DocumentoEmergente } from 'app/documento/documento.component';
 import { CriterioComponent, CriterioEmergente } from 'app/criterio/criterio.component';
@@ -90,6 +90,7 @@ import {
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
+
     UsuarioEmergente
 
   ],
@@ -98,8 +99,12 @@ import {
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
-    UsuarioEmergente
-  ]
+    UsuarioEmergente,
+    EmpleadoEmergente,
+
+    
+  ],
+
      
     
 })
