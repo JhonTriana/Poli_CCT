@@ -92,21 +92,17 @@ import {
     RegistroDependenciasEmergente,
     EmpleadoEmergente,
     UsuarioEmergente
-
   ],
   entryComponents: [
-    ActividadEmergente, DocumentoEmergente, CiudadEmergente,
+    ActividadEmergente, 
+    DocumentoEmergente,
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
-    UsuarioEmergente,
     EmpleadoEmergente,
+    UsuarioEmergente,
+  ]
 
-    
-  ],
-
-     
-    
 })
 
 export class AdminLayoutModule {}
