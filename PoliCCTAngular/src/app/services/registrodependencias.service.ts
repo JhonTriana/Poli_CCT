@@ -25,6 +25,7 @@ export class RegistroDependenciasService {
   }
 
   editarregistroDependencias(element, ntCcRegistroDependencias, nombreRegistroDependencias, cargoRegistroDependencias, areaRegistroDependencias, celularRegistroDependencias, telefonoRegistroDependencias, extensionRegistroDependencias, correoElectronicoRegistroDependencias){
+    
     this.ALL_RegistroDependencias1[element].ntCcRegistroDependencias = ntCcRegistroDependencias;
     this.ALL_RegistroDependencias1[element].nombreRegistroDependencias = nombreRegistroDependencias;
     this.ALL_RegistroDependencias1[element].cargoRegistroDependencias = cargoRegistroDependencias;
