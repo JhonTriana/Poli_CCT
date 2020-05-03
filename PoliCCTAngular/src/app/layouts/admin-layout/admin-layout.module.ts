@@ -9,7 +9,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { RequestManagementComponent } from '../../request-management/request-management.component'; 
+import { RequestManagementComponent, SolicitudEmergente } from '../../request-management/request-management.component'; 
 import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent, EmpleadoEmergente} from 'app/employee-registration/employee-registration.component';
 import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.component';
@@ -90,8 +90,9 @@ import {
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
+    UsuarioEmergente,
+    SolicitudEmergente,
     EmpleadoEmergente,
-    UsuarioEmergente
   ],
   entryComponents: [
     ActividadEmergente, 
@@ -99,6 +100,8 @@ import {
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
+    UsuarioEmergente,
+    SolicitudEmergente,
     EmpleadoEmergente,
     UsuarioEmergente,
   ]
