@@ -63,11 +63,7 @@ export class ActividadComponent implements OnInit {
       if (result === undefined ){
       }
       else{
-        let número = this.misActividades[element].idActividad ; 
-        this.eliminarActividad(element);
-        this.newActividad.idActividad = número ;
-        this.newActividad.nombreActividad = result;
-        this.ActividadService.createNewActividad(this.newActividad);
+        this.ActividadService.editarActividad(element, result);
         this.getAllActividades();
       }
     });

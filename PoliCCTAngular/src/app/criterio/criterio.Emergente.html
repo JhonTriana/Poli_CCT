@@ -4,15 +4,15 @@
       <div class="div"> 
         <mat-form-field class="seleccion">
             <mat-label >Seleccione la actividad</mat-label>
-          <mat-select> 
-            <mat-option *ngFor="let actividad of data.misActividades" [value]="actividad.nombreActividad" > 
+          <mat-select [(ngModel)]="data.nombreActividad"> 
+            <mat-option type="text" matInput *ngFor="let actividad of data.misActividades" [value]="actividad.nombreActividad" > 
               {{ actividad.nombreActividad }}
-            </mat-option>
+            </mat-option>    
           </mat-select>
         </mat-form-field>
         <mat-form-field class="seleccion">
           <mat-label>Seleccione el Documento</mat-label>
-          <mat-select>
+          <mat-select [(ngModel)]="data.nombreDocumento">
             <mat-option *ngFor="let documento of data.misDocumentos" [value]="documento.nombreDocumento">
               {{ documento.nombreDocumento }}
             </mat-option>

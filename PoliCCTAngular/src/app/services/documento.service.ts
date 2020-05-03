@@ -20,4 +20,7 @@ export class DocumentoService {
   eliminarDocumento(element){
     this.ALL_Documentos.splice(element,1);
   }
+  editarDocumento(element, result){
+    this.ALL_Documentos[element].nombreDocumento = result ;
+  }
 }

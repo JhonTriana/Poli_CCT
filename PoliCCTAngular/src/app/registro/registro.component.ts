@@ -47,13 +47,14 @@ export class RegistroComponent implements OnInit {
       data: {idRegistro: this.misRegistros.idRegistro , ntCcRegistro: this.misRegistros.ntCcRegistro , nombreRegistro: this.misRegistros.nombreRegistro , direccionRegistro: this.misRegistros.direccionRegistro , ciudadRegistro: this.misRegistros.ciudadRegistro , telefonoRegistro: this.misRegistros.telefonoRegistro , celularRegistro: this.misRegistros.celularRegistro } 
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.newRegistro.ntCcRegistro = result;
-      this.newRegistro.nombreRegistro = result;
-      this.newRegistro.direccionRegistro = result;
-      this.newRegistro.ciudadRegistro = result;
-      this.newRegistro.telefonoRegistro = result;
-      this.newRegistro.celularRegistro = result;
-      if (this.newRegistro.ntCcRegistro === undefined , this.newRegistro.nombreRegistro === undefined , this.newRegistro.direccionRegistro === undefined , this.newRegistro.ciudadRegistro === undefined , this.newRegistro.telefonoRegistro === undefined , this.newRegistro.celularRegistro === undefined ){
+      console.log("Result: ",result);
+      this.newRegistro.ntCcRegistro = result.ntCcRegistro;
+      this.newRegistro.nombreRegistro = result.nombreRegistro;
+      this.newRegistro.direccionRegistro = result.direccionRegistro;
+      this.newRegistro.ciudadRegistro = result.ciudadRegistro;
+      this.newRegistro.telefonoRegistro = result.telefonoRegistro;
+      this.newRegistro.celularRegistro = result.celularRegistro;
+      if (this.newRegistro.ntCcRegistro === undefined || this.newRegistro.nombreRegistro === undefined || this.newRegistro.direccionRegistro === undefined || this.newRegistro.ciudadRegistro === undefined || this.newRegistro.telefonoRegistro === undefined || this.newRegistro.celularRegistro === undefined ){
       }
       else{
         this.newRegistro.idRegistro = this.No ; 
@@ -65,22 +66,13 @@ export class RegistroComponent implements OnInit {
   openDialogEditarRegistro(element): void {
     const dialogRef = this.dialog.open(RegistroEmergente, {
       width: '300px',
-      data: {idRegistro: this.misRegistros.idRegistro , ntCcRegistro: this.misRegistros.ntCcRegistro , nombreRegistro: this.misRegistros.nombreRegistro , direccionRegistro: this.misRegistros.direccionRegistro , ciudadRegistro: this.misRegistros.ciudadRegistro , telefonoRegistro: this.misRegistros.telefonoRegistro , celularRegistro: this.misRegistros.celularRegistro } 
+      data: {idRegistro: this.misRegistros[element].idRegistro , ntCcRegistro: this.misRegistros[element].ntCcRegistro , nombreRegistro: this.misRegistros[element].nombreRegistro , direccionRegistro: this.misRegistros[element].direccionRegistro , ciudadRegistro: this.misRegistros[element].ciudadRegistro , telefonoRegistro: this.misRegistros[element].telefonoRegistro , celularRegistro: this.misRegistros[element].celularRegistro } 
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === undefined ){
       }
       else{
-        let número = this.misRegistros[element].idRegistro ; 
-        this.eliminarRegistro(element);
-        this.newRegistro.idRegistro = número ;
-        this.newRegistro.ntCcRegistro = número;
-        this.newRegistro.ntCcRegistro = número;
-        this.newRegistro.direccionRegistro = result;
-        this.newRegistro.ciudadRegistro = result;
-        this.newRegistro.telefonoRegistro = número;
-        this.newRegistro.celularRegistro = número;
-        this.RegistroService.createNewRegistro(this.newRegistro);
+       this.RegistroService.editarregistro(element, result.ntCcRegistro, result.nombreRegistro, result.direccionRegistro, result.ciudadRegistro, result.telefonoRegistro, result.ciudadRegistro );
         this.getAllRegistros();
       }
     });
@@ -101,7 +93,7 @@ export class RegistroComponent implements OnInit {
 })
 export class RegistroEmergente {
   constructor(public dialogRef: MatDialogRef<RegistroEmergente>,
-    @Inject(MAT_DIALOG_DATA)  public data: Registro ) {    }
+    @Inject(MAT_DIALOG_DATA)  public data: {idRegistro, ntCcRegistro , nombreRegistro , direccionRegistro , ciudadRegistro , telefonoRegistro , celularRegistro } ) {    }
   onNoClick(): void {
     this.dialogRef.close();
   } 

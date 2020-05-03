@@ -8,3 +8,52 @@
 .fondoInferior{
     background-color: #0f385a;    
 }
+/* Structure */
+table {
+    width: 100%;
+  }
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+.DiseñoTabla{
+    position: relative;
+    width: 100%;
+    min-height: 10px;
+    padding-right: 100px;
+    padding-left: 100px; 
+  }
+.inputLocal{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px; 
+} 
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  } 
+.example-full-width {
+    width: 100%;
+}
+.header{
+	background-color: #244665;
+	color: white;
+}
+
+.footer{
+	background-color: #244665;
+	color: white;	
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white	;
+  opacity: 1; /* Firefox */
+}
+.mat-fab{
+  background-color: #FBAF17;
+  //background-color: #1FB2DE;
+  margin-left: 80%;
+}

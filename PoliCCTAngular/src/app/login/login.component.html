@@ -1,57 +1,74 @@
+<div class="main-content">
+  <div class="card">
+      <div class="card-header card-header-success card-usuarios">
 
-  <div class="main-content">
+        <h4 class="card-title" align="center">POLI_CCT</h4>
+        <p class="card-category" align="center">Sistema de Contratistas, Concesiones y Temporales</p>
+      </div>
+      <br>
+
+
+
+      <div class="fondoInferior" >
+        <form class="login-form">
+               <table class="login-full-width" cellspacing="0" align="center">
+                 <tr>
+                   <td>
+                   <br>
+                   <br>
+                   <mat-form-field class="login-full-width" style="color: white; ">
+                       <mat-label style="color: white;">User Name</mat-label>
+                       <input matInput placeholder="Username"  [(ngModel)]="username" name="username" style="color: white;" required>
+                   </mat-form-field>
+
+                  
+
+                 </td>
+                 </tr>
+                 <tr>
+                 <td>
+                   <mat-form-field class="login-full-width" style="color: white; ">
+                     <mat-label style="color: white;">Password</mat-label>
+                   <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" style="color: white;"  required>
+                 </mat-form-field>
+
+
+
+
+               
+               
+               </td>
+               </tr></table>
+             </form>
+           <mat-card-actions>
+             <button mat-raised-button type (click)="login()" class="colorButton">Login</button>
+             <button mat-raised-button type="submit" class="colorButton">Registrate</button>
+             </mat-card-actions>
+         
+         <br>
+
+         
+     </div>
+      <br>
+    </div>
+
+
+
+
+<!--  <div class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-success card-usuarios">
                       <br>
-                      <h3 class="card-title" align="center">POLI_CCT</h3>
-                      <p class="card-category" align="center">Sistema de Contratistas, Concesiones y Temporales</p>
+                     
                     
                     </div>
                     <br>
-                      <div class="fondoInferior" >
-                       <form class="login-form">
-                              <table class="login-full-width" cellspacing="0" align="center">
-                                <tr>
-                                  <td>
-                                  <br>
-                                  <br>
-                                  <mat-form-field class="login-full-width" style="color: white; ">
-                                      <mat-label style="color: white;">User Name</mat-label>
-                                      <input matInput placeholder="Username"  [(ngModel)]="username" name="username" style="color: white;" required>
-                                  </mat-form-field>
-
-                                 
-
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                  <mat-form-field class="login-full-width" style="color: white; ">
-                                    <mat-label style="color: white;">Password</mat-label>
-                                  <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" style="color: white;"  required>
-                                </mat-form-field>
-
-
-
-
-                              
-                              
-                              </td>
-                              </tr></table>
-                            </form>
-                          <mat-card-actions>
-                            <button mat-raised-button type (click)="login()" class="colorButton">Login</button>
-                            <button mat-raised-button type="submit" class="colorButton">Registrate</button>
-                            </mat-card-actions>
-                        
-                        <br>
-
-                        
-                    </div>
+                      
                   </div>
                 </div>
               </div>
             </div>
+-->

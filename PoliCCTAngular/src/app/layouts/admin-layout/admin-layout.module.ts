@@ -19,10 +19,10 @@ import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.
 import { RegistroDependenciasComponent, RegistroDependenciasEmergente } from 'app/registrodependencias/registrodependencias.component';
 import { RegistroComponent, RegistroEmergente } from 'app/registro/registro.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { CiudadComponent } from 'app/ciudad/ciudad.component';
+import { CiudadComponent, CiudadEmergente } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
-import { UsuarioComponent } from 'app/usuario/usuario.component';
+import { UsuarioComponent, UsuarioEmergente } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material';
@@ -86,15 +86,22 @@ import {
     UsuarioComponent,
     ActividadEmergente,
     DocumentoEmergente, 
+    CiudadEmergente,
     CriterioEmergente,
     RegistroEmergente,
     RegistroDependenciasEmergente,
     EmpleadoEmergente
   ],
   entryComponents: [
-    ActividadEmergente, DocumentoEmergente, CriterioEmergente, RegistroEmergente,
-    RegistroDependenciasEmergente,EmpleadoEmergente
+    ActividadEmergente, 
+    DocumentoEmergente,
+    CriterioEmergente,
+    RegistroEmergente,
+    RegistroDependenciasEmergente,
+    EmpleadoEmergente,
+    UsuarioEmergente,
   ]
+
 })
 
 export class AdminLayoutModule {}
