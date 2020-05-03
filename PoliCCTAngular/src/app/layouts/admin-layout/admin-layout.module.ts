@@ -9,7 +9,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { RequestManagementComponent, SolicitudEmergente } from '../../request-management/request-management.component'; 
+import { RequestManagementComponent } from '../../request-management/request-management.component'; 
 import { VideoComponent } from 'app/video/video.component';
 import { EmployeeRegistrationComponent, EmpleadoEmergente} from 'app/employee-registration/employee-registration.component';
 import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.component';
@@ -30,6 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent} from 'app/login/login.component';
+import { SolicitudEmergente } from '../../request-management/SolicitudEmergente'; 
+
 
 import {
   MatButtonModule,
@@ -39,6 +41,7 @@ import {
   MatTooltipModule,
   MatPaginatorModule
 } from '@angular/material';
+import { MatSelectFilterModule } from 'mat-select-filter';
 
 @NgModule({
   imports: [
@@ -58,7 +61,8 @@ import {
     MatDialogModule,
     MatSelectModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectFilterModule
   ],
   declarations: [
     DashboardComponent,    
@@ -92,7 +96,7 @@ import {
     RegistroDependenciasEmergente,
     UsuarioEmergente,
     SolicitudEmergente,
-    EmpleadoEmergente,
+    EmpleadoEmergente
   ],
   entryComponents: [
     ActividadEmergente, 
