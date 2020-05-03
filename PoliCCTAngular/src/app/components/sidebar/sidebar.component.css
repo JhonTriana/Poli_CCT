@@ -1,45 +1,42 @@
 .card-usuarios{
-    background: green !important;
+  background: green !important;
 }
-
 .boton-Update {
-    background:  #A6CE38 !important;
+  background:  #A6CE38 !important;
 }
-
 .logo{
-  background: white !important;
+background: white !important;
 }
 .caja{
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  background: white;
+display: flex;
+flex-flow: column wrap;
+justify-content: center;
+align-items: center;
+background: white;
 }
 .box{
-  width: 260px;
-  height: 150px;
-  background: white;
-  overflow: hidden;
+width: 260px;
+height: 150px;
+background: white;
+overflow: hidden;
 }
 
 .box img{
-  width: 100%;
-  height: auto;
+width: 100%;
+height: auto;
 }
 @supports(object-fit: cover){
-    .box img{
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-    }
+  .box img{
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
 }
-
 .img {
-    padding-top:10px; 
-    padding-bottom:10px; 
-    padding-left:10px; 
-    padding-right: 10px;
-    height: 145 !important;
-    width: 223 !important;
+  padding-top:10px; 
+  padding-bottom:10px; 
+  padding-left:10px; 
+  padding-right: 10px;
+  height: 145 !important;
+  width: 223 !important;
 }

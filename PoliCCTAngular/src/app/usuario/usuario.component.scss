@@ -24,3 +24,24 @@
 .input{
     border-radius: 50x;
 }
+.header{
+	background-color: #244665;
+	color: white;
+}
+
+.footer{
+	background-color: #244665;
+	color: white;	
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white	;
+  opacity: 1; /* Firefox */
+}
+.mat-fab{
+    background-color: #FBAF17;
+    margin-left: 80%;
+}
+mat-label{
+    color: white;
+}

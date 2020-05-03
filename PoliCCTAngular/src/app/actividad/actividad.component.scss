@@ -16,7 +16,6 @@ table {
     font-size: 14px;
     width: 100%;
 }
-
 .DiseñoTabla{
     position: relative;
     width: 100%;
@@ -38,4 +37,23 @@ table {
   } 
 .example-full-width {
     width: 100%;
+}
+.header{
+	background-color: #244665;
+	color: white;
+}
+
+.footer{
+	background-color: #244665;
+	color: white;	
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white	;
+  opacity: 1; /* Firefox */
+}
+.mat-fab{
+  background-color: #FBAF17;
+  //background-color: #1FB2DE;
+  margin-left: 80%;
 }

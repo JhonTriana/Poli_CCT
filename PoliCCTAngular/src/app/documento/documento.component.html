@@ -1,47 +1,53 @@
 <div class="main-content">
   <div class="card">
-    <div class="card-header card-header-danger">
-        <h4 class="card-title">Documento</h4>
+    <div class="card-header card-header-success card-usuarios">
+      <h3 class="card-title"><b>DOCUMENTO</b>
+      <button mat-fab aria-label="Example icon-button with a heart icon" (click) = "openDialogNuevoDocumento()" title="Crear nuevo registro">
+        <mat-icon>add</mat-icon>
+      </button>
+    </h3>
     </div>
     <div class="card-body">
-      <div class="col-md-3">
-          <mat-form-field class="example-full-width">
-            <mat-label>Ingrese El Documento</mat-label>
-            <span matPrefix> &nbsp;</span>
-            <input type="text" matInput  placeholder="Ingrese El Documento" [(ngModel)]="newDocumento.nombreDocumento">
-            <mat-icon matSuffix (click) = "nuevoDocumento()"  title="Crear Nuevo Registro">add_circle</mat-icon>
-          </mat-form-field>
-      </div>
+      <div class="card">
+        <div class="card-header header">
+            <mat-form-field style="color: white; ">
+              <mat-label style="color: white;">Filtro De Busqueda</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Cambio de Teja" style="color: white;">
+            </mat-form-field>
+        </div>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Primera columna de la Tabla -->
+            <ng-container matColumnDef="idDocumento">
+              <th mat-header-cell *matHeaderCellDef><b>Número</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.idDocumento}} </td>
+            </ng-container>
+
+            <!-- Segunda columna de la Tabla -->
+            <ng-container matColumnDef="nombreDocumento">
+              <th mat-header-cell *matHeaderCellDef><b>Nombre Documento</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombreDocumento}} </td>
+            </ng-container>
+
+            <!-- Columna de Opciones -->
+            <ng-container matColumnDef="star" >
+              <th mat-header-cell *matHeaderCellDef> Opciones </th>
+              <td mat-cell *matCellDef="let element = index;">          
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click) = "openDialogEditarDocumento(element)"  > <mat-icon>edit </mat-icon> <span> Editar </span> </button>
+                  <button mat-menu-item (click) = "eliminarDocumento(element)" > <mat-icon>delete </mat-icon> <span> Eliminar </span> </button>
+                </mat-menu>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
     </div>    
-    <div class="DiseñoTabla">
-      <mat-form-field>
-        <mat-label>Filtro De Busqueda</mat-label>
-        <input matInput (keyup)="Filtro($event)" placeholder="Busqueda de Documentos">
-      </mat-form-field>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >      
-        <ng-container matColumnDef="idDocumento">
-          <th mat-header-cell *matHeaderCellDef > Número </th>
-          <td mat-cell *matCellDef="let element"> {{element.idDocumento}} </td>
-        </ng-container>
-        <ng-container matColumnDef="nombreDocumento">
-          <th mat-header-cell *matHeaderCellDef> Nombre Documento </th>
-          <td mat-cell *matCellDef="let element"> {{element.nombreDocumento}} </td>
-        </ng-container>
-        <ng-container matColumnDef="star" >
-          <th mat-header-cell *matHeaderCellDef> Opciones </th>
-          <td mat-cell *matCellDef="let element">          
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item> <mat-icon>edit   </mat-icon> <span> Editar   </span> </button>
-              <button mat-menu-item> <mat-icon>delete </mat-icon> <span> Eliminar </span> </button>
-            </mat-menu>
-          </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
-    </table>      
-    </div>  
   </div>
 </div>

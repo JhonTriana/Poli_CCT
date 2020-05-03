@@ -1,65 +1,64 @@
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-8">
-              <div class="card">
-                  <div class="card-header card-header-success card-usuarios">
-                      <h4 class="card-title">Formulario Usuario</h4>
-                      <p class="card-category">Por favor ingrese los datos del usuario</p>
-                  </div>
-                  <div class="card-body">
-                      <form>
-                          <div class="row">
-                              <div class="col-md-3">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Tipo de Documento">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="N° de documento" type="number">
-                                  </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Nombre" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Apellido" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-
-                          <div class="col-md-3">
-                        
-                              <h6>Tipo de Usuario</h6>
-                              <mat-form-field class="seleccion">
-                                <mat-label>Seleccione el tipo de usuario</mat-label>
-                                <mat-select>
-                                  <mat-option *ngFor="let documento of listaDocumentos" [value]="documento.nombreDocumento">
-                                    {{ documento.nombreDocumento }}
-                                  </mat-option>
-                                </mat-select>
-                              </mat-form-field>
-                           
-                          </div>  
-                          <br>                    
-                          <br>
-                          <div class="fondoInferior">
-                            <button mat-raised-button type="submit" class="colorButton">Registrar</button>
-                            <button mat-raised-button type="submit" class="colorButton">Editar</button>
-                            <button mat-raised-button type="submit" class="colorButton">Eliminar</button>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4"></div>
-           
-      </div>
-  </div>
+<div class="card">
+<div class="card-header card-header-success card-usuarios">
+  <h3 class="card-title"><b>USUARIO</b>
+  <button mat-fab aria-label="Example icon-button with a heart icon" (click) = "openDialogNuevoUsuario()" title="Crear nuevo registro">
+    <mat-icon>add</mat-icon>
+  </button>
+</h3>
 </div>
+<div class="card-body">
+  <div class="card">
+    <div class="card-header header">
+        <mat-form-field>
+          <mat-label>Filtro De Búsqueda</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Tatiana" style="color: white;">
+        </mat-form-field>
+    </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="numeroDocumentoUsuario">
+          <th mat-header-cell *matHeaderCellDef><b> Número de documento</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.numeroDocumentoUsuario}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombreCompletoUsuario">
+          <th mat-header-cell *matHeaderCellDef><b>Nombre</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombreCompletoUsuario}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoUsuario">
+          <th mat-header-cell *matHeaderCellDef><b>Tipo Usuario</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.tipoUsuario}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+
+        <ng-container matColumnDef="star" >
+          <th mat-header-cell *matHeaderCellDef> Opciones </th>
+          <td mat-cell *matCellDef="let element">          
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item> <mat-icon>edit</mat-icon> <span> Editar</span></button>
+              <button mat-menu-item> <mat-icon>delete</mat-icon> <span> Eliminar</span></button>
+              
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+
+

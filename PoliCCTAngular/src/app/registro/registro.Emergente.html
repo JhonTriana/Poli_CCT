@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Crear Nuevo Registro </h1>
+  <div mat-dialog-content>
+
+    <mat-form-field>
+      <mat-label>NT / CC</mat-label>
+      <input type="number" matInput  placeholder="Ingrese el NT o la CC" [(ngModel)]="data.ntCcRegistro">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput  placeholder="Ingrese el Nombre del Contratista" [(ngModel)]="data. nombreRegistro">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Dirección</mat-label>
+      <input type="text" matInput  placeholder="Ingrese la Dirección del Contratista" [(ngModel)]="data.direccionRegistro">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ciudad</mat-label>
+      <input type="text" matInput  placeholder="Ingrese la Ciudad del Contratista" [(ngModel)]="data.ciudadRegistro">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Teléfono</mat-label>
+      <input type="number" matInput  placeholder="Ingrese el Teléfono del Contratista" [(ngModel)]="data.telefonoRegistro">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Celular</mat-label>
+      <input type="number" matInput  placeholder="Ingrese el número de Celular del Contratista" [(ngModel)]="data.celularRegistro">
+    </mat-form-field>
+
+  </div>
+ 
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Regresar</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
+</div>

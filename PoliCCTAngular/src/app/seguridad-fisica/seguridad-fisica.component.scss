@@ -12,7 +12,30 @@
     color: #A6CE38;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
+    margin-left: 25%;
+    margin-right: 25%;
 }
+
 .seleccion{
     width: 200px;
+}
+mat-form-field{
+    margin-right: 30%;
+    margin-left: 30%;
+}
+.input{
+    border: 2px solid #1FB2DE;
+    border-radius: 5px;
+    margin-right: 30%;
+    margin-left: 30%;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 3s;
+}
+.label{
+    color: white;
+}
+mat-icon{
+    color: #0f385a;
 }

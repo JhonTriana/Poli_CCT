@@ -1,10 +1,11 @@
 export class RegistroDependencias {
-    NtCC:              number;
-    Nombre :           string;
-    Cargo :            string;
-    Area:              string;
-    Celular :          number;
-    Telefono :         number;
-    Extension :        number;
-    CorreoElectronico: string;
+    idRegistroDependencias: number;
+    ntCcRegistroDependencias:              number;
+    nombreRegistroDependencias :           string;
+    cargoRegistroDependencias :            string;
+    areaRegistroDependencias :              string;
+    celularRegistroDependencias :          number;
+    telefonoRegistroDependencias :         number;
+    extensionRegistroDependencias :        number;
+    correoElectronicoRegistroDependencias : string;
 }

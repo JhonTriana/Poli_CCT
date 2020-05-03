@@ -11,18 +11,18 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RequestManagementComponent, SolicitudEmergente } from '../../request-management/request-management.component'; 
 import { VideoComponent } from 'app/video/video.component';
-import { EmployeeRegistrationComponent} from '../../employee-registration/employee-registration.component'
-import { ActividadComponent } from 'app/actividad/actividad.component';
-import { DocumentoComponent } from 'app/documento/documento.component';
-import { CriterioComponent } from 'app/criterio/criterio.component';
+import { EmployeeRegistrationComponent, EmpleadoEmergente} from 'app/employee-registration/employee-registration.component';
+import { ActividadComponent, ActividadEmergente } from 'app/actividad/actividad.component';
+import { DocumentoComponent, DocumentoEmergente } from 'app/documento/documento.component';
+import { CriterioComponent, CriterioEmergente } from 'app/criterio/criterio.component';
 import { SeguridadFisicaComponent } from 'app/seguridad-fisica/seguridad-fisica.component';
-import { RegistroDependenciasComponent } from 'app/registrodependencias/registrodependencias.component';
-import { RegistroComponent } from 'app/registro/registro.component';
+import { RegistroDependenciasComponent, RegistroDependenciasEmergente } from 'app/registrodependencias/registrodependencias.component';
+import { RegistroComponent, RegistroEmergente } from 'app/registro/registro.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { CiudadComponent } from 'app/ciudad/ciudad.component';
+import { CiudadComponent, CiudadEmergente } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
-import { UsuarioComponent } from 'app/usuario/usuario.component';
+import { UsuarioComponent, UsuarioEmergente } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material';
@@ -30,7 +30,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent} from 'app/login/login.component';
-
 
 import {
   MatButtonModule,
@@ -40,7 +39,6 @@ import {
   MatTooltipModule,
   MatPaginatorModule
 } from '@angular/material';
-
 
 @NgModule({
   imports: [
@@ -93,7 +91,8 @@ import {
     RegistroEmergente,
     RegistroDependenciasEmergente,
     UsuarioEmergente,
-    SolicitudEmergente
+    SolicitudEmergente,
+    UsuarioEmergente
 
   ],
   entryComponents: [
@@ -102,11 +101,14 @@ import {
     RegistroEmergente,
     RegistroDependenciasEmergente,
     UsuarioEmergente,
-    SolicitudEmergente
-  ]
+    SolicitudEmergente,
+    EmpleadoEmergente
+
+    
+  ],
+
      
     
-  ]
 })
 
 export class AdminLayoutModule {}

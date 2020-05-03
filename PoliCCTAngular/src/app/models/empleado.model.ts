@@ -1,11 +1,11 @@
     export class Empleado {
-        nombreEmpleado :  Text;
-        identificacion :  string;
+        nombreEmpleado :  string;
+        identificacion :  number;
         direccion :       string;
         telefono :        number;
-        cargo :           Text;
-        contacto :        number;
+        cargo :           string;
+        contacto :        string;
         numero_contacto:  number;
         mail:             string;
-        idContratista :   string; 
+        idContratista :   number; 
     }
