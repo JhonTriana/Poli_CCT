@@ -23,4 +23,7 @@ export class DocumentoService {
   editarDocumento(element, result){
     this.ALL_Documentos[element].nombreDocumento = result ;
   }
+  getDocumentoPorCriterio(idDocumento){
+    return of (this.ALL_Documentos.filter((documento:any) => documento.idDocumento == idDocumento));
+  }
 }
