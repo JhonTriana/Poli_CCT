@@ -69,8 +69,14 @@ export class DocumentoComponent implements OnInit {
     });
   }
   eliminarDocumento(element){
-    this.DocumentoService.eliminarDocumento(element);
-    this.getAllDocumentos();
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+        this.DocumentoService.eliminarDocumento(element);
+        this.getAllDocumentos();
+        return true ; 
+    }else{
+      return false ;
+    }  
   } 
   displayedColumns: string[] = ['idDocumento', 'nombreDocumento', "star"];
   applyFilter(event: Event) {
