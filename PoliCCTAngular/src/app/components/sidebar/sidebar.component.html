@@ -54,11 +54,58 @@
     </ul>
   </div>
     <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a class="nav-link" [routerLink]="[menuItem.path]">
-                <i class="material-icons">{{menuItem.icon}}</i>
-                <p>{{menuItem.title}}</p>
-            </a>
-        </li>
-    </ul>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title >Administrador</mat-panel-title> 
+                </mat-expansion-panel-header>                
+                <li routerLinkActive="active" *ngFor="let menuItem of menuAdminitrador" class="{{menuItem.class}} nav-item">
+                    <a class="nav-link1" [routerLink]="[menuItem.path]">
+                        <i class="material-icons">{{menuItem.icon}}</i>
+                        {{menuItem.title}}
+                    </a>    
+                </li>
+            </mat-expansion-panel>  
+        <br>        
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Contratista</mat-panel-title> 
+                </mat-expansion-panel-header>                
+                <li routerLinkActive="active" *ngFor="let menuItem of menuContratista" class="{{menuItem.class}} nav-item">
+                    <a class="nav-link1" [routerLink]="[menuItem.path]">
+                        <i class="material-icons">{{menuItem.icon}}</i>
+                        {{menuItem.title}}
+                    </a>    
+                </li>
+            </mat-expansion-panel>  
+        <br>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Empleado </mat-panel-title> 
+                </mat-expansion-panel-header>                
+                <li routerLinkActive="active" *ngFor="let menuItem of menuEmpleado" class="{{menuItem.class}} nav-item">
+                    <a class="nav-link1" [routerLink]="[menuItem.path]">
+                        <i class="material-icons">{{menuItem.icon}}</i>
+                        {{menuItem.title}}
+                    </a>    
+                </li>
+            </mat-expansion-panel>  
+        <br>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Seguridad</mat-panel-title> 
+                </mat-expansion-panel-header>                
+                <li routerLinkActive="active" *ngFor="let menuItem of menuSeguridad" class="{{menuItem.class}} nav-item">
+                    <a class="nav-link1" [routerLink]="[menuItem.path]">
+                        <i class="material-icons">{{menuItem.icon}}</i>
+                        {{menuItem.title}}
+                    </a>    
+                </li>
+            </mat-expansion-panel>  
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+            </mat-expansion-panel>
+        </mat-accordion>
+
+    </ul>  
 </div>
