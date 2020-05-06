@@ -17,13 +17,22 @@ export class ActividadComponent implements OnInit {
   newActividad: Actividad;
   dataSource = new MatTableDataSource(this.misActividades);
   No = 0 ;
+  lista : any ;
   
   constructor(private ActividadService: ActividadService , public dialog: MatDialog ) { 
     this.getAllActividades();
+    this.consultarServicioExterno();
+  }
+  consultarServicioExterno(){
+    this.ActividadService.consultarServicioExterno().subscribe(
+      (data) => {
+        this.lista = data['results'];
+        console.log("Entra2:", this.lista[1].title);
+    });
   }
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-  }  
+  }
   getAllActividades(){
     this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   this.misActividades = misActividadesObs;   }   )
     this.dataSource = new MatTableDataSource(this.misActividades);
@@ -77,6 +86,7 @@ export class ActividadComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  
 }
 @Component({
   selector: 'actividad.Emergente',

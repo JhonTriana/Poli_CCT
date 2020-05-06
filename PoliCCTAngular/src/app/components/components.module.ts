@@ -5,18 +5,19 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    MatExpansionModule
   ],
   declarations: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    
+
   ],
   exports: [
     FooterComponent,

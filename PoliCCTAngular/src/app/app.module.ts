@@ -22,6 +22,10 @@ import { DocumentEntryComponent } from './document-entry/document-entry.componen
 import {
   AgmCoreModule
 } from '@agm/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ActividadService } from './services/actividad.service';
+import { DocumentoService } from './services/documento.service';
+import { CriterioService } from './services/criterio.service';
 
 
 @NgModule({
@@ -36,7 +40,8 @@ import {
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule //Se importa Una Sola Vez para todo el Proyecto
   ],
   declarations: [
     AppComponent,
@@ -44,7 +49,11 @@ import {
     PageNotFoundComponent,
     DocumentEntryComponent
   ],
-  providers: [],
+  providers: [ //Importar los los servicios
+    ActividadService,
+    DocumentoService,
+    CriterioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
