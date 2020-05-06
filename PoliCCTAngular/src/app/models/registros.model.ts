@@ -6,7 +6,8 @@ export class Registro {
     ntCcRegistro: number;
     nombreRegistro: string;
     direccionRegistro: string;
-    ciudadRegistro: string;
+    idCiudad: number;
+    //ciudadRegistro: string;
     telefonoRegistro: number;
     celularRegistro: number;
 }

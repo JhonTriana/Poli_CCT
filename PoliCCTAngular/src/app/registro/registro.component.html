@@ -43,10 +43,17 @@
             </ng-container>
 
             <!-- Quinta columna de la Tabla -->
+            <ng-container matColumnDef="nombreCiudad">
+              <th mat-header-cell *matHeaderCellDef><b>Nombre Ciudad</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.idCiudad}} </td>
+            </ng-container>
+
+            <!--
             <ng-container matColumnDef="ciudadRegistro">
               <th mat-header-cell *matHeaderCellDef><b>Ciudad</b> </th>
               <td mat-cell *matCellDef="let element"> {{element.ciudadRegistro}} </td>
             </ng-container>
+            -->
 
              <!-- Sexta columna de la Tabla -->
              <ng-container matColumnDef="telefonoRegistro">
