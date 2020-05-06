@@ -22,7 +22,7 @@ import { UbicacionComponent, UbicacionEmergente } from 'app/ubicacion/ubicacion.
 import { UsuarioComponent, UsuarioEmergente } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatListModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
