@@ -1,15 +1,23 @@
 <div class="main-content">
     <div class="card">
       <div class="card-header card-header-danger">
-          <h4 class="card-title">Video de induccion de manejo de POLI_CCT</h4>
+          <h3 class="card-title"><b> VIDEO DE INDUCCION DE MANEJO DE POLI_CCT </b></h3>
           <p class="card-category"></p>
       </div>
       <div class="card-body" style="text-align:center;">
           <h4 class="card-title"></h4>
-          <video width="640" height="360" controls center>
-             <source src="video.mp4"  type="video/mp4" >
-              Tu navegador no soporta HTML5 video.
-          </video>
+
+
+
+ 
+          <video controls (click)="toggleVideo()" #videoPlayer width="640" height="400" autoplay allow="autoplay">
+            <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4" /> 
+                 Tu navegador no soporta HTML5 video.
+            </video>
+
+
+
+
              <p class="card-category"> 
               <h3>Valide el video:<input type="checkbox" id="cbox" value="first_checkbox">
               <button mat-raised-button type="submit" class="colorButton">Regresar</button>
