@@ -101,8 +101,14 @@ export class CriterioComponent implements OnInit {
     });
   }
   eliminarCriterio(element){
-    this.CriterioService.eliminarCriterio(element);
-    this.getAllCriterios();
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+          this.CriterioService.eliminarCriterio(element);
+          this.getAllCriterios();
+          return true ; 
+    }else{
+      return false ;
+    }  
   } 
   displayedColumns: string[] = ['idCriterio', 'nombreActividad', 'nombreDocumento', "star"];
   applyFilter(event: Event) {

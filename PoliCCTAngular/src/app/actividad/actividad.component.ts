@@ -78,8 +78,14 @@ export class ActividadComponent implements OnInit {
     });
   }
   eliminarActividad(element){
-    this.ActividadService.eliminarActividad(element);
-    this.getAllActividades();
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+      this.ActividadService.eliminarActividad(element); //Se Manetiene Igual
+      this.getAllActividades();                         //Se Manetiene Igual  
+      return true ; 
+    }else{
+      return false ;
+    }  
   } 
   displayedColumns: string[] = ['idActividad', 'nombreActividad', "star"];
   applyFilter(event: Event) {
