@@ -97,9 +97,15 @@ export class RegistroComponent implements OnInit {
     });
   }
   eliminarRegistro(element){
-    this.RegistroService.eliminarRegistro(element);
-    this.getAllRegistros();
-  } 
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+          this.RegistroService.eliminarRegistro(element);
+          this.getAllRegistros();
+          return true ; 
+    }else{
+      return false ;
+    }  
+  }  
   displayedColumns: string[] = ['idRegistro', 'ntCcRegistro', 'nombreRegistro' , 'direccionRegistro' , /*'ciudadRegistro'*/ 'nombreCiudad' , 'telefonoRegistro' , 'celularRegistro' ,"star"];
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

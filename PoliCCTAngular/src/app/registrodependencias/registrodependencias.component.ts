@@ -79,9 +79,15 @@ export class RegistroDependenciasComponent implements OnInit {
     });
   }
   eliminarRegistroDependencias(element){
-    this.RegistroDependenciasService.eliminarRegistroDependencias(element);
-    this.getAllRegistroDependencias1();
-  } 
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+          this.RegistroDependenciasService.eliminarRegistroDependencias(element);
+          this.getAllRegistroDependencias1();
+          return true ; 
+    }else{
+      return false ;
+    }  
+  }  
   displayedColumns: string[] = ['idRegistroDependencias', 'ntCcRegistroDependencias', 'nombreRegistroDependencias' , 'cargoRegistroDependencias' , 'areaRegistroDependencias' , 'celularRegistroDependencias' , 'telefonoRegistroDependencias' , 'extensionRegistroDependencias' , 'correoElectronicoRegistroDependencias' , "star"];
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

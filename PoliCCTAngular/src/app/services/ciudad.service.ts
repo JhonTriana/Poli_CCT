@@ -10,7 +10,8 @@ export class CiudadService {
   ALL_Ciudades: Ciudad [] = [
     {   idCiudad: 1,   nombreCiudad: "Medellín"   },
     {   idCiudad: 2,   nombreCiudad: "Bucaramanga"       },
-    {   idCiudad: 3,   nombreCiudad: "Cali"       }
+    {   idCiudad: 3,   nombreCiudad: "Cali"       },
+    {   idCiudad: 4,   nombreCiudad: "Bogotá D.C." }
 ]
   constructor() { }
   getAllCiudades() : Observable<Ciudad[]>{
