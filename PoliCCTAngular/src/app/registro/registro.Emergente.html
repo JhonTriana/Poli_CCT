@@ -15,11 +15,25 @@
       <mat-label>Dirección</mat-label>
       <input type="text" matInput  placeholder="Ingrese la Dirección del Contratista" [(ngModel)]="data.direccionRegistro">
     </mat-form-field>
-
+<!--
     <mat-form-field>
       <mat-label>Ciudad</mat-label>
       <input type="text" matInput  placeholder="Ingrese la Ciudad del Contratista" [(ngModel)]="data.ciudadRegistro">
     </mat-form-field>
+-->
+<!--LLamar la ciudad del componente ciudad-->
+ <mat-form-field class="seleccion">
+            <mat-label >Seleccione la ciudad</mat-label>
+          <mat-select [(ngModel)]="data.nombreCiudad"> 
+            <mat-option type="text" matInput *ngFor="let ciudad of data.misCiudades" [value]="ciudad.nombreCiudad" > 
+              {{ ciudad.nombreCiudad }}
+            </mat-option>    
+          </mat-select>
+        </mat-form-field>
+
+
+
+
 
     <mat-form-field>
       <mat-label>Teléfono</mat-label>
