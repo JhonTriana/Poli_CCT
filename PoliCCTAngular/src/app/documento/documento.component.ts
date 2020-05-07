@@ -44,27 +44,34 @@ export class DocumentoComponent implements OnInit {
       data: { Documento }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.newDocumento.nombreDocumento = result;
-      if (this.newDocumento.nombreDocumento === undefined ){
+      if (result.nombreDocumento === undefined || result.vigenciaDocumento === undefined){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.newDocumento.idDocumento = this.No ; 
+        this.newDocumento.nombreDocumento = result.nombreDocumento;
+        this.newDocumento.vigenciaDocumento = result.vigenciaDocumento;
         this.DocumentoService.createNewDocumento(this.newDocumento);
         this.getAllDocumentos();
+        var r = alert('Registro Exitoso');
       }
     });
   }
   openDialogEditarDocumento(element): void {
     const dialogRef = this.dialog.open(DocumentoEmergente, {
       width: '300px',
-      data: {nombreDocumento: this.misDocumentos[element].nombreDocumento}
+      data: { nombreDocumento: this.misDocumentos[element].nombreDocumento, vigenciaDocumento: this.misDocumentos[element].vigenciaDocumento }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined ){
+      console.log("Resultado: ", result);
+      if (result.nombreDocumento === undefined || result.vigenciaDocumento === undefined || 
+          result.nombreDocumento === null || result.vigenciaDocumento === null ){
+        var r = alert('Datos Incompletos');
       }
       else{
-        this.DocumentoService.editarDocumento(element, result);
+        this.DocumentoService.editarDocumento(element, result.nombreDocumento, result.vigenciaDocumento);
         this.getAllDocumentos();
+        var r = alert('Registro Exitoso');
       }
     });
   }
@@ -73,12 +80,13 @@ export class DocumentoComponent implements OnInit {
     if(r === true){
         this.DocumentoService.eliminarDocumento(element);
         this.getAllDocumentos();
+        var r1 = alert('Registro Eliminado Exitosamente');
         return true ; 
     }else{
       return false ;
     }  
   } 
-  displayedColumns: string[] = ['idDocumento', 'nombreDocumento', "star"];
+  displayedColumns: string[] = ['idDocumento', 'nombreDocumento', "vigenciaDocumento" , "star"];
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

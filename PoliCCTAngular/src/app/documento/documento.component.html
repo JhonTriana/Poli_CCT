@@ -29,6 +29,12 @@
               <td mat-cell *matCellDef="let element"> {{element.nombreDocumento}} </td>
             </ng-container>
 
+            <!-- Tercer columna de la Tabla -->
+            <ng-container matColumnDef="vigenciaDocumento">
+              <th mat-header-cell *matHeaderCellDef><b>Vigencia Documento (Días)</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.vigenciaDocumento}} </td>
+            </ng-container>
+
             <!-- Columna de Opciones -->
             <ng-container matColumnDef="star" >
               <th mat-header-cell *matHeaderCellDef> Opciones </th>
