@@ -51,6 +51,7 @@ export class SedeComponent implements OnInit {
       }
     }
   }
+
   openDialogNuevaSede(): void {
     const dialogRef = this.dialog.open(SedeEmergente, {
       width: '300px',
