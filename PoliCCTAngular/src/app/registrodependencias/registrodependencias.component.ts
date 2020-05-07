@@ -60,6 +60,7 @@ export class RegistroDependenciasComponent implements OnInit {
         this.newRegistroDependencias.idRegistroDependencias = this.No ; 
         this.RegistroDependenciasService.createNewRegistroDependencias(this.newRegistroDependencias);
         this.getAllRegistroDependencias1();
+        var r = alert('Registro Exitoso');
       }
     });
   }
@@ -75,6 +76,7 @@ export class RegistroDependenciasComponent implements OnInit {
       else{
         this.RegistroDependenciasService.editarregistroDependencias(element, result.ntCcRegistroDependencias, result.nombreRegistroDependencias, result.cargoRegistroDependencias, result.areaRegistroDependencias, result.celularRegistroDependencias, result.telefonoRegistroDependencias, result.extensionRegistroDependencias, result.correoElectronicoRegistroDependencias);
         this.getAllRegistroDependencias1();
+        var r = alert('Registro Exitoso');
       }
     });
   }

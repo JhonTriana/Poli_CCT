@@ -78,6 +78,7 @@ export class RegistroComponent implements OnInit {
         }
         this.RegistroService.createNewRegistro(this.newRegistro);
         this.getAllRegistros();
+        var r = alert('Registro Exitoso');
       }
     });
   }
@@ -93,6 +94,7 @@ export class RegistroComponent implements OnInit {
       else{
        this.RegistroService.editarregistro(element, result.ntCcRegistro, result.nombreRegistro, result.direccionRegistro, /* result.ciudadRegistro */ result.nombreCiudad, result.telefonoRegistro, result.celularRegistro );
         this.getAllRegistros();
+        var r = alert('Registro Exitoso');
       }
     });
   }
