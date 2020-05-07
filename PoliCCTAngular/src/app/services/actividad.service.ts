@@ -34,6 +34,7 @@ export class ActividadService {
   getAllActividades() : Observable<Actividad[]>{
     return of (this.ALL_Actividades);
   }
+  
   createNewActividad(nuevaActividad){ 
     this.ALL_Actividades.push(nuevaActividad);
   }
