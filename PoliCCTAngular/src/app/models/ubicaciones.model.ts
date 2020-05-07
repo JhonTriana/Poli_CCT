@@ -3,4 +3,5 @@
 export class Ubicacion {
     idUbicacion: number;
     nombreUbicacion: string;
+    idSede: number;
 }
