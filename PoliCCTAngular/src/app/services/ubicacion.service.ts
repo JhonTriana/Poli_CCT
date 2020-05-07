@@ -6,11 +6,11 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class UbicacionService {
-
+  
   ALL_Ubicaciones: Ubicacion [] = [
-    {   idUbicacion: 1,   nombreUbicacion: "Castilla"   },
-    {   idUbicacion: 2,   nombreUbicacion: "Calle 63"       },
-    {   idUbicacion: 3,   nombreUbicacion: "Chapinero"       }
+    {   idUbicacion: 1,   nombreUbicacion: "Biblioteca" , idSede: 1 },
+    {   idUbicacion: 2,   nombreUbicacion: "Gimnasio"   , idSede: 1 },
+    {   idUbicacion: 3,   nombreUbicacion: "Cafeteria"  , idSede: 1 }
 ]
   constructor() { }
   getAllUbicaciones() : Observable<Ubicacion[]>{
@@ -21,5 +21,9 @@ export class UbicacionService {
   }
   eliminarUbicacion(element){
     this.ALL_Ubicaciones.splice(element,1);
+  }
+  editarUbicacion(element, nombreSede, nombreUbicacion){
+    this.ALL_Ubicaciones[element].nombreUbicacion = nombreUbicacion;
+    this.ALL_Ubicaciones[element].idSede = nombreSede;
   }
 }

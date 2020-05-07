@@ -8,9 +8,9 @@ import { Observable, of } from 'rxjs';
 export class SedeService {
 
   ALL_Sedes: Sede [] = [
-    {   idSede: 1,   nombreSede: "Medellín"   },
-    {   idSede: 2,   nombreSede: "Bucaramanga"       },
-    {   idSede: 3,   nombreSede: "Cali"       }
+    {   idSede: 1,   nombreSede: "Campus" , idCiudad: 1 },
+    {   idSede: 2,   nombreSede: "Ciudad" , idCiudad: 2 },
+    {   idSede: 3,   nombreSede: "City"   , idCiudad: 1 }
 ]
   constructor() { }
   getAllSedes() : Observable<Sede[]>{
@@ -21,5 +21,9 @@ export class SedeService {
   }
   eliminarSede(element){
     this.ALL_Sedes.splice(element,1);
+  }
+  editarSede(element, nombreCiudad, nombreSede){
+    this.ALL_Sedes[element].nombreSede = nombreSede;
+    this.ALL_Sedes[element].idCiudad = nombreCiudad;
   }
 }
