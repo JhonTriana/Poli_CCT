@@ -40,58 +40,56 @@ export class RegistroDependenciasComponent implements OnInit {
   }
   openDialogNuevaRegistroDependencias(): void {
     const dialogRef = this.dialog.open(RegistroDependenciasEmergente, {
-      width: '300px',
+      width: '400px',
       data: {idRegistroDependencias: this.misRegistroDependencias1.idRegistroDependencias , ntCcRegistroDependencias: this.misRegistroDependencias1.ntCcRegistroDependencias , nombreRegistroDependencias: this.misRegistroDependencias1.nombreRegistroDependencias , cargoRegistroDependencias: this.misRegistroDependencias1.cargoRegistroDependencias , areaRegistroDependencias: this.misRegistroDependencias1.areaRegistroDependencias , celularRegistroDependencias: this.misRegistroDependencias1.celularRegistroDependencias , telefonoRegistroDependencias: this.misRegistroDependencias1.telefonoRegistroDependencias, extensionRegistroDependencias: this.misRegistroDependencias1.extensionRegistroDependencias,
       correoElectronicoRegistroDependencias: this.misRegistroDependencias1.correoElectronicoRegistroDependencias } 
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.newRegistroDependencias.ntCcRegistroDependencias = result;
-      this.newRegistroDependencias.nombreRegistroDependencias = result;
-      this.newRegistroDependencias.cargoRegistroDependencias = result;
-      this.newRegistroDependencias.areaRegistroDependencias = result;
-      this.newRegistroDependencias.celularRegistroDependencias = result;
-      this.newRegistroDependencias.telefonoRegistroDependencias = result;
-      this.newRegistroDependencias.extensionRegistroDependencias = result;
-      this.newRegistroDependencias.correoElectronicoRegistroDependencias = result;
-      if (this.newRegistroDependencias.ntCcRegistroDependencias === undefined , this.newRegistroDependencias.nombreRegistroDependencias === undefined , this.newRegistroDependencias.cargoRegistroDependencias === undefined , this.newRegistroDependencias.areaRegistroDependencias === undefined , this.newRegistroDependencias.celularRegistroDependencias === undefined , this.newRegistroDependencias.telefonoRegistroDependencias === undefined, this.newRegistroDependencias.extensionRegistroDependencias === undefined , this.newRegistroDependencias.correoElectronicoRegistroDependencias === undefined ){
+      console.log("Result: ",result);
+      this.newRegistroDependencias.ntCcRegistroDependencias = result.ntCcRegistroDependencias;
+      this.newRegistroDependencias.nombreRegistroDependencias = result.nombreRegistroDependencias;
+      this.newRegistroDependencias.cargoRegistroDependencias = result.cargoRegistroDependencias;
+      this.newRegistroDependencias.areaRegistroDependencias = result.areaRegistroDependencias;
+      this.newRegistroDependencias.celularRegistroDependencias = result.celularRegistroDependencias;
+      this.newRegistroDependencias.telefonoRegistroDependencias = result.telefonoRegistroDependencias;
+      this.newRegistroDependencias.extensionRegistroDependencias = result.extensionRegistroDependencias;
+      this.newRegistroDependencias.correoElectronicoRegistroDependencias = result.correoElectronicoRegistroDependencias;
+      if (this.newRegistroDependencias.ntCcRegistroDependencias === undefined || this.newRegistroDependencias.nombreRegistroDependencias === undefined || this.newRegistroDependencias.cargoRegistroDependencias === undefined || this.newRegistroDependencias.areaRegistroDependencias === undefined || this.newRegistroDependencias.celularRegistroDependencias === undefined || this.newRegistroDependencias.telefonoRegistroDependencias === undefined || this.newRegistroDependencias.extensionRegistroDependencias === undefined || this.newRegistroDependencias.correoElectronicoRegistroDependencias === undefined ){
       }
       else{
         this.newRegistroDependencias.idRegistroDependencias = this.No ; 
         this.RegistroDependenciasService.createNewRegistroDependencias(this.newRegistroDependencias);
         this.getAllRegistroDependencias1();
+        var r = alert('Registro Exitoso');
       }
     });
   }
   openDialogEditarRegistroDependencias(element): void {
     const dialogRef = this.dialog.open(RegistroDependenciasEmergente, {
       width: '300px',
-      data: {idRegistroDependencias: this.misRegistroDependencias1.idRegistroDependencias , ntCcRegistroDependencias: this.misRegistroDependencias1.ntCcRegistroDependencias , nombreRegistroDependencias: this.misRegistroDependencias1.nombreRegistroDependencias , cargoRegistroDependencias: this.misRegistroDependencias1.cargoRegistroDependencias , areaRegistroDependencias: this.misRegistroDependencias1.areaRegistroDependencias , celularRegistroDependencias: this.misRegistroDependencias1.celularRegistroDependencias , telefonoRegistroDependencias: this.misRegistroDependencias1.telefonoRegistroDependencias, extensionRegistroDependencias: this.misRegistroDependencias1.extensionRegistroDependencias,
-        correoElectronicoRegistroDependencias: this.misRegistroDependencias1.correoElectronicoRegistroDependencias } 
+      data: {idRegistroDependencias: this.misRegistroDependencias1[element].idRegistroDependencias , ntCcRegistroDependencias: this.misRegistroDependencias1[element].ntCcRegistroDependencias , nombreRegistroDependencias: this.misRegistroDependencias1[element].nombreRegistroDependencias , cargoRegistroDependencias: this.misRegistroDependencias1[element].cargoRegistroDependencias , areaRegistroDependencias: this.misRegistroDependencias1[element].areaRegistroDependencias , celularRegistroDependencias: this.misRegistroDependencias1[element].celularRegistroDependencias , telefonoRegistroDependencias: this.misRegistroDependencias1[element].telefonoRegistroDependencias, extensionRegistroDependencias: this.misRegistroDependencias1[element].extensionRegistroDependencias,
+        correoElectronicoRegistroDependencias: this.misRegistroDependencias1[element].correoElectronicoRegistroDependencias } 
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === undefined ){
       }
       else{
-        let número = this.misRegistroDependencias1[element].idRegistroDependencias ; 
-        this.eliminarRegistroDependencias(element);
-        this.newRegistroDependencias.idRegistroDependencias = número ;
-        this.newRegistroDependencias.ntCcRegistroDependencias = número;
-        this.newRegistroDependencias.nombreRegistroDependencias = result;
-        this.newRegistroDependencias.cargoRegistroDependencias = result;
-        this.newRegistroDependencias.areaRegistroDependencias = result;
-        this.newRegistroDependencias.celularRegistroDependencias = número;
-        this.newRegistroDependencias.telefonoRegistroDependencias = número;
-        this.newRegistroDependencias.extensionRegistroDependencias = número;
-        this.newRegistroDependencias.correoElectronicoRegistroDependencias = result;
-        this.RegistroDependenciasService.createNewRegistroDependencias(this.newRegistroDependencias);
+        this.RegistroDependenciasService.editarregistroDependencias(element, result.ntCcRegistroDependencias, result.nombreRegistroDependencias, result.cargoRegistroDependencias, result.areaRegistroDependencias, result.celularRegistroDependencias, result.telefonoRegistroDependencias, result.extensionRegistroDependencias, result.correoElectronicoRegistroDependencias);
         this.getAllRegistroDependencias1();
+        var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarRegistroDependencias(element){
-    this.RegistroDependenciasService.eliminarRegistroDependencias(element);
-    this.getAllRegistroDependencias1();
-  } 
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+          this.RegistroDependenciasService.eliminarRegistroDependencias(element);
+          this.getAllRegistroDependencias1();
+          return true ; 
+    }else{
+      return false ;
+    }  
+  }  
   displayedColumns: string[] = ['idRegistroDependencias', 'ntCcRegistroDependencias', 'nombreRegistroDependencias' , 'cargoRegistroDependencias' , 'areaRegistroDependencias' , 'celularRegistroDependencias' , 'telefonoRegistroDependencias' , 'extensionRegistroDependencias' , 'correoElectronicoRegistroDependencias' , "star"];
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -104,7 +102,7 @@ export class RegistroDependenciasComponent implements OnInit {
 })
 export class RegistroDependenciasEmergente {
   constructor(public dialogRef: MatDialogRef<RegistroDependenciasEmergente>,
-    @Inject(MAT_DIALOG_DATA)  public data: RegistroDependencias ) {    }
+    @Inject(MAT_DIALOG_DATA)  public data: {idRegistroDependencias, ntCcRegistroDependencias, nombreRegistroDependencias, cargoRegistroDependencias, areaRegistroDependencias, celularRegistroDependencias, telefonoRegistroDependencias, extensionRegistroDependencias, correoElectronicoRegistroDependencias} ) {    }
   onNoClick(): void {
     this.dialogRef.close();
   } 

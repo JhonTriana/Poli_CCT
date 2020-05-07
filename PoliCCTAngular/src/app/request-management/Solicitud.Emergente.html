@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Crear Nueva Solicitud</h1>
+<div class="container-form">
+  <mat-form-field appearance="fill" class="select">
+    <mat-label>Empleado</mat-label>
+    <mat-select #empleados required>
+      <!--<mat-select-filter *ngIf="empleados.focused" [displayMember]="'nombreEmpleado'" [array]="misEmpleados" (filteredReturn)="filteredEmpleados1 =$event">
+      </mat-select-filter>-->
+      <mat-option *ngFor="let empleado of misEmpleados" [value]="empleado" >
+        {{empleado.nombreEmpleado}}
+      </mat-option>
+    </mat-select>
+    <!-- <mat-hint align="end" style="color:#244665">Recuerde que para realizar la solicitud es necesario tener al empleado registrado.</mat-hint> -->
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="select">
+    <mat-label>Actividad</mat-label>
+    <mat-select (selectionChange)="getCriteriosPorActividad($event.value)" required>
+      <!-- <mat-select-filter *ngIf="actividades.focused" [displayMember]="'nombreActividad'" [array]="misActividades" (filteredReturn)="filteredActividades =$event">
+      </mat-select-filter> -->
+      <mat-option *ngFor="let actividad of misActividades" [value]="actividad">
+        {{actividad.nombreActividad}}
+      </mat-option>
+    </mat-select>
+    <!-- <mat-hint align="end" style="color: #244665;">Si no encuentra la actividad contacte al administrador del sistema.</mat-hint>-->
+  </mat-form-field> 
+</div>
+<div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Documentos Requeridos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let documento of documentos">
+          <div *ngFor="let documento1 of documento">
+            <div mat-line >
+              {{documento1.nombreDocumento}}
+            </div>
+            <div mat-line id="{{documento1.idDocumento}}"> 
+              <input type="file" >
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Regresar</button>
+  <button mat-button [mat-dialog-close]="data.nombreDocumento" cdkFocusInitial >Guardar</button>
+</div>

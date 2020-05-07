@@ -27,6 +27,10 @@ export class CriterioService {
     this.ALL_Criterios[element].idActividad = idActividad ;
     this.ALL_Criterios[element].idDocumento = idDocumento ;
   }
+
+  getCriterioPorActividad(idActividad): Observable<Criterio[]>{
+    //console.log("actividad seleccionada", idActividad);
+    return of (this.ALL_Criterios.filter((criterio:any) => criterio.idActividad == idActividad));
+  }
+
 }
-
-

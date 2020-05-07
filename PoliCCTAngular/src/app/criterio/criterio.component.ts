@@ -68,6 +68,7 @@ export class CriterioComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if ( result.nombreActividad === undefined || result.nombreDocumento === undefined ){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.newCriterio.idCriterio = this.No ; 
@@ -83,6 +84,7 @@ export class CriterioComponent implements OnInit {
         }  
         this.CriterioService.crearNuevoCriterio(this.newCriterio);
         this.getAllCriterios();
+        var r = alert('Registro Exitoso');
       }
     });
   }
@@ -92,17 +94,27 @@ export class CriterioComponent implements OnInit {
       data: { misActividades: this.misActividades , misDocumentos: this.misDocumentos , nombreActividad: this.misCriterios[element].idActividad , nombreDocumento: this.misCriterios[element].idDocumento }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if ( result.nombreActividad === undefined || result.nombreDocumento === undefined ){
+      if ( result.nombreActividad === undefined || result.nombreDocumento === undefined
+        || result.nombreActividad === null || result.nombreDocumento === null ){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.CriterioService.editarCriterio(element, result.nombreActividad, result.nombreDocumento);
         this.getAllCriterios();
+        var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarCriterio(element){
-    this.CriterioService.eliminarCriterio(element);
-    this.getAllCriterios();
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+          this.CriterioService.eliminarCriterio(element);
+          this.getAllCriterios();
+          var r1 = alert('Registro Eliminado Exitosamente');
+          return true ; 
+    }else{
+      return false ;
+    }  
   } 
   displayedColumns: string[] = ['idCriterio', 'nombreActividad', 'nombreDocumento', "star"];
   applyFilter(event: Event) {

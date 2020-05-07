@@ -5,7 +5,11 @@
       <input type="text" matInput  placeholder="Ingrese el Documento" [(ngModel)]="data.nombreDocumento">
     </mat-form-field>
   </div>
+  <mat-form-field>
+    <mat-label>Vigencia Del Documento (días)</mat-label>
+    <input type="number" matInput  placeholder="Ingrese el número de días" [(ngModel)]="data.vigenciaDocumento">
+  </mat-form-field>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Regresar</button>
-    <button mat-button [mat-dialog-close]="data.nombreDocumento" cdkFocusInitial >Guardar</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
 </div>

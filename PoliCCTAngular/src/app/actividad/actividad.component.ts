@@ -17,13 +17,22 @@ export class ActividadComponent implements OnInit {
   newActividad: Actividad;
   dataSource = new MatTableDataSource(this.misActividades);
   No = 0 ;
+  lista : any ;
   
   constructor(private ActividadService: ActividadService , public dialog: MatDialog ) { 
     this.getAllActividades();
+    this.consultarServicioExterno();
+  }
+  consultarServicioExterno(){
+    this.ActividadService.consultarServicioExterno().subscribe(
+      (data) => {
+        this.lista = data['results'];
+        console.log("Entra2:", this.lista[1].title);
+    });
   }
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-  }  
+  }
   getAllActividades(){
     this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   this.misActividades = misActividadesObs;   }   )
     this.dataSource = new MatTableDataSource(this.misActividades);
@@ -46,11 +55,13 @@ export class ActividadComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.newActividad.nombreActividad = result;
       if (this.newActividad.nombreActividad === undefined ){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.newActividad.idActividad = this.No ; 
         this.ActividadService.createNewActividad(this.newActividad);
         this.getAllActividades();
+        var r = alert('Registro Exitoso');
       }
     });
   }
@@ -60,23 +71,33 @@ export class ActividadComponent implements OnInit {
       data: { nombreActividad: this.misActividades[element].nombreActividad }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined ){
+      if (result === undefined || result === null ){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.ActividadService.editarActividad(element, result);
         this.getAllActividades();
+        var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarActividad(element){
-    this.ActividadService.eliminarActividad(element);
-    this.getAllActividades();
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+      this.ActividadService.eliminarActividad(element);
+      this.getAllActividades();                          
+      var r1 = alert('Registro Eliminado Exitosamente');
+      return true ; 
+    }else{
+      return false ;
+    }  
   } 
   displayedColumns: string[] = ['idActividad', 'nombreActividad', "star"];
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  
 }
 @Component({
   selector: 'actividad.Emergente',
