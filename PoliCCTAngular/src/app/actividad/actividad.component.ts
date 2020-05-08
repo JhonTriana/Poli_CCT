@@ -55,11 +55,13 @@ export class ActividadComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.newActividad.nombreActividad = result;
       if (this.newActividad.nombreActividad === undefined ){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.newActividad.idActividad = this.No ; 
         this.ActividadService.createNewActividad(this.newActividad);
         this.getAllActividades();
+        var r = alert('Registro Exitoso');
       }
     });
   }
@@ -69,19 +71,22 @@ export class ActividadComponent implements OnInit {
       data: { nombreActividad: this.misActividades[element].nombreActividad }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined ){
+      if (result === undefined || result === null ){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.ActividadService.editarActividad(element, result);
         this.getAllActividades();
+        var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarActividad(element){
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-      this.ActividadService.eliminarActividad(element); //Se Manetiene Igual
-      this.getAllActividades();                         //Se Manetiene Igual  
+      this.ActividadService.eliminarActividad(element);
+      this.getAllActividades();                          
+      var r1 = alert('Registro Eliminado Exitosamente');
       return true ; 
     }else{
       return false ;

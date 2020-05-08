@@ -46,11 +46,13 @@ export class CiudadComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.newCiudad.nombreCiudad = result;
       if (this.newCiudad.nombreCiudad === undefined ){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.newCiudad.idCiudad = this.No ; 
         this.CiudadService.createNewCiudad(this.newCiudad);
         this.getAllCiudades();
+        var r = alert('Registro Exitoso');
       }
     });
   }
@@ -60,17 +62,26 @@ export class CiudadComponent implements OnInit {
       data: { nombreCiudad: this.misCiudades[element].nombreCiudad }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined ){
+      if (result === undefined || result === null ){
+        var r = alert('Datos Incompletos');
       }
       else{
         this.CiudadService.editarCiudad(element,result);
         this.getAllCiudades();
+        var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarCiudad(element){
-    this.CiudadService.eliminarCiudad(element);
-    this.getAllCiudades();
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro');
+    if(r === true){
+      this.CiudadService.eliminarCiudad(element);
+      this.getAllCiudades();
+      var r1 = alert('Registro Eliminado Exitosamente');
+      return true;
+    }else{
+      return false;
+    }
   } 
   displayedColumns: string[] = ['idCiudad', 'nombreCiudad', "star"];
   applyFilter(event: Event) {

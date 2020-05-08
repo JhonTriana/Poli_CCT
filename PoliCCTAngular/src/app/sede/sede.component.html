@@ -17,16 +17,22 @@
         </div>
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            <!-- Primera columna de la Tabla -->
+            <!-- Segunda columna de la Tabla -->
             <ng-container matColumnDef="idSede">
-              <th mat-header-cell *matHeaderCellDef><b>Número</b> </th>
+              <th mat-header-cell *matHeaderCellDef><b>Id Sede</b> </th>
               <td mat-cell *matCellDef="let element"> {{element.idSede}} </td>
             </ng-container>
 
-            <!-- Segunda columna de la Tabla -->
-            <ng-container matColumnDef="nombreSede">
+             <!-- Primera columna de la Tabla -->
+             <ng-container matColumnDef="nombreSede">
               <th mat-header-cell *matHeaderCellDef><b>Nombre Sede</b> </th>
               <td mat-cell *matCellDef="let element"> {{element.nombreSede}} </td>
+            </ng-container>
+
+            <!-- Segunda columna de la Tabla -->
+            <ng-container matColumnDef="Ciudad">
+              <th mat-header-cell *matHeaderCellDef><b>Nombre Ciudad</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.idCiudad}} </td>
             </ng-container>
 
             <!-- Columna de Opciones -->

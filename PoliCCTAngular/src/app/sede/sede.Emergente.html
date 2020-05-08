@@ -1,11 +1,27 @@
 <h1 mat-dialog-title>Crear Nuevo Registro </h1>
   <div mat-dialog-content>
-    <mat-form-field>
-      <mat-label>Nombre de la Sede</mat-label>
-      <input type="text" matInput  placeholder="Ingrese la Sede" [(ngModel)]="data.nombreSede">
-    </mat-form-field>
+    <div class="row-local"> 
+      <div class="div"> 
+        <div mat-dialog-content>
+          <mat-form-field>
+            <mat-label>Nombre de la Sede</mat-label>
+            <input type="text" matInput  placeholder="Ingrese la Sede" [(ngModel)]="data.nombreSede">
+          </mat-form-field>
+        </div>
+        <mat-form-field class="seleccion">
+            <mat-label >Seleccione la ciudad</mat-label>
+          <mat-select [(ngModel)]="data.nombreCiudad"> 
+            <mat-option type="text" matInput *ngFor="let ciudad of data.misCiudades" [value]="ciudad.nombreCiudad" > 
+              {{ ciudad.nombreCiudad }}
+            </mat-option>    
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Regresar</button>
-    <button mat-button [mat-dialog-close]="data.nombreActividad" cdkFocusInitial >Guardar</button>
-</div>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
+  </div>
+
+
