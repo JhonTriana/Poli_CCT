@@ -63,6 +63,14 @@ export class UsuarioComponent implements OnInit {
     });
   }
   eliminarUsuario(element){
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+      this.UsuarioService.eliminarUsuario(element); //Se Manetiene Igual
+      this.getAllUsuarios();                         //Se Manetiene Igual  
+      return true ; 
+    }else{
+      return false ;
+    }  
     this.UsuarioService.eliminarUsuario(element);
     this.getAllUsuarios();
   } 
