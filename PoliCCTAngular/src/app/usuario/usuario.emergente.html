@@ -1,3 +1,4 @@
+<link rel="usuario.emergente" href="usuario.emergente.scss">
 <h1 mat-dialog-title>Crear Nuevo Registro </h1>
   <div mat-dialog-content>
     <div class="row-local"> 
@@ -27,6 +28,6 @@
     </div>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Regresar</button>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
+    <button class="color" (click)="onNoClick()">Regresar</button>
+    <button class="color" [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
   </div>
