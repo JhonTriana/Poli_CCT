@@ -8,7 +8,6 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IconsComponent } from './icons/icons.component';
-import { NotificationsComponent } from './notifications/notifications.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { RequestManagementComponent } from './request-management/request-management.component';
 import { MatExpansionModule, MatButtonModule} from '@angular/material/';
@@ -17,7 +16,6 @@ import { CriterioComponent } from './criterio/criterio.component';
 import { DocumentoComponent } from './documento/documento.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VideoComponent } from './video/video.component';
-import { DocumentEntryComponent } from './document-entry/document-entry.component';
 
 import {
   AgmCoreModule
@@ -26,7 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ActividadService } from './services/actividad.service';
 import { DocumentoService } from './services/documento.service';
 import { CriterioService } from './services/criterio.service';
-
 
 @NgModule({
   imports: [
@@ -47,7 +44,6 @@ import { CriterioService } from './services/criterio.service';
     AppComponent,
     AdminLayoutComponent,
     PageNotFoundComponent,
-    DocumentEntryComponent
   ],
   providers: [ //Importar los los servicios
     ActividadService,

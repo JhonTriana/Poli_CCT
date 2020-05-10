@@ -14,6 +14,8 @@ export class ActividadComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   misActividades ; 
+  misActividades1 ; 
+  
   newActividad: Actividad;
   dataSource = new MatTableDataSource(this.misActividades);
   No = 0 ;
@@ -21,23 +23,17 @@ export class ActividadComponent implements OnInit {
   
   constructor(private ActividadService: ActividadService , public dialog: MatDialog ) { 
     this.getAllActividades();
-    this.consultarServicioExterno();
-  }
-  consultarServicioExterno(){
-    this.ActividadService.consultarServicioExterno().subscribe(
-      (data) => {
-        this.lista = data['results'];
-        console.log("Entra2:", this.lista[1].title);
-    });
   }
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
   getAllActividades(){
-    this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   this.misActividades = misActividadesObs;   }   )
-    this.dataSource = new MatTableDataSource(this.misActividades);
+    this.ActividadService.getAllActividades().subscribe( misActividadesObs => {   
+        this.misActividades = misActividadesObs['data'] ;
+        this.dataSource = new MatTableDataSource(this.misActividades);
+    });  
     this.newActividad = new Actividad;
-    for (let i = 0; i < this.misActividades.length -1 ; i++) {
+    /*for (let i = 0; i < this.misActividades.length -1 ; i++) {
       if(this.misActividades[i].idActividad === undefined){
         this.No = 1 ;
       }else if(this.misActividades[i].idActividad > this.misActividades[i+1].idActividad) {
@@ -46,6 +42,10 @@ export class ActividadComponent implements OnInit {
         this.No = this.misActividades[i+1].idActividad + 1 ;
       }
     }
+    if(this.misActividades === undefined){
+      this.getAllActividades();
+      console.log("Entra");
+    }*/
   }
   openDialogNuevaActividad(): void {
     const dialogRef = this.dialog.open(ActividadEmergente, {
@@ -63,7 +63,7 @@ export class ActividadComponent implements OnInit {
         this.getAllActividades();
         var r = alert('Registro Exitoso');
       }
-    });
+    }); 
   }
   openDialogEditarActividad(element): void {
     const dialogRef = this.dialog.open(ActividadEmergente, {

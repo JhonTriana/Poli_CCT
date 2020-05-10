@@ -3,4 +3,6 @@
 export class Actividad {
     idActividad: number;
     nombreActividad: string;
+    createdAt: Date;
+    updatedAt: Date;
 }
