@@ -1,7 +1,10 @@
+var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
+const config = require('./config');
 // IMPORT ROUTES
 var indexRouter = require('./routes/index');
 var actividadesRouter = require('./routes/actividades.route');
@@ -18,6 +21,7 @@ var verVideosRouter = require('./routes/verVideos.route');
 // IMPORT DB CONNECTION MANAGER
 const dbManager = require ("./database.config/db.manager");
 var app = express();
+app.use(cors(config));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
