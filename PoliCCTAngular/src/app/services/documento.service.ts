@@ -1,30 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Documento } from '../models/Documentos.model';
 import { Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentoService {
-  ALL_Documentos: Documento [] = [
-    {   idDocumento: 1,   nombreDocumento: "Cédula"        ,   vigenciaDocumento: 30  },
-    {   idDocumento: 2,   nombreDocumento: "Curso Alturas" ,   vigenciaDocumento: 360 }
-]
-  constructor() { }
-  getAllDocumentos() : Observable<Documento[]>{
-    return of (this.ALL_Documentos);
+  constructor(private http: HttpClient) { }
+  getAllDocumentos(): Observable<{}>{
+    return this.http.get(environment.urlDocumento, httpOptions);
   }
-  createNewDocumento(nuevoDocumento){ 
-    this.ALL_Documentos.push(nuevoDocumento);
+  createNewDocumento(nuevoDocumento): Observable<{}>{ 
+    return this.http.post(environment.urlDocumento, nuevoDocumento, httpOptions);
   }
-  eliminarDocumento(element){
-    this.ALL_Documentos.splice(element,1);
+  editarDocumento(editarDocumento): Observable<{}>{
+    return this.http.put(environment.urlDocumento + editarDocumento.idDocumento , editarDocumento , httpOptions);
   }
-  editarDocumento(element, nombreDocumento, vigenciaDocumento){
-    this.ALL_Documentos[element].nombreDocumento = nombreDocumento ;
-    this.ALL_Documentos[element].vigenciaDocumento = vigenciaDocumento ;
-  }
-  getDocumentoPorCriterio(idDocumento){
-    return of (this.ALL_Documentos.filter((documento:any) => documento.idDocumento == idDocumento));
+  eliminarDocumento(idDocumento): Observable<{}>{
+    return this.http.delete(environment.urlDocumento + idDocumento, httpOptions);
   }
 }

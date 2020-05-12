@@ -17,6 +17,8 @@ export class DocumentoComponent implements OnInit {
   newDocumento: Documento;
   dataSource = new MatTableDataSource(this.misDocumentos);
   No = 0 ;
+  indiceTabla = 0 ; 
+  cantidadTabla  = 0 ;
   
   constructor(private DocumentoService: DocumentoService , public dialog: MatDialog ) { 
     this.getAllDocumentos();
@@ -25,18 +27,12 @@ export class DocumentoComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }  
   getAllDocumentos(){
-    this.DocumentoService.getAllDocumentos().subscribe(   misDocumentosObs => {   this.misDocumentos = misDocumentosObs;   }   )
-    this.dataSource = new MatTableDataSource(this.misDocumentos);
-    this.newDocumento = new Documento;
-    for (let i = 0; i < this.misDocumentos.length -1 ; i++) {
-      if(this.misDocumentos[i].idDocumento === undefined){
-        this.No = 1 ;
-      }else if(this.misDocumentos[i].idDocumento > this.misDocumentos[i+1].idDocumento) {
-        this.No = this.misDocumentos[i].idDocumento + 1 ;
-      }else{
-        this.No = this.misDocumentos[i+1].idDocumento + 1 ;
-      }
-    }
+    this.DocumentoService.getAllDocumentos().subscribe(   misDocumentosObs => {   
+      this.misDocumentos = misDocumentosObs['data'];   
+      this.dataSource = new MatTableDataSource(this.misDocumentos);
+      this.newDocumento = new Documento;
+      this.dataSource.paginator = this.paginator;
+    });
   }
   openDialogNuevoDocumento(): void {
     const dialogRef = this.dialog.open(DocumentoEmergente, {
@@ -51,34 +47,40 @@ export class DocumentoComponent implements OnInit {
         this.newDocumento.idDocumento = this.No ; 
         this.newDocumento.nombreDocumento = result.nombreDocumento;
         this.newDocumento.vigenciaDocumento = result.vigenciaDocumento;
-        this.DocumentoService.createNewDocumento(this.newDocumento);
-        this.getAllDocumentos();
-        var r = alert('Registro Exitoso');
+        this.DocumentoService.createNewDocumento(this.newDocumento).subscribe(  
+          consulta => {                
+          this.getAllDocumentos();  
+          var r = alert('Registro Exitoso');
+      });
       }
     });
   }
   openDialogEditarDocumento(element): void {
+    element = element + (this.indiceTabla * this.cantidadTabla );
     const dialogRef = this.dialog.open(DocumentoEmergente, {
       width: '300px',
       data: { nombreDocumento: this.misDocumentos[element].nombreDocumento, vigenciaDocumento: this.misDocumentos[element].vigenciaDocumento }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Resultado: ", result);
       if (result.nombreDocumento === undefined || result.vigenciaDocumento === undefined || 
           result.nombreDocumento === null || result.vigenciaDocumento === null ){
         var r = alert('Datos Incompletos');
       }
       else{
-        this.DocumentoService.editarDocumento(element, result.nombreDocumento, result.vigenciaDocumento);
+        this.newDocumento.idDocumento = this.misDocumentos[element].idDocumento ;
+        this.newDocumento.nombreDocumento = result.nombreDocumento ; 
+        this.newDocumento.vigenciaDocumento = result.vigenciaDocumento ; 
+        this.DocumentoService.editarDocumento(this.newDocumento).subscribe();
         this.getAllDocumentos();
         var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarDocumento(element){
+    element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-        this.DocumentoService.eliminarDocumento(element);
+        this.DocumentoService.eliminarDocumento(this.misDocumentos[element].idDocumento).subscribe();
         this.getAllDocumentos();
         var r1 = alert('Registro Eliminado Exitosamente');
         return true ; 
@@ -87,6 +89,13 @@ export class DocumentoComponent implements OnInit {
     }  
   } 
   displayedColumns: string[] = ['idDocumento', 'nombreDocumento', "vigenciaDocumento" , "star"];
+  ngAfterViewInit() {
+    this.paginator.page.subscribe( 
+      (event) => {   
+        this.indiceTabla = event.pageIndex ;   
+        this.cantidadTabla = event.pageSize ;   
+      });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -103,7 +112,3 @@ export class DocumentoEmergente {
     this.dialogRef.close();
   } 
 }
-
-
-
-

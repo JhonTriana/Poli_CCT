@@ -25,6 +25,8 @@ export class CriterioComponent implements OnInit {
   misActividades ; 
   dataSource = new MatTableDataSource(this.misActividades);
   No = 0 ;
+  indiceTabla = 0 ; 
+  cantidadTabla  = 0 ;
 
   constructor(private CriterioService: CriterioService, private DocumentoService: DocumentoService, 
               private ActividadService: ActividadService, public dialog: MatDialog ) { 
@@ -35,11 +37,11 @@ export class CriterioComponent implements OnInit {
   }  
   getAllCriterios(){
     this.CriterioService.getAllCriterios().subscribe(   misCriteriosObs => {   
-      this.misCriterios = misCriteriosObs;   
+      this.misCriterios = misCriteriosObs['data'];   
       this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   
         this.misActividades = misActividadesObs['data'] ;   
         this.DocumentoService.getAllDocumentos().subscribe(   misDocumentosObs => {   
-          this.misDocumentos = misDocumentosObs;   
+          this.misDocumentos = misDocumentosObs['data'];   
           for (let a = 0; a < this.misCriterios.length; a++) {
             for (let b = 0; b < this.misActividades.length; b++) {
               if ( this.misCriterios[a].idActividad === this.misActividades[b].idActividad ){
@@ -52,21 +54,12 @@ export class CriterioComponent implements OnInit {
               }
             }  
           }
-          this.dataSource = new MatTableDataSource(this.misCriterios);    
-          })
-      })
-    })
-    
-    this.newCriterio = new Criterio;
-    /*for (let i = 0; i < this.misCriterios.length -1 ; i++) {
-      if(this.misCriterios[i].idCriterio === undefined){
-        this.No = 1 ;
-      }else if(this.misCriterios[i].idCriterio > this.misCriterios[i+1].idCriterio) {
-        this.No = this.misCriterios[i].idCriterio + 1 ;
-      }else{
-        this.No = this.misCriterios[i+1].idCriterio + 1 ;
-      }
-    }*/
+          this.dataSource = new MatTableDataSource(this.misCriterios);
+          this.dataSource.paginator = this.paginator;    
+          this.newCriterio = new Criterio;
+          });
+      });
+    });
   }
   openDialogNuevoCriterio(): void {
     const dialogRef = this.dialog.open(CriterioEmergente, {
@@ -78,7 +71,6 @@ export class CriterioComponent implements OnInit {
         var r = alert('Datos Incompletos');
       }
       else{
-        this.newCriterio.idCriterio = this.No ; 
         for (let b = 0; b < this.misActividades.length; b++) {
           if ( result.nombreActividad === this.misActividades[b].nombreActividad ){
             this.newCriterio.idActividad = this.misActividades[b].idActividad ; 
@@ -89,13 +81,17 @@ export class CriterioComponent implements OnInit {
             this.newCriterio.idDocumento = this.misDocumentos[c].idDocumento ; 
           }
         }  
-        this.CriterioService.crearNuevoCriterio(this.newCriterio);
-        this.getAllCriterios();
-        var r = alert('Registro Exitoso');
+        this.newCriterio.idCriterio = this.No ;
+        this.CriterioService.crearNuevoCriterio(this.newCriterio).subscribe(
+          consulta => {                
+            this.getAllCriterios();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
   openDialogEditarCriterio(element): void {
+    element = element + (this.indiceTabla * this.cantidadTabla );
     const dialogRef = this.dialog.open(CriterioEmergente, {
       width: '300px',
       data: { misActividades: this.misActividades , misDocumentos: this.misDocumentos , nombreActividad: this.misCriterios[element].idActividad , nombreDocumento: this.misCriterios[element].idDocumento }
@@ -106,16 +102,28 @@ export class CriterioComponent implements OnInit {
         var r = alert('Datos Incompletos');
       }
       else{
-        this.CriterioService.editarCriterio(element, result.nombreActividad, result.nombreDocumento);
+        this.newCriterio.idCriterio = this.misCriterios[element].idCriterio ; 
+        for (let b = 0; b < this.misActividades.length; b++) {
+          if ( result.nombreActividad === this.misActividades[b].nombreActividad ){
+            this.newCriterio.idActividad = this.misActividades[b].idActividad ; 
+          }
+        }
+        for (let c = 0; c < this.misDocumentos.length; c++) {
+          if ( result.nombreDocumento === this.misDocumentos[c].nombreDocumento ){
+            this.newCriterio.idDocumento = this.misDocumentos[c].idDocumento ; 
+          }
+        }
+        this.CriterioService.editarCriterio(this.newCriterio).subscribe();
         this.getAllCriterios();
         var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarCriterio(element){
+    element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-          this.CriterioService.eliminarCriterio(element);
+          this.CriterioService.eliminarCriterio(this.misCriterios[element].idCriterio).subscribe();
           this.getAllCriterios();
           var r1 = alert('Registro Eliminado Exitosamente');
           return true ; 
@@ -124,6 +132,13 @@ export class CriterioComponent implements OnInit {
     }  
   } 
   displayedColumns: string[] = ['idCriterio', 'nombreActividad', 'nombreDocumento', "star"];
+  ngAfterViewInit() {
+    this.paginator.page.subscribe( 
+      (event) => {   
+        this.indiceTabla = event.pageIndex ;   
+        this.cantidadTabla = event.pageSize ;   
+      });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
