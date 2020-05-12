@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Actividad } from '../models/actividades.model';
 import { Observable, of, from } from 'rxjs';
-import { HttpClient, } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActividadService {
-  
-  constructor(private http: HttpClient) {   }
-  
-  getAllActividades() : Observable<Actividad[]>{
-    //return this.All_Actividades; 
-    return this.http.get<Actividad[]>(environment.urlActividad);
+  constructor(private http: HttpClient) { 
   }
-
-  createNewActividad(nuevaActividad){ 
-    //this.ALL_Actividades.push(nuevaActividad);
+  getAllActividades(): Observable<{}>{
+    return this.http.get(environment.urlActividad, httpOptions);
   }
-  eliminarActividad(element){
-    //this.ALL_Actividades.splice(element,1);
+  createNewActividad(nuevaActividad): Observable<{}>{ 
+    return this.http.post(environment.urlActividad, nuevaActividad, httpOptions);
   }
-  editarActividad(element, result){
-    //this.ALL_Actividades[element].nombreActividad = result ;
+  editarActividad(editarActividad): Observable<{}>{
+    return this.http.put(environment.urlActividad + editarActividad.idActividad , editarActividad, httpOptions);
   }
-
+  eliminarActividad(idActividad): Observable<{}>{
+    return this.http.delete(environment.urlActividad + idActividad, httpOptions);
+  }
 }

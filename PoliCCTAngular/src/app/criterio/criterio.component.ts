@@ -34,24 +34,31 @@ export class CriterioComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }  
   getAllCriterios(){
-    this.CriterioService.getAllCriterios().subscribe(   misCriteriosObs => {   this.misCriterios = misCriteriosObs;   }   )
-    this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   this.misActividades = misActividadesObs;   }   )
-    this.DocumentoService.getAllDocumentos().subscribe(   misDocumentosObs => {   this.misDocumentos = misDocumentosObs;   }   )
-    for (let a = 0; a < this.misCriterios.length; a++) {
-      for (let b = 0; b < this.misActividades.length; b++) {
-        if ( this.misCriterios[a].idActividad === this.misActividades[b].idActividad ){
-          this.misCriterios[a].idActividad = this.misActividades[b].nombreActividad ; 
-        }
-      }
-      for (let c = 0; c < this.misDocumentos.length; c++) {
-        if ( this.misCriterios[a].idDocumento === this.misDocumentos[c].idDocumento ){
-          this.misCriterios[a].idDocumento = this.misDocumentos[c].nombreDocumento ; 
-        }
-      }  
-    }
-    this.dataSource = new MatTableDataSource(this.misCriterios);
+    this.CriterioService.getAllCriterios().subscribe(   misCriteriosObs => {   
+      this.misCriterios = misCriteriosObs;   
+      this.ActividadService.getAllActividades().subscribe(   misActividadesObs => {   
+        this.misActividades = misActividadesObs['data'] ;   
+        this.DocumentoService.getAllDocumentos().subscribe(   misDocumentosObs => {   
+          this.misDocumentos = misDocumentosObs;   
+          for (let a = 0; a < this.misCriterios.length; a++) {
+            for (let b = 0; b < this.misActividades.length; b++) {
+              if ( this.misCriterios[a].idActividad === this.misActividades[b].idActividad ){
+                this.misCriterios[a].idActividad = this.misActividades[b].nombreActividad ; 
+              }
+            }
+            for (let c = 0; c < this.misDocumentos.length; c++) {
+              if ( this.misCriterios[a].idDocumento === this.misDocumentos[c].idDocumento ){
+                this.misCriterios[a].idDocumento = this.misDocumentos[c].nombreDocumento ; 
+              }
+            }  
+          }
+          this.dataSource = new MatTableDataSource(this.misCriterios);    
+          })
+      })
+    })
+    
     this.newCriterio = new Criterio;
-    for (let i = 0; i < this.misCriterios.length -1 ; i++) {
+    /*for (let i = 0; i < this.misCriterios.length -1 ; i++) {
       if(this.misCriterios[i].idCriterio === undefined){
         this.No = 1 ;
       }else if(this.misCriterios[i].idCriterio > this.misCriterios[i+1].idCriterio) {
@@ -59,7 +66,7 @@ export class CriterioComponent implements OnInit {
       }else{
         this.No = this.misCriterios[i+1].idCriterio + 1 ;
       }
-    }
+    }*/
   }
   openDialogNuevoCriterio(): void {
     const dialogRef = this.dialog.open(CriterioEmergente, {
