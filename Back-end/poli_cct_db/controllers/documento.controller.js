@@ -9,7 +9,8 @@ async function createdocumento (req, res) {
         return;
     }
     const newdocumentoObject = {// CREATING THE OBJECT TO PERSIST
-        nombreDocumento: req.body.nombreDocumento
+        nombreDocumento: req.body.nombreDocumento,
+        vigenciaDocumento: req.body.vigenciaDocumento
     }
     dbManager.Documento.create(newdocumentoObject).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (data); }
@@ -43,7 +44,8 @@ async function updatedocumento (req, res){
         return;
     }
     const newdocumentoObject = {// CREATING THE OBJECT TO PERSIST
-        nombreDocumento: req.body.nombreDocumento
+        nombreDocumento: req.body.nombreDocumento,
+        vigenciaDocumento: req.body.vigenciaDocumento
     }
     const { idDocumento } = req.params;//Execute query
     dbManager.Documento.update(newdocumentoObject, { where: { idDocumento: idDocumento } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
