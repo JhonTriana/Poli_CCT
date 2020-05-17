@@ -7,6 +7,6 @@ export const environment = {
   urlActividad:     'http://localhost:3000/actividades/',
   urlDocumento:     'http://localhost:3000/documentos/',
   urlCriterio:      'http://localhost:3000/criterios/',
-  urlRegistro:      'http://localhost:3000/criterios/',
-  urlRegistroDependencias: 'http://localhost:3000/criterios/'
+  urlRegistro:      'http://localhost:3000/registros/',
+  urlRegistroDependencias: 'http://localhost:3000/registrodependencias1/'
 };
