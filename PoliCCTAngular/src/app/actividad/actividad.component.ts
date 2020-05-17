@@ -14,7 +14,7 @@ export class ActividadComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   misActividades ; 
-  misActividades1 ;   
+     
   newActividad: Actividad;
   dataSource = new MatTableDataSource(this.misActividades);
   No = 0 ;
