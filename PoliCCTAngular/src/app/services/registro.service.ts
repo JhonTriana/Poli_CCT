@@ -1,36 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Registro } from '../models/registros.model';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
+//import { Registro } from '../models/registros.model';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class RegistroService {
-
-  ALL_Registros: Registro [] = [
-    
-      {   idRegistro: 1, ntCcRegistro: 100100, nombreRegistro: "Jack", direccionRegistro: "Calle 5", /*ciudadRegistro: "Bogota"*/ idCiudad: 1, telefonoRegistro:2909090, celularRegistro:800800 },
-      {   idRegistro: 2, ntCcRegistro: 200200, nombreRegistro: "Peter", direccionRegistro: "Av 5", /*ciudadRegistro: "Rio de Janeiro"*/idCiudad: 2, telefonoRegistro:9000000, celularRegistro:78989898 },
-      {   idRegistro: 3, ntCcRegistro: 2535536, nombreRegistro: "Simpson Homer", direccionRegistro: "69 Old PlumTree BLVD", /*ciudadRegistro: "Springfield"*/ idCiudad : 3, telefonoRegistro:5556528, celularRegistro:78989898 }
-]
-  constructor() { }
-  getAllRegistros() : Observable<Registro[]>{
-    return of (this.ALL_Registros);
+export class RegistroService{
+  constructor(private http: HttpClient) { 
   }
-  createNewRegistro(nuevaRegistro){ 
-    this.ALL_Registros.push(nuevaRegistro);
+  getAllRegistros(): Observable<{}>{
+    return this.http.get(environment.urlRegistro, httpOptions);
   }
-  eliminarRegistro(element){
-    this.ALL_Registros.splice(element,1);
+  createNewRegistro(nuevoRegistro): Observable<{}>{ 
+    return this.http.post(environment.urlRegistro, nuevoRegistro, httpOptions);
   }
-editarregistro(element, ntCcRegistro, nombreRegistro, direccionRegistro, /*ciudadRegistro*/ idCiudad, telefonoRegistro, celularRegistro){
-  this.ALL_Registros[element].ntCcRegistro =ntCcRegistro;
-  this.ALL_Registros[element].nombreRegistro = nombreRegistro;
-  this.ALL_Registros[element].direccionRegistro = direccionRegistro;
-  this.ALL_Registros[element].idCiudad = idCiudad ;
- // this.ALL_Registros[element].ciudadRegistro = ciudadRegistro;
-  this.ALL_Registros[element].telefonoRegistro = telefonoRegistro;
-  this.ALL_Registros[element].celularRegistro = celularRegistro;
-}
-
+  editarRegistro(editarRegistro): Observable<{}>{
+    return this.http.put(environment.urlRegistro + editarRegistro.idRegistro , editarRegistro, httpOptions);
+  }
+  eliminarRegistro(idRegistro): Observable<{}>{
+    return this.http.delete(environment.urlRegistro + idRegistro, httpOptions);
+  }
 }
