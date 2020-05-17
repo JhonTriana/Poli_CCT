@@ -4,7 +4,7 @@ import { ActividadService } from '../services/actividad.service';
 import { MatTableDataSource } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+//COMENTARIO
 @Component({
   selector: 'app-actividad',
   templateUrl: './actividad.component.html',
