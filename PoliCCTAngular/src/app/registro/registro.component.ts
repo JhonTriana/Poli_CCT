@@ -7,7 +7,7 @@ import { Ciudad } from '../models/ciudades.model';      //Se importa Ciudad
 import { CiudadService } from '../services/ciudad.service';  //Se importa Ciudad Service
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+//Comentario
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
