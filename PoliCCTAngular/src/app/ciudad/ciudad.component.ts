@@ -4,6 +4,7 @@ import { CiudadService } from '../services/ciudad.service';
 import { MatTableDataSource } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { concat } from 'rxjs';
 
 @Component({
   selector: 'app-ciudad',
@@ -17,6 +18,8 @@ export class CiudadComponent implements OnInit {
   newCiudad: Ciudad;
   dataSource = new MatTableDataSource(this.misCiudades);
   No = 0 ;
+  indiceTabla = 0 ; 
+  cantidadTabla  = 0 ;
   
   constructor(private CiudadService: CiudadService , public dialog: MatDialog ) { 
     this.getAllCiudades();
@@ -25,18 +28,12 @@ export class CiudadComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }  
   getAllCiudades(){
-    this.CiudadService.getAllCiudades().subscribe(   misCiudadesObs => {   this.misCiudades = misCiudadesObs;   }   )
-    this.dataSource = new MatTableDataSource(this.misCiudades);
-    this.newCiudad = new Ciudad;
-    for (let i = 0; i < this.misCiudades.length -1 ; i++) {
-      if(this.misCiudades[i].idCiudad === undefined){
-        this.No = 1 ;
-      }else if(this.misCiudades[i].idCiudad > this.misCiudades[i+1].idCiudad) {
-        this.No = this.misCiudades[i].idCiudad + 1 ;
-      }else{
-        this.No = this.misCiudades[i+1].idCiudad + 1 ;
-      }
-    }
+    this.CiudadService.getAllCiudades().subscribe(   misCiudadesObs => {
+      this.misCiudades = misCiudadesObs['data'] ;
+      this.dataSource = new MatTableDataSource(this.misCiudades);
+      this.dataSource.paginator = this.paginator;     
+      this.newCiudad = new Ciudad;
+    });
   }
   openDialogNuevaCiudad(): void {
     const dialogRef = this.dialog.open(CiudadEmergente, {
@@ -44,38 +41,45 @@ export class CiudadComponent implements OnInit {
       data: { Ciudad }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.newCiudad.nombreCiudad = result;
-      if (this.newCiudad.nombreCiudad === undefined ){
+      if (result === undefined ){
         var r = alert('Datos Incompletos');
       }
       else{
         this.newCiudad.idCiudad = this.No ; 
-        this.CiudadService.createNewCiudad(this.newCiudad);
-        this.getAllCiudades();
-        var r = alert('Registro Exitoso');
+        this.newCiudad.ciudadname = result; 
+        this.CiudadService.createNewCiudad(this.newCiudad).subscribe(
+          consulta => {                
+            this.getAllCiudades();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
   openDialogEditarCiudad(element): void {
+    element = element + (this.indiceTabla * this.cantidadTabla );
     const dialogRef = this.dialog.open(CiudadEmergente, {
       width: '300px',
-      data: { nombreCiudad: this.misCiudades[element].nombreCiudad }
+      data: { ciudadname: this.misCiudades[element].ciudadname }
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log("Entra: ", result);
       if (result === undefined || result === null ){
         var r = alert('Datos Incompletos');
       }
       else{
-        this.CiudadService.editarCiudad(element,result);
+        this.newCiudad.idCiudad = this.misCiudades[element].idCiudad ;
+        this.newCiudad.ciudadname = result;
+        this.CiudadService.editarCiudad(this.newCiudad).subscribe();
         this.getAllCiudades();
         var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarCiudad(element){
+    element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro');
     if(r === true){
-      this.CiudadService.eliminarCiudad(element);
+      this.CiudadService.eliminarCiudad(this.misCiudades[element].idCiudad).subscribe();
       this.getAllCiudades();
       var r1 = alert('Registro Eliminado Exitosamente');
       return true;
@@ -83,11 +87,19 @@ export class CiudadComponent implements OnInit {
       return false;
     }
   } 
-  displayedColumns: string[] = ['idCiudad', 'nombreCiudad', "star"];
+  displayedColumns: string[] = ['idCiudad', 'ciudadname', "star"];
+  ngAfterViewInit() {
+    this.paginator.page.subscribe( 
+      (event) => {   
+        this.indiceTabla = event.pageIndex ;   
+        this.cantidadTabla = event.pageSize ;   
+      });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  }  
+
 }
 @Component({
   selector: 'ciudad.Emergente',

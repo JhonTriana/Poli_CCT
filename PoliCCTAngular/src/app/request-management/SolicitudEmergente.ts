@@ -36,7 +36,7 @@ export class SolicitudEmergente {
   }
 
   getAllEmpleados() {
-    this.EmployeeService.getAllEmpleados().subscribe(misEmpleadosObs => { this.misEmpleados = misEmpleadosObs; });
+    //this.EmployeeService.getAllEmpleados().subscribe(misEmpleadosObs => { this.misEmpleados = misEmpleadosObs; });
     //console.log("Empleados", this.misEmpleados);
   }
 
@@ -47,7 +47,7 @@ export class SolicitudEmergente {
 
   getCriteriosPorActividad(actividad){
     let documentos1 = [];
-    this.CriterioService.getCriterioPorActividad(actividad.idActividad).subscribe(misCriteriosObs => { this.misCriterios = misCriteriosObs; });
+    /*this.CriterioService.getCriterioPorActividad(actividad.idActividad).subscribe(misCriteriosObs => { this.misCriterios = misCriteriosObs; });
     this.misCriterios.forEach(element => {
       this.DocumentoService.getDocumentoPorCriterio(element.idDocumento).subscribe(function(misDocumentosObs){
         documentos1.push(misDocumentosObs);
@@ -55,7 +55,7 @@ export class SolicitudEmergente {
       );
     });
     this.documentos = documentos1;
-    console.log("documentos", this.documentos);
+    console.log("documentos", this.documentos);*/
   }
 
   

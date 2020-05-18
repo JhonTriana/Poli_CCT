@@ -1,12 +1,12 @@
 module.exports = (sequelize, Sequelize) =>{
     const ubicacion = sequelize.define ("city", {
-        idCity: {
+        idUbicacion: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true 
         },
-        ubicacionname: { type: Sequelize.STRING } 
-        
+        nombreUbicacion: { type: Sequelize.STRING } ,
+        idSede: { type: Sequelize.INTEGER }
     }, {
         tableName: "ubicaciones"
     });    

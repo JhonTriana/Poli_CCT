@@ -1,6 +1,6 @@
 export class usuario {
-    idUsuario: number; 
-    numeroDocumentoUsuario: number;
-    nombreCompletoUsuario: string;
-    tipoUsuario: string;
+    idUser: number; 
+    documentoUser: number;
+    userName: string;
+    userType: string;
 }

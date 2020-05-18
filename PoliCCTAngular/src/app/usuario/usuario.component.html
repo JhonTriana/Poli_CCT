@@ -21,30 +21,28 @@
         The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
-
-        <ng-container matColumnDef="idUsuario">
-          <th mat-header-cell *matHeaderCellDef><b> Número</b> </th>
-          <td mat-cell *matCellDef="let element"> {{element.idUsuario}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="numeroDocumentoUsuario">
+        <ng-container matColumnDef="documentoUser">
           <th mat-header-cell *matHeaderCellDef><b> Número de documento</b> </th>
-          <td mat-cell *matCellDef="let element"> {{element.numeroDocumentoUsuario}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.documentoUser}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="idUser">
+          <th mat-header-cell *matHeaderCellDef><b> Número</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.idUser}} </td>
+        </ng-container>
+        
         <!-- Name Column -->
-        <ng-container matColumnDef="nombreCompletoUsuario">
+        <ng-container matColumnDef="userName">
           <th mat-header-cell *matHeaderCellDef><b>Nombre</b> </th>
-          <td mat-cell *matCellDef="let element"> {{element.nombreCompletoUsuario}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="tipoUsuario">
+        <ng-container matColumnDef="userType">
           <th mat-header-cell *matHeaderCellDef><b>Tipo Usuario</b> </th>
-          <td mat-cell *matCellDef="let element"> {{element.tipoUsuario}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.userType}} </td>
         </ng-container>
       
         <!-- Weight Column -->
-
         <ng-container matColumnDef="star" >
           <th mat-header-cell *matHeaderCellDef> Opciones </th>
           <td mat-cell *matCellDef="let element = index;">          
@@ -63,7 +61,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <mat-paginator class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      <mat-paginator [pageIndex]="pageIndex" class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
 
 

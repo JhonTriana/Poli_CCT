@@ -2,10 +2,10 @@
   <div mat-dialog-content>
     <mat-form-field>
       <mat-label>Nombre de la Ciudad</mat-label>
-      <input type="text" matInput  placeholder="Ingrese la Ciudad" [(ngModel)]="data.nombreCiudad">
+      <input type="text" matInput  placeholder="Ingrese la Ciudad" [(ngModel)]="data.ciudadname">
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Regresar</button>
-    <button mat-button [mat-dialog-close]="data.nombreCiudad" cdkFocusInitial >Guardar</button>
+    <button mat-button [mat-dialog-close]="data.ciudadname" cdkFocusInitial >Guardar</button>
 </div>

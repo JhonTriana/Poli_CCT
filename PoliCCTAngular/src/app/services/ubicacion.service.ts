@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Ubicacion } from '../models/ubicaciones.model';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class UbicacionService {
   
-  ALL_Ubicaciones: Ubicacion [] = [
-    {   idUbicacion: 1,   nombreUbicacion: "Biblioteca" , idSede: 1 },
-    {   idUbicacion: 2,   nombreUbicacion: "Gimnasio"   , idSede: 1 },
-    {   idUbicacion: 3,   nombreUbicacion: "Cafeteria"  , idSede: 1 }
-]
-  constructor() { }
-  getAllUbicaciones() : Observable<Ubicacion[]>{
-    return of (this.ALL_Ubicaciones);
+  constructor(private http: HttpClient) { }
+  getAllUbicaciones(): Observable<{}>{
+    return this.http.get(environment.urlUbicacion , httpOptions);  
   }
-  createNewUbicacion(nuevaUbicacion){ 
-    this.ALL_Ubicaciones.push(nuevaUbicacion);
+  createNewUbicacion(nuevaUbicacion): Observable<{}>{ 
+    return this.http.post(environment.urlUbicacion, nuevaUbicacion, httpOptions);  }
+  editarUbicacion(editarUbicacion): Observable<{}>{
+    return this.http.put(environment.urlUbicacion + editarUbicacion.idUbicacion, editarUbicacion, httpOptions);  
   }
-  eliminarUbicacion(element){
-    this.ALL_Ubicaciones.splice(element,1);
+  eliminarUbicacion(idUbicacion): Observable<{}>{
+    return this.http.delete(environment.urlUbicacion + idUbicacion, httpOptions);
   }
-  editarUbicacion(element, nombreSede, nombreUbicacion){
-    this.ALL_Ubicaciones[element].nombreUbicacion = nombreUbicacion;
-    this.ALL_Ubicaciones[element].idSede = nombreSede;
-  }
+
 }

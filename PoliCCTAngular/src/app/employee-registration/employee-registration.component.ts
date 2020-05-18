@@ -28,7 +28,7 @@ export class EmployeeRegistrationComponent implements OnInit {
   }
 
   getAllEmpleados(){
-   this.EmployeeService.getAllEmpleados().subscribe(   misEmpleadosObs => {   this.misEmpleados = misEmpleadosObs;   }   )
+   //this.EmployeeService.getAllEmpleados().subscribe(   misEmpleadosObs => {   this.misEmpleados = misEmpleadosObs;   }   )
     this.dataSource = new MatTableDataSource(this.misEmpleados);
     this.newEmpleado = new Empleado;
     for (let i = 0; i < this.misEmpleados.length -1 ; i++) {

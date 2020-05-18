@@ -6,18 +6,18 @@
 
         <!--Input para ingresar el número de documento-->
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="N° de documento" type="number" [(ngModel)]="data.usuario.numeroDocumentoUsuario">
+            <input matInput placeholder="N° de documento" type="number" [(ngModel)]="data.documentoUser">
           </mat-form-field>
 
         <!--Input para ingresar el nombre-->
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nombre completo" type="text" [(ngModel)]="data.usuario.nombreCompletoUsuario">
+            <input matInput placeholder="Nombre completo" type="text" [(ngModel)]="data.userName">
           </mat-form-field>
         
         <!--lista desplegable para insertar el tipo de usuario-->
         <mat-form-field class="seleccion">
           <mat-label >Seleccione tipo de usuario</mat-label>
-        <mat-select [(ngModel)]="data.tipo"> 
+        <mat-select [(ngModel)]="data.userType"> 
           <mat-option type="text" matInput *ngFor="let tipo of data.misTiposUsuario" [value]="tipo.nombreTipoUsuario" > 
             {{ tipo.nombreTipoUsuario }}
           </mat-option>    
@@ -28,6 +28,6 @@
     </div>
   </div>
   <div mat-dialog-actions>
-    <button class="color" (click)="onNoClick()">Regresar</button>
-    <button class="color" [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
+    <button mat-button (click)="onNoClick()">Regresar</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
   </div>

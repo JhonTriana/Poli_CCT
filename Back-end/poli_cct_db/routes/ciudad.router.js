@@ -9,7 +9,7 @@ router.get('/', citiesController.findAllcities);
 /**
  * GET Route to find cities by id
  */
-router.get('/:idcities', citiesController.findOnecities);
+router.get('/:idCiudad', citiesController.findOnecities);
 /**
  * cities Route to create cities
  */
@@ -17,11 +17,11 @@ router.post ('/', citiesController.createcities);
 /**
  * PUT Route to update an user by id
  */
-router.put ('/:idcities',citiesController.updatecities);
+router.put ('/:idCiudad',citiesController.updatecities);
 /**
  * DELETE Route to delete an user by username
  */
-router.delete ('/:message',citiesController.deletecitiesBycities);
+router.delete ('/:idCiudad',citiesController.deletecitiesBycities);
 /**
  * DELETE Route to delete all users
  */

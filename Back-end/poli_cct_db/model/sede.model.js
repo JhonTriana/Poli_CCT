@@ -5,10 +5,8 @@ module.exports = (sequelize, Sequelize) =>{
             primaryKey: true,
             autoIncrement: true 
         },
-        idID: { type: Sequelize.INTEGER }, 
-        idLugarEjecucion: { type: Sequelize.INTEGER },
-        idIDSede: { type: Sequelize.INTEGER }
-
+        nombreSede: { type: Sequelize.STRING },
+        idCiudad: { type: Sequelize.INTEGER }
     }, {
         tableName: "sedes"
     });    

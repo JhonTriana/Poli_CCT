@@ -10,9 +10,10 @@ async function createubicacion (req, res) {
         return;
     }
     const newubicacionesObject = {// CREATING THE OBJECT TO PERSIST
-        ubicacionname: req.body.ubicaciones
+        nombreUbicacion: req.body.nombreUbicacion,
+        idSede: req.body.idSede
     }
-    dbManager.ubicaciones.create(newubicacionesObject).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+    dbManager.Ubicacion.create(newubicacionesObject).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (data); }
     ).catch (
         e => {
@@ -26,7 +27,7 @@ async function createubicacion (req, res) {
  */
 async function findAllubicaciones (req, res){
     try {
-        const ubicaciones = await dbManager.ubicaciones.findAll ();//Execute query
+        const ubicaciones = await dbManager.Ubicacion.findAll ();//Execute query
         res.json({ data: ubicaciones });//Send response
     } catch (e) {
         console.log(e);// Print error on console
@@ -39,7 +40,7 @@ async function findAllubicaciones (req, res){
 async function findOneubicaciones (req, res){
     try {
         const { idubicaciones } = req.params;//Execute query
-        const ubicaciones = await dbManager.ubicaciones.findOne({ where: { idubicaciones: idubicaciones } });
+        const ubicaciones = await dbManager.Ubicacion.findOne({ where: { idubicaciones: idubicaciones } });
         res.json(ubicaciones);//Send response
     } catch (e) {
         console.log(e);// Print error on console
@@ -55,11 +56,11 @@ async function updateubicaciones (req, res){
         return;
     }
     const newubicacionesObject = {// CREATING THE OBJECT TO PERSIST
-        ubicacionesname: req.body.ubicacionesname
+        nombreUbicacion: req.body.nombreUbicacion,
+        idSede: req.body.idSede
     }
-    const { idubicaciones } = req.params;//Execute query
-    console.log("ubicaciones: " + idubicaciones);
-    dbManager.ubicaciones.update(newubicacionesObject, { where: { idubicaciones: idubicaciones } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+    const { idUbicacion } = req.params;//Execute query
+    dbManager.Ubicacion.update(newubicacionesObject, { where: { idUbicacion: idUbicacion } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (newubicacionesObject); }
     ).catch (
         e => {
@@ -74,8 +75,8 @@ async function updateubicaciones (req, res){
  * @param {*} res 
  */
 function deleteubicacionesByubicaciones (req, res){ 
-    const { ubicaciones } = req.params;//Execute query
-    dbManager.ubicaciones.destroy( { where: { ubicacionesname: ubicaciones } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+    const { idUbicacion } = req.params;//Execute query
+    dbManager.Ubicacion.destroy( { where: { idUbicacion: idUbicacion } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
         e => {
@@ -89,7 +90,7 @@ function deleteubicacionesByubicaciones (req, res){
  * @param {*} res 
  */
 function deleteAllubicacioness (req, res){
-    dbManager.ubicaciones.destroy( { where: {} } )// EXECUTING THE DESTROY QUERY - INSERT THE OBJECT INTO DATABASE 
+    dbManager.Ubicacion.destroy( { where: {} } )// EXECUTING THE DESTROY QUERY - INSERT THE OBJECT INTO DATABASE 
     .catch (
         e => {
             console.log(e);// Print error on console
