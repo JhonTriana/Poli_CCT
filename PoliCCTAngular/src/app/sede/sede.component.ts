@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { Sede } from '../models/sedes.model';
 import { SedeService } from '../services/sede.service';
 import { MatTableDataSource } from '@angular/material';
-import { Ciudad } from '../models/ciudades.model';
+import { Sede } from '../models/sedes.model';
 import { CiudadService } from '../services/ciudad.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -15,92 +14,93 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export class SedeComponent implements OnInit {
   
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  newSede: Sede;
+  newSede ;
   misSedes ; 
-  ciudad: Ciudad ; 
   misCiudades ; 
   dataSource = new MatTableDataSource(this.misSedes);
   No = 0 ;
-  
-  constructor(private SedeService: SedeService, 
-    private CiudadService: CiudadService, public dialog: MatDialog ) { 
+  indiceTabla = 0 ; 
+  cantidadTabla  = 0 ;
+ 
+  constructor(private SedeService: SedeService, private CiudadService: CiudadService, public dialog: MatDialog ) { 
      this.getAllSedes();
   }
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }  
   getAllSedes(){
-    this.SedeService.getAllSedes().subscribe(   misSedesObs => {   this.misSedes = misSedesObs;   }   )
-    this.CiudadService.getAllCiudades().subscribe(   misCiudadesObs => {   this.misCiudades = misCiudadesObs;   }   )
-    for (let a = 0; a < this.misSedes.length; a++) {
-      for (let b = 0; b < this.misCiudades.length; b++) {
-        if ( this.misSedes[a].idCiudad === this.misCiudades[b].idCiudad ){
-          this.misSedes[a].idCiudad = this.misCiudades[b].nombreCiudad ; 
+    this.SedeService.getAllSedes().subscribe(   misSedesObs => {   
+      this.misSedes = misSedesObs['data'];   
+      this.CiudadService.getAllCiudades().subscribe(   misCiudadesObs => {   
+        this.misCiudades = misCiudadesObs['data'];   
+        for (let a = 0; a < this.misSedes.length; a++) {
+          for (let b = 0; b < this.misCiudades.length; b++) {
+            if ( this.misSedes[a].idCiudad === this.misCiudades[b].idCiudad ){
+              this.misSedes[a].idCiudad = this.misCiudades[b].ciudadname ; 
+            }
+          }
         }
-      }
-    }
-    this.dataSource = new MatTableDataSource(this.misSedes);
-    this.newSede = new Sede;
-    for (let i = 0; i < this.misSedes.length -1 ; i++) {
-      if(this.misSedes[i].idSede === undefined){
-        this.No = 1 ;
-      }else if(this.misSedes[i].idSede > this.misSedes[i+1].idSede) {
-        this.No = this.misSedes[i].idSede + 1 ;
-      }else{
-        this.No = this.misSedes[i+1].idSede + 1 ;
-      }
-    }
+        this.dataSource = new MatTableDataSource(this.misSedes);
+        this.dataSource.paginator = this.paginator;
+        this.newSede = new Sede ;
+      });
+    });   
   }
-
   openDialogNuevaSede(): void {
     const dialogRef = this.dialog.open(SedeEmergente, {
       width: '300px',
       data: { misCiudades: this.misCiudades , misSedes: this.misSedes }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if ( result.nombreCiudad === undefined || result.nombreSede === undefined ){
+      if ( result.ciudadname === undefined || result.nombreSede === undefined ){
         var r = alert('Datos Incompletos');
       }
       else{
         this.newSede.idSede = this.No ; 
         this.newSede.nombreSede = result.nombreSede ;
         for (let b = 0; b < this.misCiudades.length; b++) {
-          if ( result.nombreCiudad === this.misCiudades[b].nombreCiudad ){
+          if ( result.ciudadname === this.misCiudades[b].ciudadname ){
             this.newSede.idCiudad = this.misCiudades[b].idCiudad ;
           }
         }
-        this.SedeService.createNewSede(this.newSede);
-        this.getAllSedes();
-        var r = alert('Registro Exitoso');
+        this.SedeService.createNewSede(this.newSede).subscribe(
+          consulta => {                
+            this.getAllSedes();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
   openDialogEditarSede(element): void {
+    element = element + (this.indiceTabla * this.cantidadTabla );
     const dialogRef = this.dialog.open(SedeEmergente, {
       width: '300px',
-      data: { misCiudades: this.misCiudades, nombreSede: this.misSedes[element].nombreSede, nombreCiudad: this.misSedes[element].idCiudad }
+      data: { misCiudades: this.misCiudades, nombreSede: this.misSedes[element].nombreSede, ciudadname: this.misSedes[element].idCiudad }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if ( result.nombreCiudad === undefined || result.nombreSede === undefined ||
-        result.nombreCiudad === null || result.nombreSede === null ){
+      if ( result.ciudadname === undefined || result.nombreSede === undefined ||
+           result.ciudadname === null      || result.nombreSede === null ){
         var r = alert('Datos Incompletos');
       }
       else{
+        this.newSede.idSede = this.misSedes[element].idSede ;
+        this.newSede.nombreSede = result.nombreSede ;
         for (let b = 0; b < this.misCiudades.length; b++) {
-          if ( result.nombreCiudad === this.misCiudades[b].nombreCiudad ){
+          if ( result.ciudadname === this.misCiudades[b].ciudadname ){
             this.newSede.idCiudad = this.misCiudades[b].idCiudad ;
           }
         }
-        this.SedeService.editarSede(element, this.newSede.idCiudad , result.nombreSede);
+        this.SedeService.editarSede(this.newSede).subscribe();
         this.getAllSedes();
         var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarSede(element){
+    element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro');
     if(r === true){
-      this.SedeService.eliminarSede(element);
+      this.SedeService.eliminarSede(this.misSedes[element].idSede).subscribe();
       this.getAllSedes();
       var r1 = alert('Registro Eliminado Exitosamente');
       return true;
@@ -108,7 +108,14 @@ export class SedeComponent implements OnInit {
       return false;
     }
   } 
-  displayedColumns: string[] = ['idSede', 'nombreSede', 'Ciudad', "star"];
+  displayedColumns: string[] = ['idSede', 'nombreSede', 'idCiudad', "star"];
+  ngAfterViewInit() {
+    this.paginator.page.subscribe( 
+      (event) => {   
+        this.indiceTabla = event.pageIndex ;   
+        this.cantidadTabla = event.pageSize ;   
+      });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -120,7 +127,7 @@ export class SedeComponent implements OnInit {
 })
 export class SedeEmergente {
   constructor(public dialogRef: MatDialogRef<SedeEmergente>,
-    @Inject(MAT_DIALOG_DATA)  public data: { misCiudades , misSedes, nombreCiudad, nombreSede } ){    }
+    @Inject(MAT_DIALOG_DATA)  public data: { misCiudades , misSedes, ciudadname, nombreSede } ){    }
   onNoClick(): void {
     this.dialogRef.close();
   } 

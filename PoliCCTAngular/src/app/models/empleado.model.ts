@@ -1,4 +1,5 @@
     export class Empleado {
+        idEmpleado:       number;
         nombreEmpleado :  string;
         identificacion :  number;
         direccion :       string;

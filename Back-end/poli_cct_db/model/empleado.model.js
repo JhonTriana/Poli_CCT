@@ -10,7 +10,6 @@ module.exports = (sequelize, Sequelize) =>{
         numero_contacto: Sequelize.INTEGER,
         mail: Sequelize.STRING,
         idContratista : Sequelize.INTEGER
-
     }, {
         tableName: "Empleado"
     });

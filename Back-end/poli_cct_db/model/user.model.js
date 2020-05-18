@@ -5,6 +5,7 @@ module.exports = (sequelize, Sequelize) =>{
             primaryKey: true,
             autoIncrement: true 
         },
+        documentoUser: Sequelize.INTEGER,
         userName: Sequelize.STRING,
         userType: Sequelize.STRING
     }, {

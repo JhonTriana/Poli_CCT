@@ -10,9 +10,8 @@ async function createSede (req, res) {
         return;
     }
     const newSedeObject = {// CREATING THE OBJECT TO PERSIST
-        Sedename: req.body.Sedename,
-        creation_date: req.body.creation_date,
-        idUser: req.body.idUser
+        nombreSede: req.body.nombreSede,
+        idCiudad: req.body.idCiudad
     }
     dbManager.Sede.create(newSedeObject).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (data); }
@@ -57,12 +56,10 @@ async function updateSede (req, res){
         return;
     }
     const newSedeObject = {// CREATING THE OBJECT TO PERSIST
-        Sedename: req.body.Sedename,
-        creation_date: req.body.creation_dater,
-        idUser: req.body.idUser
+        nombreSede: req.body.nombreSede,
+        idCiudad: req.body.idCiudad
     }
     const { idSede } = req.params;//Execute query
-    console.log("Sede: " + idSede);
     dbManager.Sede.update(newSedeObject, { where: { idSede: idSede } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (newSedeObject); }
     ).catch (
@@ -78,8 +75,8 @@ async function updateSede (req, res){
  * @param {*} res 
  */
 function deleteSedeBySede (req, res){ 
-    const { Sede } = req.params;//Execute query
-    dbManager.Sede.destroy( { where: { Sedename: Sede } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+    const { idSede } = req.params;//Execute query
+    dbManager.Sede.destroy( { where: { idSede: idSede } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
         e => {

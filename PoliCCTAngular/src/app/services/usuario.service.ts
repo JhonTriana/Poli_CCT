@@ -1,6 +1,15 @@
 import { Injectable } from '@angular/core';
-import { usuario } from '../models/usuario.model';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -8,30 +17,18 @@ import { Observable, of } from 'rxjs';
 
 export class UsuarioService {
 
-  ALL_Usuarios: usuario [] = [
-    {   idUsuario: 1, numeroDocumentoUsuario: 1003560,   nombreCompletoUsuario: "Tatiana Cañón", tipoUsuario: "Proveedor" },
-    {   idUsuario: 2, numeroDocumentoUsuario: 1070950,   nombreCompletoUsuario: "Julián Vargas", tipoUsuario: "Empleado" },
-    {   idUsuario: 3, numeroDocumentoUsuario: 1053561,   nombreCompletoUsuario: "Nasly Gordillo", tipoUsuario: "Seguridad Física" },
-    {   idUsuario: 4, numeroDocumentoUsuario: 1080750,   nombreCompletoUsuario: "Gina Torres", tipoUsuario: "Administrador" },
-]
-
-  constructor() { }  
-  getAllUsuarios() : Observable<usuario[]> {
-    return of (this.ALL_Usuarios);
+  constructor(private http: HttpClient) { }  
+  getAllUsuarios(): Observable<{}>{
+    return this.http.get(environment.urlUsers , httpOptions);
   }
-  createNewUsuario(nuevoUsuario){ 
-    this.ALL_Usuarios.push(nuevoUsuario);
-  }
-  eliminarUsuario(element){
-    this.ALL_Usuarios.splice(element, 1);
+  createNewUsuario(nuevoUsuario): Observable<{}>{ 
+    return this.http.post(environment.urlUsers, nuevoUsuario, httpOptions);
   } 
-  editarUsuario(element, numeroDocumentoUsuario, nombreCompletoUsuario, nombreTipoUsuario){
-    this.ALL_Usuarios[element].numeroDocumentoUsuario = numeroDocumentoUsuario ;
-    this.ALL_Usuarios[element].nombreCompletoUsuario = nombreCompletoUsuario ;
-    this.ALL_Usuarios[element].tipoUsuario = nombreTipoUsuario ;
+  editarUsuario(editarUsuario): Observable<{}>{
+    return this.http.put(environment.urlUsers + editarUsuario.idUser, editarUsuario, httpOptions);  
+  }
+  eliminarUsuario(idUser){
+    return this.http.delete(environment.urlUsers + idUser, httpOptions);
   }
 
 }
-
-  
-

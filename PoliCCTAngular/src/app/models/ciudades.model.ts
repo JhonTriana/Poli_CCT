@@ -2,5 +2,5 @@
 //Atributos = los mismos de la tabla
 export class Ciudad {
     idCiudad: number;
-    nombreCiudad: string;
+    ciudadname: string;
 }

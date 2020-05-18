@@ -4,7 +4,7 @@ import { ActividadService } from '../services/actividad.service';
 import { MatTableDataSource } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-//COMENTARIO
+
 @Component({
   selector: 'app-actividad',
   templateUrl: './actividad.component.html',
@@ -14,7 +14,6 @@ export class ActividadComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   misActividades ; 
-     
   newActividad: Actividad;
   dataSource = new MatTableDataSource(this.misActividades);
   No = 0 ;
@@ -85,7 +84,7 @@ export class ActividadComponent implements OnInit {
     }else{
       return false ;
     }  
-  } 
+  }
   displayedColumns: string[] = ['idActividad', 'nombreActividad', "star"]; 
   ngAfterViewInit() {
     this.paginator.page.subscribe( 
