@@ -14,12 +14,11 @@ export class ActividadComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   misActividades ; 
-  misActividades1 ; 
-  
   newActividad: Actividad;
   dataSource = new MatTableDataSource(this.misActividades);
   No = 0 ;
-  lista : any ;
+  indiceTabla = 0 ; 
+  cantidadTabla  = 0 ;
   
   constructor(private ActividadService: ActividadService , public dialog: MatDialog ) { 
     this.getAllActividades();
@@ -31,21 +30,9 @@ export class ActividadComponent implements OnInit {
     this.ActividadService.getAllActividades().subscribe( misActividadesObs => {   
         this.misActividades = misActividadesObs['data'] ;
         this.dataSource = new MatTableDataSource(this.misActividades);
+        this.dataSource.paginator = this.paginator;
+        this.newActividad = new Actividad;
     });  
-    this.newActividad = new Actividad;
-    /*for (let i = 0; i < this.misActividades.length -1 ; i++) {
-      if(this.misActividades[i].idActividad === undefined){
-        this.No = 1 ;
-      }else if(this.misActividades[i].idActividad > this.misActividades[i+1].idActividad) {
-        this.No = this.misActividades[i].idActividad + 1 ;
-      }else{
-        this.No = this.misActividades[i+1].idActividad + 1 ;
-      }
-    }
-    if(this.misActividades === undefined){
-      this.getAllActividades();
-      console.log("Entra");
-    }*/
   }
   openDialogNuevaActividad(): void {
     const dialogRef = this.dialog.open(ActividadEmergente, {
@@ -53,19 +40,22 @@ export class ActividadComponent implements OnInit {
       data: { Actividad }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.newActividad.nombreActividad = result;
-      if (this.newActividad.nombreActividad === undefined ){
+      if (result === undefined ){
         var r = alert('Datos Incompletos');
       }
       else{
         this.newActividad.idActividad = this.No ; 
-        this.ActividadService.createNewActividad(this.newActividad);
-        this.getAllActividades();
-        var r = alert('Registro Exitoso');
+        this.newActividad.nombreActividad = result;
+        this.ActividadService.createNewActividad(this.newActividad).subscribe(
+          consulta => {                
+            this.getAllActividades();
+            var r = alert('Registro Exitoso');
+        });
       }
     }); 
   }
   openDialogEditarActividad(element): void {
+    element = element + (this.indiceTabla * this.cantidadTabla );
     const dialogRef = this.dialog.open(ActividadEmergente, {
       width: '300px',
       data: { nombreActividad: this.misActividades[element].nombreActividad }
@@ -75,29 +65,38 @@ export class ActividadComponent implements OnInit {
         var r = alert('Datos Incompletos');
       }
       else{
-        this.ActividadService.editarActividad(element, result);
+        this.newActividad.idActividad = this.misActividades[element].idActividad ; 
+        this.newActividad.nombreActividad = result;
+        this.ActividadService.editarActividad(this.newActividad).subscribe();
         this.getAllActividades();
         var r = alert('Registro Exitoso');
       }
     });
   }
   eliminarActividad(element){
+    element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-      this.ActividadService.eliminarActividad(element);
-      this.getAllActividades();                          
+      this.ActividadService.eliminarActividad(this.misActividades[element].idActividad).subscribe();
+      this.getAllActividades();
       var r1 = alert('Registro Eliminado Exitosamente');
       return true ; 
     }else{
       return false ;
     }  
-  } 
-  displayedColumns: string[] = ['idActividad', 'nombreActividad', "star"];
+  }
+  displayedColumns: string[] = ['idActividad', 'nombreActividad', "star"]; 
+  ngAfterViewInit() {
+    this.paginator.page.subscribe( 
+      (event) => {   
+        this.indiceTabla = event.pageIndex ;   
+        this.cantidadTabla = event.pageSize ;   
+      });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
 }
 @Component({
   selector: 'actividad.Emergente',

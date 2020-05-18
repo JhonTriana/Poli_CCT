@@ -16,6 +16,7 @@ async function createUser (req, res) {
     // CREATING THE OBJECT TO PERSIST
     const newUserObject = {
         idUser: req.body.idUser,
+        documentoUser: req.body.documentoUser,
         userName: req.body.userName,
         userType: req.body.userType
     }
@@ -74,6 +75,7 @@ async function updateUser (req, res){
     }
     const newUserObject = {// CREATING THE OBJECT TO PERSIST
         idUser: req.body.idUser,
+        documentoUser: req.body.documentoUser,
         userName: req.body.userName,
         userType: req.body.userType
     }

@@ -80,7 +80,7 @@ function deleteactividadByactividad (req, res){
  */
 async function findAllactividades (req, res){
     try {
-        const actividades = await dbManager.Actividad.findAll ();//Execute query
+        const actividades = await dbManager.Actividad.findAll();//Execute query
         res.json({ data: actividades });//Send response
     } catch (e) {
         console.log(e);// Print error on console

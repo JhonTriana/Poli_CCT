@@ -10,9 +10,9 @@ async function createcities (req, res) {
         return;
     }
     const newcitiesObject = {// CREATING THE OBJECT TO PERSIST
-        citiesname: req.body.cities
+        ciudadname: req.body.ciudadname 
     }
-    dbManager.cities.create(newcitiesObject).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+    dbManager.Ciudad.create(newcitiesObject).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (data); }
     ).catch (
         e => {
@@ -26,8 +26,8 @@ async function createcities (req, res) {
  */
 async function findAllcities (req, res){
     try {
-        const citiess = await dbManager.cities.findAll ();//Execute query
-        res.json({ data: citiess });//Send response
+        const cities = await dbManager.Ciudad.findAll();//Execute query
+        res.json({ data: cities });//Send response
     } catch (e) {
         console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
@@ -38,8 +38,8 @@ async function findAllcities (req, res){
  */
 async function findOnecities (req, res){
     try {
-        const { idcities } = req.params;//Execute query
-        const cities = await dbManager.cities.findOne({ where: { idcities: idcities } });
+        const { idCiudad } = req.params;//Execute query
+        const cities = await dbManager.Ciudad.findOne({ where: { idCiudad: idCiudad } });
         res.json(cities);//Send response
     } catch (e) {
         console.log(e);// Print error on console
@@ -55,11 +55,10 @@ async function updatecities (req, res){
         return;
     }
     const newcitiesObject = {// CREATING THE OBJECT TO PERSIST
-        citiesname: req.body.citiesname
+        ciudadname: req.body.ciudadname
     }
-    const { idcities } = req.params;//Execute query
-    console.log("cities: " + idcities);
-    dbManager.cities.update(newcitiesObject, { where: { idcities: idcities } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+    const { idCiudad } = req.params;//Execute query
+    dbManager.Ciudad.update(newcitiesObject, { where: { idCiudad: idCiudad } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (newcitiesObject); }
     ).catch (
         e => {
@@ -74,8 +73,8 @@ async function updatecities (req, res){
  * @param {*} res 
  */
 function deletecitiesBycities (req, res){ 
-    const { cities } = req.params;//Execute query
-    dbManager.cities.destroy( { where: { citiesname: cities } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+    const { idCiudad } = req.params;//Execute query
+    dbManager.Ciudad.destroy( { where: { idCiudad: idCiudad } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
         e => {
@@ -89,7 +88,7 @@ function deletecitiesBycities (req, res){
  * @param {*} res 
  */
 function deleteAllcitiess (req, res){
-    dbManager.cities.destroy( { where: {} } )// EXECUTING THE DESTROY QUERY - INSERT THE OBJECT INTO DATABASE 
+    dbManager.Ciudad.destroy( { where: {} } )// EXECUTING THE DESTROY QUERY - INSERT THE OBJECT INTO DATABASE 
     .catch (
         e => {
             console.log(e);// Print error on console

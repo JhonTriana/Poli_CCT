@@ -17,61 +17,59 @@
         </div>
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            <!-- Primera columna de la Tabla -->
-            <ng-container matColumnDef="idRegistroDependencias">
+            <!-- Primera columna de la Tabla
+            <ng-container matColumnDef="idDependencias">
               <th mat-header-cell *matHeaderCellDef><b>Número</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.idRegistroDependencias}} </td>
-            </ng-container>
+              <td mat-cell *matCellDef="let element"> {{element.idDependencias}} </td>
+            </ng-container>  -->
 
-            <!-- Segunda columna de la Tabla -->
-            <ng-container matColumnDef="ntCcRegistroDependencias">
+            <!-- Segunda columna de la Tabla
+            <ng-container matColumnDef="idNtCC">
               <th mat-header-cell *matHeaderCellDef><b>Nt / CC</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.ntCcRegistroDependencias}} </td>
-            </ng-container>
+              <td mat-cell *matCellDef="let element"> {{element.idNtCC}} </td>
+            </ng-container> -->
 
             <!-- Tercera columna de la Tabla -->
-            <ng-container matColumnDef="nombreRegistroDependencias">
+            <ng-container matColumnDef="idNombre">
               <th mat-header-cell *matHeaderCellDef><b>Nombre</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.nombreRegistroDependencias}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.idNombre}} </td>
             </ng-container>
 
             <!-- Cuarta columna de la Tabla -->
-            <ng-container matColumnDef="cargoRegistroDependencias">
+            <ng-container matColumnDef="idCargo">
               <th mat-header-cell *matHeaderCellDef><b>Cargo</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.cargoRegistroDependencias}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.idCargo}} </td>
             </ng-container>
 
             <!-- Quinta columna de la Tabla -->
-            <ng-container matColumnDef="areaRegistroDependencias">
+            <ng-container matColumnDef="idArea">
               <th mat-header-cell *matHeaderCellDef><b>Área</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.areaRegistroDependencias}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.idArea}} </td>
             </ng-container>
 
              <!-- Sexta columna de la Tabla -->
-             <ng-container matColumnDef="celularRegistroDependencias">
+             <ng-container matColumnDef="idCelular">
               <th mat-header-cell *matHeaderCellDef><b>Celuar</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.celularRegistroDependencias}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.idCelular}} </td>
             </ng-container>
 
              <!-- Septima columna de la Tabla -->
-             <ng-container matColumnDef="telefonoRegistroDependencias">
+             <ng-container matColumnDef="idTelefono">
               <th mat-header-cell *matHeaderCellDef><b>Teléfono</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.telefonoRegistroDependencias}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.idTelefono}} </td>
             </ng-container>
 
             <!-- Octava columna de la Tabla -->
-            <ng-container matColumnDef="extensionRegistroDependencias">
+            <ng-container matColumnDef="idExtension">
               <th mat-header-cell *matHeaderCellDef><b>Extensión</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.extensionRegistroDependencias}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.idExtension}} </td>
             </ng-container>
 
             <!-- Novena columna de la Tabla -->
-            <ng-container matColumnDef="correoElectronicoRegistroDependencias">
+            <ng-container matColumnDef="idCorreoElectronico">
               <th mat-header-cell *matHeaderCellDef><b>Correo Electrónico</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.correoElectronicoRegistroDependencias}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.idCorreoElectronico}} </td>
             </ng-container>
-
-
 
             <!-- Columna de Opciones -->
             <ng-container matColumnDef="star" >
@@ -90,7 +88,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
-          <mat-paginator class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+          <mat-paginator [pageIndex]="pageIndex" class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
         </div>
     </div>    
   </div>

@@ -1,29 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Ciudad } from '../models/ciudades.model';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class CiudadService {
 
-  ALL_Ciudades: Ciudad [] = [
-    {   idCiudad: 1,   nombreCiudad: "Medellín"   },
-    {   idCiudad: 2,   nombreCiudad: "Bucaramanga"       },
-    {   idCiudad: 3,   nombreCiudad: "Cali"       },
-    {   idCiudad: 4,   nombreCiudad: "Bogotá D.C." }
-]
-  constructor() { }
-  getAllCiudades() : Observable<Ciudad[]>{
-    return of (this.ALL_Ciudades);
+  constructor(private http: HttpClient) { 
   }
-  createNewCiudad(nuevaCiudad){ 
-    this.ALL_Ciudades.push(nuevaCiudad);
+  getAllCiudades(): Observable<{}>{
+    return this.http.get(environment.urlCiudad , httpOptions);
   }
-  eliminarCiudad(element){
-    this.ALL_Ciudades.splice(element,1);
-    }
-    editarCiudad(element, result){
-      this.ALL_Ciudades[element].nombreCiudad=result;
-    }
+  createNewCiudad(nuevaCiudad): Observable<{}>{ 
+    return this.http.post(environment.urlCiudad, nuevaCiudad, httpOptions);
+  }  
+  editarCiudad(editarCiudad): Observable<{}>{
+    return this.http.put(environment.urlCiudad + editarCiudad.idCiudad, editarCiudad, httpOptions);  
+  }
+  eliminarCiudad(idCiudad): Observable<{}>{
+    return this.http.delete(environment.urlCiudad + idCiudad, httpOptions);
+  }
+
 }

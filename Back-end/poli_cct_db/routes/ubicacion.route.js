@@ -9,7 +9,7 @@ router.get('/', ubicacionesController.findAllubicaciones);
 /**
  * GET Route to find ubicaciones by id
  */
-router.get('/:idubicaciones', ubicacionesController.findOneubicaciones);
+router.get('/:idUbicacion', ubicacionesController.findOneubicaciones);
 /**
  * ubicaciones Route to create ubicaciones
  */
@@ -17,11 +17,11 @@ router.post ('/', ubicacionesController.createubicacion);
 /**
  * PUT Route to update an user by id
  */
-router.put ('/:idubicaciones',ubicacionesController.updateubicaciones);
+router.put ('/:idUbicacion',ubicacionesController.updateubicaciones);
 /**
  * DELETE Route to delete an user by username
  */
-router.delete ('/:message',ubicacionesController.deleteubicacionesByubicaciones);
+router.delete ('/:idUbicacion',ubicacionesController.deleteubicacionesByubicaciones);
 /**
  * DELETE Route to delete all users
  */

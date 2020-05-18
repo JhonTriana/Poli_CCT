@@ -10,9 +10,9 @@
         </div>
         <mat-form-field class="seleccion">
             <mat-label >Seleccione la ciudad</mat-label>
-          <mat-select [(ngModel)]="data.nombreCiudad"> 
-            <mat-option type="text" matInput *ngFor="let ciudad of data.misCiudades" [value]="ciudad.nombreCiudad" > 
-              {{ ciudad.nombreCiudad }}
+          <mat-select [(ngModel)]="data.ciudadname"> 
+            <mat-option type="text" matInput *ngFor="let ciudad of data.misCiudades" [value]="ciudad.ciudadname" > 
+              {{ ciudad.ciudadname }}
             </mat-option>    
           </mat-select>
         </mat-form-field>
@@ -23,5 +23,3 @@
     <button mat-button (click)="onNoClick()">Regresar</button>
     <button mat-button [mat-dialog-close]="data" cdkFocusInitial >Guardar</button>
   </div>
-
-

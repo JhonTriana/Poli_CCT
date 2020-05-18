@@ -1,36 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Criterio } from '../models/criterios.model';
 import { Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class CriterioService {
-  ALL_Criterios: Criterio [] = [
-    {   idCriterio: 1,   idActividad: 1,   idDocumento: 1   },
-    {   idCriterio: 2,   idActividad: 1,   idDocumento: 2   },
-    {   idCriterio: 3,   idActividad: 2,   idDocumento: 1   },
-    {   idCriterio: 4,   idActividad: 2,   idDocumento: 2   },
-    {   idCriterio: 5,   idActividad: 3,   idDocumento: 1   }
-]
-  constructor() { }
-  getAllCriterios() : Observable<Criterio[]>{
-    return of (this.ALL_Criterios);
-  }
-  crearNuevoCriterio(nuevoCriterio){ 
-    this.ALL_Criterios.push(nuevoCriterio);
-  }
-  eliminarCriterio(element){
-    this.ALL_Criterios.splice(element,1);
-  }
-  editarCriterio(element, idActividad, idDocumento){
-    this.ALL_Criterios[element].idActividad = idActividad ;
-    this.ALL_Criterios[element].idDocumento = idDocumento ;
-  }
 
-  getCriterioPorActividad(idActividad): Observable<Criterio[]>{
-    //console.log("actividad seleccionada", idActividad);
-    return of (this.ALL_Criterios.filter((criterio:any) => criterio.idActividad == idActividad));
+  constructor(private http: HttpClient) {} 
+  getAllCriterios(): Observable<{}>{
+    return this.http.get(environment.urlCriterio, httpOptions);
   }
-
+  crearNuevoCriterio(nuevoCriterio): Observable<{}>{ 
+    return this.http.post(environment.urlCriterio, nuevoCriterio, httpOptions);
+  }
+  editarCriterio(editarCriterio): Observable<{}>{
+    return this.http.put(environment.urlCriterio + editarCriterio.idCriterio , editarCriterio, httpOptions);
+  }
+  eliminarCriterio(idCriterio): Observable<{}>{
+    return this.http.delete(environment.urlCriterio + idCriterio, httpOptions);
+  }
 }

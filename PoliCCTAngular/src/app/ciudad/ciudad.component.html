@@ -24,9 +24,9 @@
             </ng-container>
 
             <!-- Segunda columna de la Tabla -->
-            <ng-container matColumnDef="nombreCiudad">
+            <ng-container matColumnDef="ciudadname">
               <th mat-header-cell *matHeaderCellDef><b>Nombre Ciudad</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.nombreCiudad}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.ciudadname}} </td>
             </ng-container>
 
             <!-- Columna de Opciones -->
@@ -46,7 +46,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
-          <mat-paginator class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+          <mat-paginator [pageIndex]="pageIndex" class="footer" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
         </div>
     </div>    
   </div>
