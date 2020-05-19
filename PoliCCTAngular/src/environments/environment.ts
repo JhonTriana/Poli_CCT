@@ -10,7 +10,7 @@ export const environment = {
   urlRegistroDependencias:  'http://localhost:3000/dependencias/',
   urlDocumento:             'http://localhost:3000/documentos/',
   urlEmpleado:              'http://localhost:3000/empleado/',
-  urlRegistro:              'http://localhost:3000/regempleados/',
+  urlRegistro:              'http://localhost:3000/contratista/',
   urlSedes:                 'http://localhost:3000/sedes/',
   urlUbicacion:             'http://localhost:3000/ubicacion/',
   urlUsers:                 'http://localhost:3000/Users/',
