@@ -70,7 +70,7 @@ export class UbicacionComponent implements OnInit {
           consulta => {                
           this.getAllUbicaciones();
           var r = alert('Registro Exitoso');
-      });
+        });
       }
     });
   }
@@ -92,9 +92,11 @@ export class UbicacionComponent implements OnInit {
             this.newUbicacion.idSede = this.misSedes[b].idSede ;
           }
         }
-        this.UbicacionService.editarUbicacion(this.newUbicacion).subscribe();
-        this.getAllUbicaciones();
-        var r = alert('Registro Exitoso');
+        this.UbicacionService.editarUbicacion(this.newUbicacion).subscribe(
+          consulta => {                
+            this.getAllUbicaciones();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
@@ -102,10 +104,12 @@ export class UbicacionComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro');
     if(r === true){
-      this.UbicacionService.eliminarUbicacion(this.misUbicaciones[element].idUbicacion).subscribe();
-      this.getAllUbicaciones();
-      var r1 = alert('Registro Eliminado Exitosamente');
-      return true;
+      this.UbicacionService.eliminarUbicacion(this.misUbicaciones[element].idUbicacion).subscribe(
+        consulta => {                
+          this.getAllUbicaciones();
+          var r1 = alert('Registro Eliminado Exitosamente');
+          return true;
+      });
     }else{
       return false;
     }

@@ -70,9 +70,11 @@ export class DocumentoComponent implements OnInit {
         this.newDocumento.idDocumento = this.misDocumentos[element].idDocumento ;
         this.newDocumento.nombreDocumento = result.nombreDocumento ; 
         this.newDocumento.vigenciaDocumento = result.vigenciaDocumento ; 
-        this.DocumentoService.editarDocumento(this.newDocumento).subscribe();
-        this.getAllDocumentos();
-        var r = alert('Registro Exitoso');
+        this.DocumentoService.editarDocumento(this.newDocumento).subscribe(
+          consulta => {                
+            this.getAllDocumentos();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
@@ -80,10 +82,12 @@ export class DocumentoComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-        this.DocumentoService.eliminarDocumento(this.misDocumentos[element].idDocumento).subscribe();
-        this.getAllDocumentos();
-        var r1 = alert('Registro Eliminado Exitosamente');
-        return true ; 
+      this.DocumentoService.eliminarDocumento(this.misDocumentos[element].idDocumento).subscribe(
+        consulta => {                
+          this.getAllDocumentos();
+          var r1 = alert('Registro Eliminado Exitosamente');
+          return true ;
+      }); 
     }else{
       return false ;
     }  

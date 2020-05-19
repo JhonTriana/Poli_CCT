@@ -103,9 +103,11 @@ export class RegistroDependenciasComponent implements OnInit {
         this.newRegistroDependencias.idTelefono = result.idTelefono,
         this.newRegistroDependencias.idExtension = result.idExtension,
         this.newRegistroDependencias.idCorreoElectronico = result.idCorreoElectronico,
-        this.RegistroDependenciasService.editarRegistroDependencias(this.newRegistroDependencias).subscribe();
-        this.getAllRegistroDependencias();
-        var r = alert('Registro Editado Exitosamente');
+        this.RegistroDependenciasService.editarRegistroDependencias(this.newRegistroDependencias).subscribe(
+          consulta => {                
+            this.getAllRegistroDependencias();
+            var r = alert('Registro Editado Exitosamente');
+        });
       }
     });
   }
@@ -113,10 +115,12 @@ export class RegistroDependenciasComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-      this.RegistroDependenciasService.eliminarRegistroDependencias(this.misRegistroDependencias[element].idDependencias).subscribe();
-      this.getAllRegistroDependencias();
-      var r1 = alert('Registro Eliminado Exitosamente');
-      return true ; 
+      this.RegistroDependenciasService.eliminarRegistroDependencias(this.misRegistroDependencias[element].idDependencias).subscribe(
+        consulta => {                
+          this.getAllRegistroDependencias();
+          var r1 = alert('Registro Eliminado Exitosamente');
+          return true ; 
+      });
     }else{
       return false ;
     }  

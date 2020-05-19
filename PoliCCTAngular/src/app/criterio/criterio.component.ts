@@ -113,9 +113,12 @@ export class CriterioComponent implements OnInit {
             this.newCriterio.idDocumento = this.misDocumentos[c].idDocumento ; 
           }
         }
-        this.CriterioService.editarCriterio(this.newCriterio).subscribe();
-        this.getAllCriterios();
-        var r = alert('Registro Exitoso');
+        this.CriterioService.editarCriterio(this.newCriterio).subscribe(
+          consulta => {                
+            this.getAllCriterios();
+            var r = alert('Registro Exitoso');
+            return true;
+        });
       }
     });
   }

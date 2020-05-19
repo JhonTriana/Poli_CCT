@@ -54,7 +54,7 @@ export class UsuarioComponent implements OnInit {
         this.UsuarioService.createNewUsuario(this.newUsuario).subscribe(  
           consulta => {                
             this.getAllUsuarios();
-          var r = alert('Registro Exitoso');
+            var r = alert('Registro Exitoso');
         });
       }
     });
@@ -63,9 +63,12 @@ export class UsuarioComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-      this.UsuarioService.eliminarUsuario(this.misUsuarios[element].idUser).subscribe(); //Se Manetiene Igual
-      this.getAllUsuarios();                         //Se Manetiene Igual  
-      return true ; 
+      this.UsuarioService.eliminarUsuario(this.misUsuarios[element].idUser).subscribe(
+        consulta => {                
+          this.getAllUsuarios();                         //Se Manetiene Igual  
+          var r = alert('Registro Exitoso');
+          return true ; 
+      }); //Se Manetiene Igual
     }else{
       return false ;
     }
@@ -87,13 +90,14 @@ export class UsuarioComponent implements OnInit {
         this.newUsuario.documentoUser = result.documentoUser ; 
         this.newUsuario.userName = result.userName ;         
         this.newUsuario.userType = result.userType ; 
-        this.UsuarioService.editarUsuario(this.newUsuario).subscribe();
-        this.getAllUsuarios();
-        var r = alert('Registro Exitoso');
+        this.UsuarioService.editarUsuario(this.newUsuario).subscribe(
+          consulta => {                
+            this.getAllUsuarios();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
-
   displayedColumns: string[] = ['idUser', 'userName', 'documentoUser', 'userType',"star"];
   dataSource = new MatTableDataSource(this.misUsuarios);
   ngAfterViewInit() {

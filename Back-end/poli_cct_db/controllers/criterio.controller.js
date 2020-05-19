@@ -16,7 +16,6 @@ async function createcriterio (req, res) {
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -31,7 +30,6 @@ async function findOnecriterio (req, res){
         });
         res.json(criterio);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -49,10 +47,9 @@ async function updatecriterio (req, res){
     }
     const { idCriterio } = req.params;//Execute query
     dbManager.Criterio.update(newcriterioObject, { where: { idCriterio: idCriterio } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newcriterioObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -63,16 +60,14 @@ async function updatecriterio (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deletecriterioBymessage (req, res){ 
+async function deletecriterioBymessage (req, res){ 
     const { idCriterio } = req.params;//Execute query
     dbManager.Criterio.destroy( { where: { idCriterio: idCriterio } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
-        e => {
-            console.log(e);// Print error on console
-            res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
-        }
+        e => {   res.status(500).send({ message: "Some error occurred" });   }
     );
+    findAllcriterios (req, res);
 }
 /**
  * Get all criterios

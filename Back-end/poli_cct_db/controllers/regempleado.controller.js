@@ -14,13 +14,11 @@ async function createregempleado (req, res) {
         idTelefono: req.body.idTelefono,
         idDireccion: req.body.idDireccion,
         idID: req.body.idID,
-
     }
     dbManager.RegEmpleado.create(newregempleadoObject).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -35,7 +33,6 @@ async function findOneregempleado (req, res){
         });
         res.json(regempleado);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -56,10 +53,9 @@ async function updateregempleado (req, res){
     }
     const { idRegEmpleado } = req.params;//Execute query
     dbManager.RegEmpleado.update(newregempleadoObject, { where: { idRegEmpleado: idRegEmpleado } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newregempleadoObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -70,16 +66,13 @@ async function updateregempleado (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteregempleadoBymessage (req, res){ 
+async function deleteregempleadoBymessage (req, res){ 
     const { idRegEmpleado } = req.params;//Execute query
     dbManager.RegEmpleado.destroy( { where: { idRegEmpleado: idRegEmpleado } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        //data => { res.send (data); }
     .catch (
-        e => {
-            console.log(e);// Print error on console
-            res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
-        }
+        e => {   res.status(500).send({ message: "Some error occurred" });   }
     );
+    findAllregempleados (req, res);
 }
 /**
  * Get all regempleados
@@ -89,7 +82,6 @@ async function findAllregempleados (req, res){
         const regempleados = await dbManager.RegEmpleado.findAll (); //Execute query
         res.json({ data: regempleados });//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }

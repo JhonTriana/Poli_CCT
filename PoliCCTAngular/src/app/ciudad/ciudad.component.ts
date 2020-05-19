@@ -69,9 +69,11 @@ export class CiudadComponent implements OnInit {
       else{
         this.newCiudad.idCiudad = this.misCiudades[element].idCiudad ;
         this.newCiudad.ciudadname = result;
-        this.CiudadService.editarCiudad(this.newCiudad).subscribe();
-        this.getAllCiudades();
-        var r = alert('Registro Exitoso');
+        this.CiudadService.editarCiudad(this.newCiudad).subscribe(
+          consulta => {                
+            this.getAllCiudades();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
@@ -79,10 +81,12 @@ export class CiudadComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro');
     if(r === true){
-      this.CiudadService.eliminarCiudad(this.misCiudades[element].idCiudad).subscribe();
-      this.getAllCiudades();
-      var r1 = alert('Registro Eliminado Exitosamente');
-      return true;
+      this.CiudadService.eliminarCiudad(this.misCiudades[element].idCiudad).subscribe(
+        consulta => {          
+          this.getAllCiudades();
+          var r1 = alert('Registro Eliminado Exitosamente');
+          return true;
+      });
     }else{
       return false;
     }
