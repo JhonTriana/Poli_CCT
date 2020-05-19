@@ -18,9 +18,9 @@
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <!-- Primera columna de la Tabla -->
-            <ng-container matColumnDef="idContratista">
+            <ng-container matColumnDef="idEmpleado">
               <th mat-header-cell *matHeaderCellDef><b>Número</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.idContratista}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.idEmpleado}} </td>
             </ng-container>
 
             <!-- Segunda columna de la Tabla -->
@@ -53,16 +53,17 @@
               <td mat-cell *matCellDef="let element"> {{element.cargo}} </td>
             </ng-container>
 
-             <!-- Septima columna de la Tabla -->
+             <!-- Septima columna de la Tabla 
              <ng-container matColumnDef="contacto">
               <th mat-header-cell *matHeaderCellDef><b>Contacto</b> </th>
-              <td mat-cell *matCellDef="let element"> {{element.contacto}} </td>
-            </ng-container>
-            <!-- Octava columna de la Tabla -->
+              <td mat-cell *matCellDef="let element"> {{element.contacto}} </td> 
+            </ng-container> -->
+            <!-- Octava columna de la Tabla 
             <ng-container matColumnDef="numero_contacto">
               <th mat-header-cell *matHeaderCellDef><b>numero_contacto</b> </th>
               <td mat-cell *matCellDef="let element"> {{element.numero_contacto}} </td>
-            </ng-container>
+            </ng-container> -->
+            
             <!-- novena columna de la Tabla -->
             <ng-container matColumnDef="mail">
               <th mat-header-cell *matHeaderCellDef><b>mail</b> </th>

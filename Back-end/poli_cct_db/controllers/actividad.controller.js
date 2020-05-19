@@ -16,7 +16,6 @@ async function createactividad (req, res) {
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -30,7 +29,6 @@ async function findOneactividad (req, res){
         const actividad = await dbManager.Actividad.findOne({ where: { idActividad: idActividad } });
         res.json(actividad);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -47,10 +45,9 @@ async function updateactividad (req, res){
     }
     const { idActividad } = req.params;//Execute query
     dbManager.Actividad.update(newactividadObject, { where: { idActividad: idActividad } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newactividadObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -60,16 +57,14 @@ async function updateactividad (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteactividadByactividad (req, res){ 
+async function deleteactividadByactividad (req, res){ 
     const { idActividad } = req.params;//Execute query
     dbManager.Actividad.destroy( { where: { idActividad: idActividad } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
-        e => {
-            console.log(e);// Print error on console
-            res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
-        }
+        e => {   res.status(500).send({ message: "Some error occurred" });   }
     );
+    findAllactividades (req, res);
 }
 /**
  * @param {*} req 
@@ -83,7 +78,6 @@ async function findAllactividades (req, res){
         const actividades = await dbManager.Actividad.findAll();//Execute query
         res.json({ data: actividades });//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }

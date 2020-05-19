@@ -90,9 +90,11 @@ export class SedeComponent implements OnInit {
             this.newSede.idCiudad = this.misCiudades[b].idCiudad ;
           }
         }
-        this.SedeService.editarSede(this.newSede).subscribe();
-        this.getAllSedes();
-        var r = alert('Registro Exitoso');
+        this.SedeService.editarSede(this.newSede).subscribe(
+          consulta => {                
+            this.getAllSedes();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
@@ -100,10 +102,12 @@ export class SedeComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro');
     if(r === true){
-      this.SedeService.eliminarSede(this.misSedes[element].idSede).subscribe();
-      this.getAllSedes();
-      var r1 = alert('Registro Eliminado Exitosamente');
-      return true;
+      this.SedeService.eliminarSede(this.misSedes[element].idSede).subscribe(
+        consulta => {                
+          this.getAllSedes();
+          var r1 = alert('Registro Eliminado Exitosamente');
+          return true;
+      });
     }else{
       return false;
     }

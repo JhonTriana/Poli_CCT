@@ -11,7 +11,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./actividad.component.scss']
 })
 export class ActividadComponent implements OnInit {
-
+//Comentario
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   misActividades ; 
   newActividad: Actividad;
@@ -67,9 +67,11 @@ export class ActividadComponent implements OnInit {
       else{
         this.newActividad.idActividad = this.misActividades[element].idActividad ; 
         this.newActividad.nombreActividad = result;
-        this.ActividadService.editarActividad(this.newActividad).subscribe();
-        this.getAllActividades();
-        var r = alert('Registro Exitoso');
+        this.ActividadService.editarActividad(this.newActividad).subscribe(
+          consulta => {                
+            this.getAllActividades();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
@@ -77,10 +79,12 @@ export class ActividadComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-      this.ActividadService.eliminarActividad(this.misActividades[element].idActividad).subscribe();
-      this.getAllActividades();
-      var r1 = alert('Registro Eliminado Exitosamente');
-      return true ; 
+      this.ActividadService.eliminarActividad(this.misActividades[element].idActividad).subscribe(
+        consulta => {                
+          this.getAllActividades();
+          var r1 = alert('Registro Eliminado Exitosamente');
+          return true ; 
+      });
     }else{
       return false ;
     }  

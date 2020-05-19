@@ -18,19 +18,14 @@ async function registroEmpleado (req, res) {
         numero_contacto: req.body.numero_contacto,
         mail: req.body.mail,
         idContratista : req.body.idContratista
-        
     }
-   
     dbManager.Empleado.create(newempleadoObject).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
-    
-
 }
 /**
  * Get empleado by id
@@ -42,7 +37,6 @@ async function findOneEmpleado (req, res){
         });
         res.json(empleado);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -55,14 +49,21 @@ async function updateEmpleado (req, res){
         return;
     }
     const newempleadoObject = {// CREATING THE OBJECT TO PERSIST
-        nombreEmpleado: req.body.nombreEmpleado
+        nombreEmpleado: req.body.nombreEmpleado,
+        identificacion : req.body.identificacion,
+        direccion : req.body.direccion,
+        telefono : req.body.telefono,
+        cargo : req.body.cargo,
+        contacto : req.body.contacto,
+        numero_contacto: req.body.numero_contacto,
+        mail: req.body.mail,
+        idContratista : req.body.idContratista
     }
     const { idEmpleado } = req.params;//Execute query
     dbManager.Empleado.update(newempleadoObject, { where: { idEmpleado: idEmpleado } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newempleadoObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -73,16 +74,14 @@ async function updateEmpleado (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteEmpleado (req, res){ 
+async function deleteEmpleado (req, res){ 
     const { idEmpleado } = req.params;//Execute query
-    dbManager.Empelado.destroy( { where: { idEmpleado: idEmpleado } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        //data => { res.send (data); }
+    dbManager.Empleado.destroy( { where: { idEmpleado: idEmpleado } } ) //EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
+        //data => { res.send (data);  })
     .catch (
-        e => {
-            console.log(e);// Print error on console
-            res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
-        }
+        e => {   res.status(500).send({ message: "Some error occurred" });   }
     );
+    findAllempleados (req, res);
 }
 /**
  * Get all empleados
@@ -92,7 +91,6 @@ async function findAllempleados (req, res){
         const empleados = await dbManager.Empleado.findAll (); //Execute query
         res.json({ data: empleados });//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }

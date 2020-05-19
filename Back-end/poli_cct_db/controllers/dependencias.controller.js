@@ -22,7 +22,6 @@ async function createdependencias (req, res) {
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -37,7 +36,6 @@ async function findOnedependencias (req, res){
         });
         res.json(dependencias);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -61,10 +59,9 @@ async function updatedependencias (req, res){
     }
     const { idDependencias } = req.params;//Execute query
     dbManager.Dependencias.update(newdependenciasObject, { where: { idDependencias: idDependencias } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newdependenciasObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -75,16 +72,14 @@ async function updatedependencias (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deletedependenciasBymessage (req, res){ 
+async function deletedependenciasBymessage (req, res){ 
     const { idDependencias } = req.params;//Execute query
     dbManager.Dependencias.destroy( { where: { idDependencias: idDependencias } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
-        e => {
-            console.log(e);// Print error on console
-            res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
-        }
+        e => {   res.status(500).send({ message: "Some error occurred" });  }
     );
+    findAlldependencias1 (req, res);
 }
 /**
  * Get all dependencias1
@@ -94,7 +89,6 @@ async function findAlldependencias1 (req, res){
         const dependencias1 = await dbManager.Dependencias.findAll (); //Execute query
         res.json({ data: dependencias1 });//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
