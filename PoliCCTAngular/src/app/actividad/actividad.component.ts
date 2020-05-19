@@ -11,7 +11,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./actividad.component.scss']
 })
 export class ActividadComponent implements OnInit {
-
+//Comentario
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   misActividades ; 
   newActividad: Actividad;
