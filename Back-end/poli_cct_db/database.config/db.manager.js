@@ -6,6 +6,7 @@ const sequelizeConnection = require('../database.config/db.connection.js');
 const ActividadModel = require("../model/actividades.model");
 const CiudadModel    = require("../model/ciudad.model");
 const CriterioModel  = require("../model/criterios.model");
+const ContratistaModel  = require("../model/contratista.model");
 const DependenciasModel = require("../model/dependencias.model");
 const DocumentoModel = require("../model/documentos.model");
 const EmpleadoModel = require("../model/empleado.model");
@@ -17,6 +18,7 @@ const VerVideoModel = require("../model/verVideo.model");
 //INITIALIZE MODELS
 const Actividad = ActividadModel (sequelizeConnection, Sequelize);
 const Ciudad = CiudadModel (sequelizeConnection, Sequelize);
+const Contratista = ContratistaModel (sequelizeConnection, Sequelize);
 const Criterio = CriterioModel (sequelizeConnection, Sequelize);
 const Dependencias = DependenciasModel (sequelizeConnection,Sequelize);
 const Documento = DocumentoModel (sequelizeConnection, Sequelize);
@@ -36,6 +38,7 @@ const VerVideo = VerVideoModel (sequelizeConnection, Sequelize);
 const models = {
   Ciudad: Ciudad,
   Actividad: Actividad,
+  Contratista: Contratista,
   Criterio: Criterio,
   Dependencias : Dependencias,
   Documento: Documento,

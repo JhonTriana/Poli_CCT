@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
-//import { Registro } from '../models/registros.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -11,7 +10,6 @@ const httpOptions = {
     'Authorization': 'my-auth-token'
   })
 };
-
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +29,5 @@ export class RegistroService{
   eliminarRegistro(idRegistro): Observable<{}>{
     return this.http.delete(environment.urlRegistro + idRegistro, httpOptions);
   }
+
 }

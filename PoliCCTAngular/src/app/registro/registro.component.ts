@@ -17,13 +17,10 @@ export class RegistroComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   misRegistros ;
-  misRegistros1 ;
   newRegistro: Registro;
   misCiudades ;
-  misCiudades1;
   ciudad: Ciudad;
   dataSource = new MatTableDataSource(this.misRegistros);  //Se agrega 16052020
-   //dataSource = new MatTableDataSource(this.misCiudades); //Se cambio por this.misRegistros
   No = 0 ;
   indiceTabla = 0 ; //se agrega 16052020
   cantidadTabla  = 0 ; //se agrega 16052020
@@ -36,30 +33,52 @@ export class RegistroComponent implements OnInit {
   }  
   getAllRegistros(){
     this.RegistroService.getAllRegistros().subscribe(   misRegistrosObs => {   
-    this.misRegistros = misRegistrosObs['data'];                    //se agrega data 16052020
-    this.dataSource = new MatTableDataSource(this.misRegistros);   //se agrega 16/05/2020
-    this.dataSource.paginator = this.paginator;                     //se agrega 16/05/2020
-    this.newRegistro = new Registro;                                //se agrega 16/05/2020
-                                      //se quita el ciclo
+      this.misRegistros = misRegistrosObs['data'];                    //se agrega data 16052020
+      this.CiudadService.getAllCiudades().subscribe(   misCiudadesObs => {   
+        this.misCiudades = misCiudadesObs['data'];                    //se agrega data 16052020
+        for (let a = 0; a < this.misRegistros.length; a++) {
+          for (let b = 0; b < this.misCiudades.length; b++) {
+            if ( this.misRegistros[a].idCiudad === this.misCiudades[b].idCiudad ){
+              this.misRegistros[a].idCiudad = this.misCiudades[b].ciudadname ; 
+            }
+          }  
+        }
+        this.dataSource = new MatTableDataSource(this.misRegistros);    //se agrega 16/05/2020
+        this.dataSource.paginator = this.paginator;                     //se agrega 16/05/2020
+        this.newRegistro = new Registro;                                //se agrega 16/05/2020
+      });
     });
  }
   openDialogNuevaRegistro(): void {
     const dialogRef = this.dialog.open(RegistroEmergente, {
       width: '400px',
-      data: { Registro, Ciudad }          //se borran todos los argumentos
+      data: { Registro, misCiudades: this.misCiudades }          //se borran todos los argumentos
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined){
+      console.log("Result1: ", result.ntCcRegistro);
+      console.log("Result2: ", result.nombreRegistro);
+      console.log("Result3: ", result.direccionRegistro);
+      console.log("Result4: ", result.nombreCiudad);
+      console.log("Result5: ", result.telefonoRegistro);
+      console.log("Result6: ", result.celularRegistro);
+      if (result === undefined                     ||   
+          result.ntCcRegistro === undefined        ||   result.nombreRegistro === undefined      ||
+          result.direccionRegistro === undefined   ||   result.nombreCiudad === undefined        ||
+          result.telefonoRegistro === undefined    ||   result.celularRegistro === undefined     ){
         var r = alert('Datos Incompletos');
       }
       else{
+        for (let b = 0; b < this.misCiudades.length; b++) {
+          if ( result.nombreCiudad === this.misCiudades[b].ciudadname ){
+            this.newRegistro.idCiudad = this.misCiudades[b].idCiudad ;
+          }
+        }
         this.newRegistro.idRegistro = this.No ;
-        this.newRegistro.ntCcRegistro = result,
-        this.newRegistro.nombreRegistro = result,
-        this.newRegistro.direccionRegistro = result,
-        this.misCiudades.nombreCiudad = result, //Verificar si quedo bien
-        this.newRegistro.telefonoRegistro = result,
-        this.newRegistro.celularRegistro = result,
+        this.newRegistro.ntCcRegistro = result.ntCcRegistro,
+        this.newRegistro.nombreRegistro = result.nombreRegistro,
+        this.newRegistro.direccionRegistro = result.direccionRegistro,
+        this.newRegistro.telefonoRegistro = result.telefonoRegistro,
+        this.newRegistro.celularRegistro = result.celularRegistro,
         this.RegistroService.createNewRegistro(this.newRegistro).subscribe(
           consulta => {                
             this.getAllRegistros();
@@ -72,24 +91,38 @@ export class RegistroComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     const dialogRef = this.dialog.open(RegistroEmergente, {
       width: '400px',
-      data: { misCiudades: this.misCiudades, idRegistro: this.misRegistros[element].idRegistro , ntCcRegistro: this.misRegistros[element].ntCcRegistro , nombreRegistro: this.misRegistros[element].nombreRegistro , direccionRegistro: this.misRegistros[element].direccionRegistro ,
-        /* ciudadRegistro: this.misRegistros[element].ciudadRegistro */ nombreCiudad: this.misRegistros[element].idCiudad , telefonoRegistro: this.misRegistros[element].telefonoRegistro , celularRegistro: this.misRegistros[element].celularRegistro } 
+      data: { Registro, misCiudades: this.misCiudades, idRegistro: this.misRegistros[element].idRegistro, 
+              ntCcRegistro: this.misRegistros[element].ntCcRegistro , nombreRegistro: this.misRegistros[element].nombreRegistro,
+              direccionRegistro: this.misRegistros[element].direccionRegistro, nombreCiudad: this.misRegistros[element].idCiudad, 
+              telefonoRegistro: this.misRegistros[element].telefonoRegistro , celularRegistro: this.misRegistros[element].celularRegistro } 
     });
     dialogRef.afterClosed().subscribe(result => {
-      if ( result === undefined || result === null){
+      if (result === undefined                     ||   result === null                          ||
+          result.ntCcRegistro === undefined        ||   result.nombreRegistro === undefined      ||
+          result.direccionRegistro === undefined   ||   result.nombreCiudad === undefined        ||
+          result.telefonoRegistro === undefined    ||   result.celularRegistro === undefined     ||
+          result.ntCcRegistro === null             ||   result.nombreRegistro === null           ||
+          result.direccionRegistro === null        ||   result.nombreCiudad === null             ||
+          result.telefonoRegistro === null         ||   result.celularRegistro === null          ){
         var r = alert('Datos Incompletos');
       }
       else{
-        this.newRegistro.idRegistro = this.misRegistros[element].idRegistro;
-        this.newRegistro.ntCcRegistro = result,
-        this.newRegistro.nombreRegistro = result,
-        this.newRegistro.direccionRegistro = result,
-        this.misCiudades.nombreCiudad = result, //Verificar si quedo bien
-        this.newRegistro.telefonoRegistro = result,
-        this.newRegistro.celularRegistro = result,
-        this.RegistroService.editarRegistro(this.newRegistro).subscribe();
-        this.getAllRegistros();
-        var r = alert('Registro Editado Exitosamente');
+        for (let b = 0; b < this.misCiudades.length; b++) {
+          if ( result.nombreCiudad === this.misCiudades[b].ciudadname ){
+            this.newRegistro.idCiudad = this.misCiudades[b].idCiudad ;
+          }
+        }
+        this.newRegistro.idRegistro = this.misRegistros[element].idRegistro ;
+        this.newRegistro.ntCcRegistro = result.ntCcRegistro,
+        this.newRegistro.nombreRegistro = result.nombreRegistro,
+        this.newRegistro.direccionRegistro = result.direccionRegistro,
+        this.newRegistro.telefonoRegistro = result.telefonoRegistro,
+        this.newRegistro.celularRegistro = result.celularRegistro,
+        this.RegistroService.editarRegistro(this.newRegistro).subscribe(
+          consulta => {
+            this.getAllRegistros();
+            var r = alert('Registro Editado Exitosamente');
+        });
       }
     });
   }
@@ -97,11 +130,14 @@ export class RegistroComponent implements OnInit {
     element = element + (this.indiceTabla * this.cantidadTabla );
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
     if(r === true){
-      this.RegistroService.eliminarRegistro(this.misRegistros[element].idRegistro).subscribe();
+      this.RegistroService.eliminarRegistro(this.misRegistros[element].idRegistro).subscribe(
+        consulta => {
           this.getAllRegistros();
           var r1 = alert('Registro Eliminado Exitosamente');
           return true ; 
-    }else{
+        }
+      );
+      }else{
       return false ;
     }  
   }  
@@ -124,7 +160,7 @@ export class RegistroComponent implements OnInit {
 })
 export class RegistroEmergente {
   constructor(public dialogRef: MatDialogRef<RegistroEmergente>,
-    @Inject(MAT_DIALOG_DATA)  public data: Registro ) {    }
+    @Inject(MAT_DIALOG_DATA)  public data: { Registro, misCiudades } ) {    }
   onNoClick(): void {
     this.dialogRef.close();
   } 
