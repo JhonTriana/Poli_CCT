@@ -16,7 +16,6 @@ async function createdocumento (req, res) {
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -31,7 +30,6 @@ async function findOnedocumento (req, res){
         });
         res.json(documento);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -49,10 +47,9 @@ async function updatedocumento (req, res){
     }
     const { idDocumento } = req.params;//Execute query
     dbManager.Documento.update(newdocumentoObject, { where: { idDocumento: idDocumento } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newdocumentoObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -63,16 +60,14 @@ async function updatedocumento (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deletedocumentoBymessage (req, res){ 
+async function deletedocumentoBymessage (req, res){ 
     const { idDocumento } = req.params;//Execute query
     dbManager.Documento.destroy( { where: { idDocumento: idDocumento } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
-        e => {
-            console.log(e);// Print error on console
-            res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
-        }
+        e => {    res.status(500).send({ message: "Some error occurred" });  }
     );
+    findAlldocumentos (req, res);
 }
 /**
  * Get all documentos
@@ -82,7 +77,6 @@ async function findAlldocumentos (req, res){
         const documentos = await dbManager.Documento.findAll (); //Execute query
         res.json({ data: documentos });//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }

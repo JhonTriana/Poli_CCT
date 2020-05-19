@@ -1,32 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Empleado } from '../models/empleado.model';;
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 @Injectable({
   providedIn: 'root'
 })
-
 export class EmployeeService {
-  
-  constructor() { }
-  getAllEmpleados(){//}: Observable<{}>{
-    //return of (this.ALL_Empleados);
+  constructor(private http: HttpClient) { }
+  getAllEmpleados(): Observable<{}>{
+    return this.http.get(environment.urlEmpleado , httpOptions);
   }
-  createNewEmpleado(nuevoEmpleado){ 
-    //this.ALL_Empleados.push(nuevoEmpleado);
+  createNewEmpleado(nuevoEmpleado): Observable<{}>{ 
+    return this.http.post(environment.urlEmpleado, nuevoEmpleado, httpOptions);
   }
-  eliminarEmpleado(element){
-    //this.ALL_Empleados.splice(element,1);
+  editarEmpleado(editarEmpleado): Observable<{}>{ 
+    return this.http.put(environment.urlEmpleado + editarEmpleado.idEmpleado, editarEmpleado, httpOptions);  
   }
-  editarEmpleado(element, identificacion, nombreEmpleado, direccion, telefono, cargo, contacto, numero_contacto, mail){ 
-    /*this.ALL_Empleados[element].nombreEmpleado=nombreEmpleado;
-    this.ALL_Empleados[element].identificacion=identificacion;
-    this.ALL_Empleados[element].direccion=direccion;
-    this.ALL_Empleados[element].telefono=telefono;
-    this.ALL_Empleados[element].cargo=cargo;
-    this.ALL_Empleados[element].contacto=contacto;
-    this.ALL_Empleados[element].numero_contacto=numero_contacto;
-    this.ALL_Empleados[element].mail=mail;
-    */
+  eliminarEmpleado(idEmpleado): Observable<{}>{
+    return this.http.delete(environment.urlEmpleado + idEmpleado, httpOptions);
   }
 }

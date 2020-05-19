@@ -11,8 +11,7 @@ async function createUser (req, res) {
           message: "Request body is empty!!!!"
         });
         return;
-    }
-    
+    }    
     // CREATING THE OBJECT TO PERSIST
     const newUserObject = {
         idUser: req.body.idUser,
@@ -20,7 +19,6 @@ async function createUser (req, res) {
         userName: req.body.userName,
         userType: req.body.userType
     }
-    
     // EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
     dbManager.User.create(newUserObject).then (
         data => {
@@ -28,8 +26,6 @@ async function createUser (req, res) {
         }
     ).catch (
         e => {
-            // Print error on console
-            console.log(e);
             // Send error message as a response 
             res.status(500).send({
                 message: "Some error occurred"
@@ -46,7 +42,6 @@ async function findAllUsers (req, res){
         res.json({data: users});//Send response
 
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({message: "Some error occurred"});// Send error message as a response
     }
 }
@@ -60,7 +55,6 @@ async function findOneUser (req, res){
         const user = await dbManager.User.findOne({ where: { idUser: idUser } });
         res.json(user);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({message: "Some error occurred"});// Send error message as a response 
     }
 }
@@ -81,10 +75,9 @@ async function updateUser (req, res){
     }
     const { idUser } = req.params;//Execute query
     dbManager.User.update(newUserObject, { where: { idUser: idUser } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newUserObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -95,13 +88,12 @@ async function updateUser (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteUserByidUser (req, res){ 
+async function deleteUserByidUser (req, res){ 
     const { idUser } = req.params;//Execute query
     dbManager.User.destroy( { where: { idUser: idUser } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -114,10 +106,10 @@ function deleteAllUsers (req, res){
     dbManager.User.destroy( { where: {} } )// EXECUTING THE DESTROY QUERY - INSERT THE OBJECT INTO DATABASE 
     .catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
+    findAllUsers (req, res);
 }
 /** 
  * @param {*} req 

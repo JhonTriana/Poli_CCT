@@ -16,78 +16,118 @@ export class EmployeeRegistrationComponent implements OnInit {
   misEmpleados ; 
   newEmpleado: Empleado;
   dataSource = new MatTableDataSource(this.misEmpleados);
-  No = 0 ;
+  No = 1 ;
+  indiceTabla = 0 ; 
+  cantidadTabla  = 0 ;
   
   constructor(private EmployeeService: EmployeeService , public dialog: MatDialog ) { 
     this.getAllEmpleados();
-    console.log ("Mis empleados.. ",this.misEmpleados);
   }
-
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
-
   getAllEmpleados(){
-   //this.EmployeeService.getAllEmpleados().subscribe(   misEmpleadosObs => {   this.misEmpleados = misEmpleadosObs;   }   )
-    this.dataSource = new MatTableDataSource(this.misEmpleados);
-    this.newEmpleado = new Empleado;
-    for (let i = 0; i < this.misEmpleados.length -1 ; i++) {
-      if(this.misEmpleados[i].idContratista === undefined){
-        this.No = 1 ;
-      }else if(this.misEmpleados[i].idRegistro > this.misEmpleados[i+1].idContratista) {
-        this.No = this.misEmpleados[i].idContratista + 1 ;
-      }else{
-        this.No = this.misEmpleados[i+1].idContratista + 1 ;
-      }
-    }
+   this.EmployeeService.getAllEmpleados().subscribe(   misEmpleadosObs => {   
+     this.misEmpleados = misEmpleadosObs['data'];   
+     this.dataSource = new MatTableDataSource(this.misEmpleados);
+     this.newEmpleado = new Empleado;
+     this.dataSource.paginator = this.paginator; 
+    });
   }
   openDialogNuevoEmpleado(): void {
     const dialogRef = this.dialog.open(EmpleadoEmergente, {
       width: '300px',
-      data: { identificacion: this.misEmpleados.identificacion , nombreEmpleado: this.misEmpleados.nombreEmpleado , direccion: this.misEmpleados.direccion , telefono: this.misEmpleados.telefono , cargo: this.misEmpleados.cargo , contacto: this.misEmpleados.contacto,numero_contacto: this.misEmpleados.numero_contacto,mail: this.misEmpleados.mail } 
+      data: { Empleado } 
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.newEmpleado.identificacion = result.identificacion;
-      this.newEmpleado.nombreEmpleado = result.nombreEmpleado;
-      this.newEmpleado.direccion = result.direccion;
-      this.newEmpleado.telefono = result.telefono;
-      this.newEmpleado.cargo = result.cargo;
-      this.newEmpleado.contacto = result.contacto;
-      this.newEmpleado.numero_contacto = result.numero_contacto;
-      this.newEmpleado.mail = result.mail;
-      if (this.newEmpleado.identificacion === undefined || this.newEmpleado.nombreEmpleado === undefined || this.newEmpleado.direccion === undefined || this.newEmpleado.telefono === undefined || this.newEmpleado.cargo === undefined || this.newEmpleado.contacto === undefined||this.newEmpleado.numero_contacto === undefined|| this.newEmpleado.mail === undefined ){
+      if (result.identificacion === undefined  ||  result.nombreEmpleado === undefined || 
+          result.direccion === undefined       ||  result.telefono === undefined       || 
+          result.cargo === undefined           ||  result.contacto === undefined       ||
+          result.numero_contacto === undefined ||  result.mail === undefined           ){
+        var r = alert('Datos Incompletos');  
       }
       else{
-        this.newEmpleado.idContratista = this.No ; 
-        this.EmployeeService.createNewEmpleado(this.newEmpleado);
-        this.getAllEmpleados();
+        this.newEmpleado.idEmpleado = this.No ; 
+        this.newEmpleado.nombreEmpleado = result.nombreEmpleado;
+        this.newEmpleado.identificacion = result.identificacion;
+        this.newEmpleado.direccion = result.direccion;
+        this.newEmpleado.telefono = result.telefono;
+        this.newEmpleado.cargo = result.cargo;
+        this.newEmpleado.contacto = result.contacto;
+        this.newEmpleado.numero_contacto = result.numero_contacto;
+        this.newEmpleado.mail = result.mail;
+        this.newEmpleado.idContratista = this.No ; //Pendiente Arreglar
+        this.EmployeeService.createNewEmpleado(this.newEmpleado).subscribe(
+          consulta => {                
+            this.getAllEmpleados();
+            var r = alert('Registro Exitoso');
+        });
       }
     });
   }
   openDialogEditarEmpleado(element): void {
+    element = element + (this.indiceTabla * this.cantidadTabla );
     const dialogRef = this.dialog.open(EmpleadoEmergente, {
-      width: '300px',
-      data: { identificacion: this.misEmpleados[element].identificacion, nombreEmpleado: this.misEmpleados[element].nombreEmpleado,  direccion: this.misEmpleados[element].direccion , telefono: this.misEmpleados[element].telefono , cargo: this.misEmpleados[element].cargo , contacto: this.misEmpleados[element].contacto,numero_contacto: this.misEmpleados[element].numero_contacto,mail: this.misEmpleados[element].mail }    });
-  
+    width: '300px',
+    data: { identificacion: this.misEmpleados[element].identificacion,   nombreEmpleado: this.misEmpleados[element].nombreEmpleado,
+            direccion: this.misEmpleados[element].direccion,             telefono: this.misEmpleados[element].telefono, 
+            cargo: this.misEmpleados[element].cargo,                     contacto: this.misEmpleados[element].contacto,
+            numero_contacto: this.misEmpleados[element].numero_contacto, mail: this.misEmpleados[element].mail }    
+    });
       dialogRef.afterClosed().subscribe(result => {
-        console.log(result.nombreEmpleado);
-        if (result.identificacion === undefined || result.nombreEmpleado === undefined || result.direccion === undefined ||
-            result.telefono === undefined || result.cargo === undefined || result.contacto === undefined || result.numero_contacto === undefined ||
-            result.mail === undefined  ){
-        }
-        else{
-          this.EmployeeService.editarEmpleado(element, result.identificacion,result.nombreEmpleado, result.direccion, result.telefono, result.cargo, result.contacto,result.numero_contacto, result.mail);
-          this.getAllEmpleados();
-        }
-      });
+      if (result.identificacion === undefined  ||  result.nombreEmpleado === undefined || 
+          result.direccion === undefined       ||  result.telefono === undefined       || 
+          result.cargo === undefined           ||  result.contacto === undefined       ||
+          result.numero_contacto === undefined ||  result.mail === undefined           ||
+          result.identificacion === null       ||  result.nombreEmpleado === null      || 
+          result.direccion === null            ||  result.telefono === null            || 
+          result.cargo === null                ||  result.contacto === null            ||
+          result.numero_contacto === null      ||  result.mail === null                ){
+      var r = alert('Datos Incompletos');  
     }
-    eliminarEmpleado(element){
-      this.EmployeeService.eliminarEmpleado(element);
-      this.getAllEmpleados();
-    } 
+      else{
+        this.newEmpleado.idEmpleado = this.misEmpleados[element].idEmpleado ; 
+        this.newEmpleado.nombreEmpleado = result.nombreEmpleado;
+        this.newEmpleado.identificacion = result.identificacion;
+        this.newEmpleado.direccion = result.direccion;
+        this.newEmpleado.telefono = result.telefono;
+        this.newEmpleado.cargo = result.cargo;
+        this.newEmpleado.contacto = result.contacto;
+        this.newEmpleado.numero_contacto = result.numero_contacto;
+        this.newEmpleado.mail = result.mail;
+        this.newEmpleado.idContratista = this.No ; //Pendiente Arreglar
+        this.EmployeeService.editarEmpleado(this.newEmpleado).subscribe(
+          consulta => {                
+            this.getAllEmpleados();
+            var r = alert('Registro Exitoso');
+        });
+      }
+    });
+  }
+  eliminarEmpleado(element){
+    element = element + (this.indiceTabla * this.cantidadTabla );
+    var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
+    if(r === true){
+      this.EmployeeService.eliminarEmpleado(this.misEmpleados[element].idEmpleado).subscribe(
+        consulta => {                
+          this.getAllEmpleados();
+          var r1 = alert('Registro Eliminado Exitosamente');
+          return true ; 
+      });
+    }else{
+      return false ;
+    }  
+  } 
 
-    
-    displayedColumns: string[] = ['idContratista', 'identificacion', 'nombreEmpleado' , 'direccion' , 'telefono' , 'cargo' , 'contacto' ,'numero_contacto','mail',"star"];
+  displayedColumns: string[] = ['idEmpleado', 'identificacion', 'nombreEmpleado' , 'direccion' ,
+                                'telefono' , 'cargo' , 'mail',"star"]; //'contacto' ,'numero_contacto',
+  ngAfterViewInit() {
+    this.paginator.page.subscribe( 
+      (event) => {   
+        this.indiceTabla = event.pageIndex ;   
+        this.cantidadTabla = event.pageSize ;   
+      });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -100,7 +140,8 @@ export class EmployeeRegistrationComponent implements OnInit {
   })
   export class EmpleadoEmergente {
     constructor(public dialogRef: MatDialogRef<EmpleadoEmergente>,
-      @Inject(MAT_DIALOG_DATA)  public data: {identificacion, nombreEmpleado, direccion, telefono, cargo,contacto, numero_contacto,mail} ) {    }
+      @Inject(MAT_DIALOG_DATA)  public data: { Empleado, identificacion, nombreEmpleado, direccion, 
+                                               telefono, cargo, contacto, numero_contacto, mail } ) {  }
     onNoClick(): void {
       this.dialogRef.close();
     } 

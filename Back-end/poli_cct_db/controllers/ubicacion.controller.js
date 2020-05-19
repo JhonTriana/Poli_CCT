@@ -17,7 +17,6 @@ async function createubicacion (req, res) {
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -30,7 +29,6 @@ async function findAllubicaciones (req, res){
         const ubicaciones = await dbManager.Ubicacion.findAll ();//Execute query
         res.json({ data: ubicaciones });//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -43,7 +41,6 @@ async function findOneubicaciones (req, res){
         const ubicaciones = await dbManager.Ubicacion.findOne({ where: { idubicaciones: idubicaciones } });
         res.json(ubicaciones);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -61,10 +58,9 @@ async function updateubicaciones (req, res){
     }
     const { idUbicacion } = req.params;//Execute query
     dbManager.Ubicacion.update(newubicacionesObject, { where: { idUbicacion: idUbicacion } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newubicacionesObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -74,16 +70,16 @@ async function updateubicaciones (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteubicacionesByubicaciones (req, res){ 
+async function deleteubicacionesByubicaciones (req, res){ 
     const { idUbicacion } = req.params;//Execute query
     dbManager.Ubicacion.destroy( { where: { idUbicacion: idUbicacion } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
+    findAllubicaciones (req, res);
 }
 /**
  * @param {*} req 
@@ -93,7 +89,6 @@ function deleteAllubicacioness (req, res){
     dbManager.Ubicacion.destroy( { where: {} } )// EXECUTING THE DESTROY QUERY - INSERT THE OBJECT INTO DATABASE 
     .catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );

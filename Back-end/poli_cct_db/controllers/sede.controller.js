@@ -17,7 +17,6 @@ async function createSede (req, res) {
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -30,7 +29,6 @@ async function findAllSedes (req, res){
         const Sedes = await dbManager.Sede.findAll ();//Execute query
         res.json({ data: Sedes });//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -43,7 +41,6 @@ async function findOneSede (req, res){
         const Sede = await dbManager.Sede.findOne({ where: { idSede: idSede } });
         res.json(Sede);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -61,10 +58,9 @@ async function updateSede (req, res){
     }
     const { idSede } = req.params;//Execute query
     dbManager.Sede.update(newSedeObject, { where: { idSede: idSede } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newSedeObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -74,16 +70,14 @@ async function updateSede (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteSedeBySede (req, res){ 
+async function deleteSedeBySede (req, res){ 
     const { idSede } = req.params;//Execute query
     dbManager.Sede.destroy( { where: { idSede: idSede } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
-        e => {
-            console.log(e);// Print error on console
-            res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
-        }
+        e => {    res.status(500).send({ message: "Some error occurred" });   }
     );
+    deleteAllSedes (req, res);
 }
 /**
  * @param {*} req 
@@ -93,7 +87,6 @@ function deleteAllSedes (req, res){
     dbManager.Sede.destroy( { where: {} } )// EXECUTING THE DESTROY QUERY - INSERT THE OBJECT INTO DATABASE 
     .catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );

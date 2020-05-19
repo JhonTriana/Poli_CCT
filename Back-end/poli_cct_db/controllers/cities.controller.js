@@ -16,7 +16,6 @@ async function createcities (req, res) {
         data => { res.send (data); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -29,7 +28,6 @@ async function findAllcities (req, res){
         const cities = await dbManager.Ciudad.findAll();//Execute query
         res.json({ data: cities });//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -42,7 +40,6 @@ async function findOnecities (req, res){
         const cities = await dbManager.Ciudad.findOne({ where: { idCiudad: idCiudad } });
         res.json(cities);//Send response
     } catch (e) {
-        console.log(e);// Print error on console
         res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
     }
 }
@@ -59,10 +56,9 @@ async function updatecities (req, res){
     }
     const { idCiudad } = req.params;//Execute query
     dbManager.Ciudad.update(newcitiesObject, { where: { idCiudad: idCiudad } }).then (// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
-        data => { res.send (newcitiesObject); }
+        data => { res.send ( data ); }
     ).catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
@@ -72,16 +68,14 @@ async function updatecities (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deletecitiesBycities (req, res){ 
+async function deletecitiesBycities (req, res){ 
     const { idCiudad } = req.params;//Execute query
     dbManager.Ciudad.destroy( { where: { idCiudad: idCiudad } })// EXECUTING THE CREATE QUERY - INSERT THE OBJECT INTO DATABASE 
         //data => { res.send (data); }
     .catch (
-        e => {
-            console.log(e);// Print error on console
-            res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
-        }
+        e => {   res.status(500).send({ message: "Some error occurred" });   }
     );
+    findAllcities (req, res);
 }
 /**
  * @param {*} req 
@@ -91,7 +85,6 @@ function deleteAllcitiess (req, res){
     dbManager.Ciudad.destroy( { where: {} } )// EXECUTING THE DESTROY QUERY - INSERT THE OBJECT INTO DATABASE 
     .catch (
         e => {
-            console.log(e);// Print error on console
             res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
         }
     );
