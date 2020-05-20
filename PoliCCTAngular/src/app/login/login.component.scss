@@ -1,41 +1,61 @@
-.colorButton{
+.colorButton {
   background-color: #1fb2de;
-  color: white;
-  width: 150px;
-  height: 35px;
-  margin: 32px;
-}
-.fondoInferior{
-  background-color: #0f385a;   
-  border-radius: 8px;
-  text-align: center;
-  color: #A6CE38;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bolder;
-  margin-left: 25%;
-  margin-right: 25%;
+  color           : white;
+  width           : 150px;
+  height          : 35px;
+  margin          : 16px;
 }
 
-.seleccion{
+.fondoInferior {
+  background-color: #0f385a;
+  border-radius   : 8px;
+  text-align      : center;
+  color           : #A6CE38;
+  font-family     : Arial, Helvetica, sans-serif;
+  font-weight     : bolder;
+  margin          : 2rem auto;
+}
+
+.seleccion {
   width: 200px;
 }
-mat-form-field{
-  margin-right: 30%;
-  margin-left: 30%;
-}
-.input{
-  border: 2px solid #1FB2DE;
+
+.input {
+  border       : 2px solid #1FB2DE;
   border-radius: 5px;
-  margin-right: 30%;
-  margin-left: 30%;
-  outline: none;
-  padding: 8px;
-  box-sizing: border-box;
-  transition: 3s;
+  margin-right : 30%;
+  margin-left  : 30%;
+  outline      : none;
+  padding      : 8px;
+  box-sizing   : border-box;
+  transition   : 3s;
 }
-.label{
+
+.label {
   color: white;
 }
-mat-icon{
+
+mat-icon {
   color: #0f385a;
+}
+
+.card-header {
+  display        : flex;
+  justify-content: center;
+  flex-direction : column;
+  align-items    : center;
+}
+
+.login-form {
+  padding: 16px;
+}
+
+.main-content {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+
+  .card {
+    width: 500px;
+  }
 }

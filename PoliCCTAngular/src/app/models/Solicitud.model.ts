@@ -3,4 +3,5 @@
 export class Solicitud {
     idSolicitud: number;
     nombreSolicitud: string;
+    nombreDocumento: string;
 }

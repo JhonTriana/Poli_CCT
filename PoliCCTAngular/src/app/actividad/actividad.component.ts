@@ -11,28 +11,28 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./actividad.component.scss']
 })
 export class ActividadComponent implements OnInit {
-//Comentario
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  misActividades ; 
+  //Comentario
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  misActividades;
   newActividad: Actividad;
   dataSource = new MatTableDataSource(this.misActividades);
-  No = 0 ;
-  indiceTabla = 0 ; 
-  cantidadTabla  = 0 ;
-  
-  constructor(private ActividadService: ActividadService , public dialog: MatDialog ) { 
+  No = 0;
+  indiceTabla = 0;
+  cantidadTabla = 0;
+
+  constructor(private ActividadService: ActividadService, public dialog: MatDialog) {
     this.getAllActividades();
   }
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
-  getAllActividades(){
-    this.ActividadService.getAllActividades().subscribe( misActividadesObs => {   
-        this.misActividades = misActividadesObs['data'] ;
-        this.dataSource = new MatTableDataSource(this.misActividades);
-        this.dataSource.paginator = this.paginator;
-        this.newActividad = new Actividad;
-    });  
+  getAllActividades() {
+    this.ActividadService.getAllActividades().subscribe(misActividadesObs => {
+      this.misActividades = misActividadesObs['data'];
+      this.dataSource = new MatTableDataSource(this.misActividades);
+      this.dataSource.paginator = this.paginator;
+      this.newActividad = new Actividad;
+    });
   }
   openDialogNuevaActividad(): void {
     const dialogRef = this.dialog.open(ActividadEmergente, {
@@ -40,61 +40,61 @@ export class ActividadComponent implements OnInit {
       data: { Actividad }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined ){
-        var r = alert('Datos Incompletos');
+      if (result === undefined) {
+        alert('Datos Incompletos');
       }
-      else{
-        this.newActividad.idActividad = this.No ; 
+      else {
+        this.newActividad.idActividad = this.No;
         this.newActividad.nombreActividad = result;
         this.ActividadService.createNewActividad(this.newActividad).subscribe(
-          consulta => {                
+          consulta => {
             this.getAllActividades();
-            var r = alert('Registro Exitoso');
-        });
+            alert('Registro Exitoso');
+          });
       }
-    }); 
+    });
   }
   openDialogEditarActividad(element): void {
-    element = element + (this.indiceTabla * this.cantidadTabla );
+    element = element + (this.indiceTabla * this.cantidadTabla);
     const dialogRef = this.dialog.open(ActividadEmergente, {
       width: '300px',
       data: { nombreActividad: this.misActividades[element].nombreActividad }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === undefined || result === null ){
-        var r = alert('Datos Incompletos');
+      if (result === undefined || result === null) {
+        alert('Datos Incompletos');
       }
-      else{
-        this.newActividad.idActividad = this.misActividades[element].idActividad ; 
+      else {
+        this.newActividad.idActividad = this.misActividades[element].idActividad;
         this.newActividad.nombreActividad = result;
         this.ActividadService.editarActividad(this.newActividad).subscribe(
-          consulta => {                
+          consulta => {
             this.getAllActividades();
-            var r = alert('Registro Exitoso');
-        });
+            alert('Registro Exitoso');
+          });
       }
     });
   }
-  eliminarActividad(element){
-    element = element + (this.indiceTabla * this.cantidadTabla );
+  eliminarActividad(element) {
+    element = element + (this.indiceTabla * this.cantidadTabla);
     var r = confirm('¿Esta seguro que desea Eliminar el Registro?');
-    if(r === true){
+    if (r === true) {
       this.ActividadService.eliminarActividad(this.misActividades[element].idActividad).subscribe(
-        consulta => {                
+        consulta => {
           this.getAllActividades();
-          var r1 = alert('Registro Eliminado Exitosamente');
-          return true ; 
-      });
-    }else{
-      return false ;
-    }  
+          alert('Registro Eliminado Exitosamente');
+          return true;
+        });
+    } else {
+      return false;
+    }
   }
-  displayedColumns: string[] = ['idActividad', 'nombreActividad', "star"]; 
+  displayedColumns: string[] = ['idActividad', 'nombreActividad', "star"];
   ngAfterViewInit() {
-    this.paginator.page.subscribe( 
-      (event) => {   
-        this.indiceTabla = event.pageIndex ;   
-        this.cantidadTabla = event.pageSize ;   
+    this.paginator.page.subscribe(
+      (event) => {
+        this.indiceTabla = event.pageIndex;
+        this.cantidadTabla = event.pageSize;
       });
   }
   applyFilter(event: Event) {
@@ -108,8 +108,8 @@ export class ActividadComponent implements OnInit {
 })
 export class ActividadEmergente {
   constructor(public dialogRef: MatDialogRef<ActividadEmergente>,
-    @Inject(MAT_DIALOG_DATA)  public data: Actividad ) {    }
+    @Inject(MAT_DIALOG_DATA) public data: Actividad) { }
   onNoClick(): void {
     this.dialogRef.close();
-  } 
+  }
 }
