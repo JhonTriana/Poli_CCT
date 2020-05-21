@@ -128,8 +128,8 @@ export class UbicacionComponent implements OnInit {
   }
 }
 @Component({
-  selector: 'Ubicacion.Emergente',
-  templateUrl: 'Ubicacion.Emergente.html',
+  selector: 'ubicacion.emergente',
+  templateUrl: 'ubicacion.emergente.html',
 })
 export class UbicacionEmergente {
   constructor(public dialogRef: MatDialogRef<UbicacionEmergente>,

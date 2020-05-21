@@ -7,8 +7,8 @@ import { CriterioService } from 'app/services/criterio.service';
 import { DocumentoService } from 'app/services/documento.service';
 
 @Component({
-  selector: 'Solicitud.Emergente',
-  templateUrl: 'Solicitud.Emergente.html',
+  selector: 'solicitud-emergente',
+  templateUrl: 'solicitud-emergente.component.html',
   styleUrls: ['./request-management.component.scss']
 })
 
@@ -21,7 +21,8 @@ export class SolicitudEmergente {
 
   constructor(public dialogRef: MatDialogRef<SolicitudEmergente>,
     @Inject(MAT_DIALOG_DATA)
-    public data: Solicitud, private EmployeeService: EmployeeService,
+    public data: Solicitud, 
+    private EmployeeService: EmployeeService,
     private ActividadService: ActividadService,
     private CriterioService: CriterioService,
     private DocumentoService: DocumentoService) { }

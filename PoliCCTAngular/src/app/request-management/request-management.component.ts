@@ -7,7 +7,7 @@ import { SolicitudService } from '../services/solicitud.service';
 import {MatSelectModule} from '@angular/material/select';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import { Empleado } from '../models/empleado.model';
-import { SolicitudEmergente } from './SolicitudEmergente';
+import { SolicitudEmergente } from './solicitud-emergente.component';
 
 
 export interface PeriodicElement {

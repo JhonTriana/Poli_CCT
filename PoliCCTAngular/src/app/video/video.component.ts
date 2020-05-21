@@ -31,13 +31,17 @@ import { Router } from '@angular/router';
 export class VideoComponent implements OnInit {
 
   constructor(private router: Router) { }
-  
-  
+
+
 
   ngOnInit(): void {
   }
-  
- 
+
+  toggleVideo() {
+
+  }
+
+
 }
 
 
