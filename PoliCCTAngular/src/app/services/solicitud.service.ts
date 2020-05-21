@@ -7,22 +7,22 @@ import { Observable, of } from 'rxjs';
 })
 export class SolicitudService {
 
-  ALL_Solicitudes: Solicitud [] = [
-    {   idSolicitud: 1,   nombreSolicitud: "Cambio de Tejas"   },
-    {   idSolicitud: 2,   nombreSolicitud: "Mantenimiento de cerca"       },
-    {   idSolicitud: 3,   nombreSolicitud: "Jardinería"       }
-]
+  ALL_Solicitudes: Solicitud[] = [
+    { idSolicitud: 1, nombreSolicitud: "Cambio de Tejas", nombreDocumento: '' },
+    { idSolicitud: 2, nombreSolicitud: "Mantenimiento de cerca", nombreDocumento: '' },
+    { idSolicitud: 3, nombreSolicitud: "Jardinería", nombreDocumento: '' }
+  ]
   constructor() { }
-  getAllSolicitudes() : Observable<Solicitud[]>{
-    return of (this.ALL_Solicitudes);
+  getAllSolicitudes(): Observable<Solicitud[]> {
+    return of(this.ALL_Solicitudes);
   }
-  createNewSolicitud(nuevaSolicitud){ 
+  createNewSolicitud(nuevaSolicitud) {
     this.ALL_Solicitudes.push(nuevaSolicitud);
   }
-  eliminarSolicitud(element){
-    this.ALL_Solicitudes.splice(element,1);
+  eliminarSolicitud(element) {
+    this.ALL_Solicitudes.splice(element, 1);
   }
-  editarSolicitud(element, result){
-    this.ALL_Solicitudes[element].nombreSolicitud = result ;
+  editarSolicitud(element, result) {
+    this.ALL_Solicitudes[element].nombreSolicitud = result;
   }
 }

@@ -107,7 +107,7 @@ export class CiudadComponent implements OnInit {
 }
 @Component({
   selector: 'ciudad.Emergente',
-  templateUrl: 'ciudad.Emergente.html',
+  templateUrl: 'ciudad.emergente.html',
 })
 export class CiudadEmergente {
   constructor(public dialogRef: MatDialogRef<CiudadEmergente>,

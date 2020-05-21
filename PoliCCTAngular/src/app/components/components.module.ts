@@ -17,7 +17,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-
   ],
   exports: [
     FooterComponent,

@@ -11,12 +11,14 @@ export class VideoComponent implements OnInit {
   checked = false;
   disabled = true ;
   milisegundos = 15000;
+  constructor(private router: Router) { }
 
   constructor(private router: Router) {
   }
   ngOnInit(): void {
   }
- 
+  toggleVideo() {
+  }
 }
   
 setTimeout(ActivarBoton, 15000 );
