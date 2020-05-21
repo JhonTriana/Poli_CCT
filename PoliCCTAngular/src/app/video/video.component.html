@@ -1,28 +1,31 @@
 <div class="main-content">
     <div class="card">
       <div class="card-header card-header-danger">
-          <h3 class="card-title"><b> VIDEO DE INDUCCION DE MANEJO DE POLI_CCT </b></h3>
+          <h3 class="card-title"><b> VIDEO DE INDUCCION </b></h3>
           <p class="card-category"></p>
       </div>
       <div class="card-body" style="text-align:center;">
           <h4 class="card-title"></h4>
-
-
-
  
-          <video controls (click)="toggleVideo()" #videoPlayer width="640" height="400" autoplay allow="autoplay">
-            <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4" /> 
-                 Tu navegador no soporta HTML5 video.
-            </video>
+           <iframe width="798" height="449" setTimeout
+              src="https://www.youtube.com/embed/GLqAAARwKlU?autoplay=1&loop=1&controls=0&rel=0&modestbranding=1&end=432" 
+              frameborder="0" 
+              allowfullscreen="allowfullscreen">
+            </iframe>
 
-
-
-
-             <p class="card-category"> 
-              <h3>Valide el video:<input type="checkbox" id="cbox" value="first_checkbox">
-              <button mat-raised-button type="submit" class="colorButton">Regresar</button>
-              <button mat-raised-button type="submit" class="colorButton">Guardar</button> 
-              </h3>    
-      </div>
+          <p class="card-category"> 
+            <div class="fondoInferior">
+              <section class="example-section">
+                <h3>Valide el video :  
+                  <mat-checkbox class="example-margin" 
+                    [(ngModel)]="checked" 
+                    [disabled]="disabled">
+                  </mat-checkbox>
+                  <button mat-raised-button type="submit" class="colorButton" [disabled]="disabled">Guardar</button> 
+                </h3>    
+              </section>
+            </div>
+            
+        </div>
     </div>
   </div>
