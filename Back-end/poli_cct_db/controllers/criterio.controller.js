@@ -82,8 +82,21 @@ async function findAllcriterios (req, res){
     }
 }
 
+async function getCriteriosForActivities (req, res){
+    try {
+        const { idActividad } = req.params;//Execute query
+        const criterio = await dbManager.Criterio.findAll({ where: { idActividad: idActividad }//Execute query
+        });
+        res.json(criterio);//Send response
+    } catch (e) {
+        console.log(e);// Print error on console
+        res.status(500).send({ message: "Some error occurred" });// Send error message as a response 
+    }
+}
+
 exports.createcriterio = createcriterio; 
 exports.findAllcriterios = findAllcriterios; 
 exports.findOnecriterio = findOnecriterio; 
 exports.updatecriterio = updatecriterio;
 exports.deletecriterioBymessage = deletecriterioBymessage;
+exports.getCriteriosForActivities = getCriteriosForActivities;

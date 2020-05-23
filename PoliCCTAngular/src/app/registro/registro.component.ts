@@ -2,7 +2,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Registro } from '../models/registros.model';
 import { RegistroService } from '../services/registro.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { Ciudad } from '../models/ciudades.model';      //Se importa Ciudad
 import { CiudadService } from '../services/ciudad.service';  //Se importa Ciudad Service
 import { MatPaginator } from '@angular/material/paginator';
@@ -55,12 +55,6 @@ export class RegistroComponent implements OnInit {
       data: { Registro, misCiudades: this.misCiudades }          //se borran todos los argumentos
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Result1: ", result.ntCcRegistro);
-      console.log("Result2: ", result.nombreRegistro);
-      console.log("Result3: ", result.direccionRegistro);
-      console.log("Result4: ", result.nombreCiudad);
-      console.log("Result5: ", result.telefonoRegistro);
-      console.log("Result6: ", result.celularRegistro);
       if (result === undefined ||
         result.ntCcRegistro === undefined || result.nombreRegistro === undefined ||
         result.direccionRegistro === undefined || result.nombreCiudad === undefined ||

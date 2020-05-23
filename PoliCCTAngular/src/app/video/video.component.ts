@@ -12,9 +12,6 @@ export class VideoComponent implements OnInit {
   disabled = true ;
   milisegundos = 15000;
   constructor(private router: Router) { }
-
-  constructor(private router: Router) {
-  }
   ngOnInit(): void {
   }
   toggleVideo() {

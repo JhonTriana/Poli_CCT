@@ -10,7 +10,12 @@ import { AppComponent } from './app.component';
 // import { IconsComponent } from './icons/icons.component';
 // import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 // import { RequestManagementComponent } from './request-management/request-management.component';
-import { MatExpansionModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material/';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 // import { ActividadComponent } from './actividad/actividad.component';
 // import { CriterioComponent } from './criterio/criterio.component';
 // import { DocumentoComponent } from './documento/documento.component';

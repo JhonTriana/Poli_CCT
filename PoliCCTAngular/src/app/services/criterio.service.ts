@@ -29,4 +29,7 @@ export class CriterioService {
   eliminarCriterio(idCriterio): Observable<{}>{
     return this.http.delete(environment.urlCriterio + idCriterio, httpOptions);
   }
+  getCriterioPorActividad(idActividad): Observable<{}>{
+    return this.http.get(environment.urlCriterio+"criterioPorActividad/"+idActividad, httpOptions);
+  }
 }
