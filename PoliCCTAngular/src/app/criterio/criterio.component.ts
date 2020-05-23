@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Criterio } from '../models/criterios.model';
 import { CriterioService } from '../services/criterio.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { Actividad } from '../models/actividades.model';
 import { ActividadService } from '../services/actividad.service';
 import { Documento } from '../models/documentos.model';

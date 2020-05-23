@@ -29,4 +29,7 @@ export class DocumentoService {
   eliminarDocumento(idDocumento): Observable<{}>{
     return this.http.delete(environment.urlDocumento + idDocumento, httpOptions);
   }
+  getDocumento(idDocumento): Observable<{}>{
+    return this.http.get(environment.urlDocumento+idDocumento, httpOptions);
+  }
 }

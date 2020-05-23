@@ -5,6 +5,7 @@ import { EmployeeService } from '../services/employee.service';
 import { ActividadService } from '../services/actividad.service';
 import { CriterioService } from 'app/services/criterio.service';
 import { DocumentoService } from 'app/services/documento.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'solicitud-emergente',
@@ -13,11 +14,12 @@ import { DocumentoService } from 'app/services/documento.service';
 })
 
 export class SolicitudEmergente {
-  misEmpleados;
+  misEmpleados: [];
   misActividades;
   misCriterios;
   misDocumentos;
   documentos;
+  empleados;
 
   constructor(public dialogRef: MatDialogRef<SolicitudEmergente>,
     @Inject(MAT_DIALOG_DATA)
@@ -37,26 +39,36 @@ export class SolicitudEmergente {
   }
 
   getAllEmpleados() {
-    //this.EmployeeService.getAllEmpleados().subscribe(misEmpleadosObs => { this.misEmpleados = misEmpleadosObs; });
-    //console.log("Empleados", this.misEmpleados);
+    this.EmployeeService.getAllEmpleados().subscribe(
+      misEmpleadosObs => { 
+        this.misEmpleados = misEmpleadosObs['data']; 
+      });
   }
 
   getAllActividades(){
-    this.ActividadService.getAllActividades().subscribe(misActividadesObs => { this.misActividades = misActividadesObs; });
-    //console.log("Actividades", this.misActividades);
+    this.ActividadService.getAllActividades().subscribe(
+      misActividadesObs => { 
+        this.misActividades = misActividadesObs['data']; 
+      });
   }
 
   getCriteriosPorActividad(actividad){
     let documentos1 = [];
-    /*this.CriterioService.getCriterioPorActividad(actividad.idActividad).subscribe(misCriteriosObs => { this.misCriterios = misCriteriosObs; });
-    this.misCriterios.forEach(element => {
-      this.DocumentoService.getDocumentoPorCriterio(element.idDocumento).subscribe(function(misDocumentosObs){
-        documentos1.push(misDocumentosObs);
+    this.CriterioService.getCriterioPorActividad(actividad.idActividad).subscribe(
+      misCriteriosObs => { 
+        this.misCriterios = misCriteriosObs; 
+
+        this.misCriterios.forEach(element => {
+          this.DocumentoService.getDocumento(element.idDocumento).subscribe(
+            misDocumentosObs => {
+              this.misDocumentos = misDocumentosObs;
+              documentos1.push(misDocumentosObs);
+            }
+          );
+        });
       }
-      );
-    });
+    );
     this.documentos = documentos1;
-    console.log("documentos", this.documentos);*/
   }
 
   

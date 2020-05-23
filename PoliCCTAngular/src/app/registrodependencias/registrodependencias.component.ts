@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core'; 
 import { RegistroDependencias } from '../models/registrodependencias1.model';
 import { RegistroDependenciasService } from '../services/registrodependencias.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 

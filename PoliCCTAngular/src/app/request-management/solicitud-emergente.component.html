@@ -31,14 +31,12 @@
     <mat-card-content>
       <mat-list>
         <mat-list-item *ngFor="let documento of documentos">
-          <div *ngFor="let documento1 of documento">
             <div mat-line >
-              {{documento1.nombreDocumento}}
+              {{documento.nombreDocumento}}
             </div>
-            <div mat-line id="{{documento1.idDocumento}}"> 
+            <div mat-line id="{{documento.idDocumento}}"> 
               <input type="file" >
             </div>
-          </div>
         </mat-list-item>
       </mat-list>
     </mat-card-content>

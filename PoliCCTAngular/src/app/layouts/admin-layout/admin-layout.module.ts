@@ -21,7 +21,8 @@ import { UbicacionComponent, UbicacionEmergente } from 'app/ubicacion/ubicacion.
 import { UsuarioComponent, UsuarioEmergente } from 'app/usuario/usuario.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule, MatListModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
@@ -56,15 +57,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
-import {
-  MatButtonModule,
-  MatInputModule,
-  MatRippleModule,
-  MatFormFieldModule,
-  MatTooltipModule,
-  MatPaginatorModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { ComponentsModule } from './../../components/components.module';
 
 @NgModule({
