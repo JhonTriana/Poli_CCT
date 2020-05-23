@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Empleado } from '../models/empleado.model';
 import { EmployeeService } from '../services/employee.service';
+import { RegistroService } from '../services/registro.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -20,7 +21,8 @@ export class EmployeeRegistrationComponent implements OnInit {
   indiceTabla = 0;
   cantidadTabla = 0;
 
-  constructor(private EmployeeService: EmployeeService, public dialog: MatDialog) {
+  constructor(private EmployeeService: EmployeeService, 
+              public dialog: MatDialog) {
     this.getAllEmpleados();
   }
   ngOnInit() {
@@ -40,6 +42,7 @@ export class EmployeeRegistrationComponent implements OnInit {
       data: { Empleado }
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log("data", result);
       if (result.identificacion === undefined || result.nombreEmpleado === undefined ||
         result.direccion === undefined || result.telefono === undefined ||
         result.cargo === undefined || result.contacto === undefined ||
@@ -56,7 +59,7 @@ export class EmployeeRegistrationComponent implements OnInit {
         this.newEmpleado.contacto = result.contacto;
         this.newEmpleado.numero_contacto = result.numero_contacto;
         this.newEmpleado.mail = result.mail;
-        this.newEmpleado.idContratista = this.No; //Pendiente Arreglar
+        this.newEmpleado.idContratista = result.contratistas.idRegistro; //Pendiente Arreglar
         this.EmployeeService.createNewEmpleado(this.newEmpleado).subscribe(
           consulta => {
             this.getAllEmpleados();
@@ -134,6 +137,7 @@ export class EmployeeRegistrationComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
 }
 
 @Component({
@@ -141,12 +145,21 @@ export class EmployeeRegistrationComponent implements OnInit {
   templateUrl: 'employee.Emergente.html',
 })
 export class EmpleadoEmergente {
+  contratistas;
   constructor(public dialogRef: MatDialogRef<EmpleadoEmergente>,
     @Inject(MAT_DIALOG_DATA) public data: {
       Empleado, identificacion, nombreEmpleado, direccion,
-      telefono, cargo, contacto, numero_contacto, mail
-    }) { }
+      telefono, cargo, contacto, numero_contacto, mail, contratistas
+    },  private RegistroService: RegistroService) { 
+      this.getAllContratistas();
+    }
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  getAllContratistas(){
+    this.RegistroService.getAllRegistros().subscribe(misContratistasObs => {
+      this.contratistas = misContratistasObs['data'];
+    });
   }
 }
