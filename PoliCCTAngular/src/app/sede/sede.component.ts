@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { SedeService } from '../services/sede.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { Sede } from '../models/sedes.model';
 import { CiudadService } from '../services/ciudad.service';
 import { MatPaginator } from '@angular/material/paginator';

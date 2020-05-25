@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Documento } from '../models/Documentos.model';
+import { Documento } from './../models/documentos.model';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -28,5 +28,8 @@ export class DocumentoService {
   }
   eliminarDocumento(idDocumento): Observable<{}>{
     return this.http.delete(environment.urlDocumento + idDocumento, httpOptions);
+  }
+  getDocumento(idDocumento): Observable<{}>{
+    return this.http.get(environment.urlDocumento+idDocumento, httpOptions);
   }
 }

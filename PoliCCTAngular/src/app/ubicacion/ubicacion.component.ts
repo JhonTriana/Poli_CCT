@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Ubicacion } from '../models/ubicaciones.model';
 import { UbicacionService } from '../services/ubicacion.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { Sede } from '../models/sedes.model';
 import { SedeService } from '../services/sede.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -128,8 +128,8 @@ export class UbicacionComponent implements OnInit {
   }
 }
 @Component({
-  selector: 'Ubicacion.Emergente',
-  templateUrl: 'Ubicacion.Emergente.html',
+  selector: 'ubicacion.emergente',
+  templateUrl: 'ubicacion.emergente.html',
 })
 export class UbicacionEmergente {
   constructor(public dialogRef: MatDialogRef<UbicacionEmergente>,

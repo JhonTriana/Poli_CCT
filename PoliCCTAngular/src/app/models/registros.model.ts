@@ -7,7 +7,8 @@ export class Registro {
     nombreRegistro: string;
     direccionRegistro: string;
     idCiudad: number;
-    //ciudadRegistro: string;
+    nombreCiudad: string;
     telefonoRegistro: number;
     celularRegistro: number;
+    misCiudades: any;
 }

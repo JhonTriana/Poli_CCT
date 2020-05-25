@@ -23,4 +23,9 @@ router.delete ('/:idCriterio',criterioController.deletecriterioBymessage);
  */
 router.get('/', criterioController.findAllcriterios);
 
+/**
+ * GET Route to list criterios for activities
+ */
+router.get('/criterioPorActividad/:idActividad', criterioController.getCriteriosForActivities);
+
 module.exports = router;
