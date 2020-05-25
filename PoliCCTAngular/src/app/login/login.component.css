@@ -1,5 +1,5 @@
 .colorButton {
-  background-color: #1fb2de;
+  background-color: #0f385a;
   color           : white;
   width           : 150px;
   height          : 35px;
@@ -52,10 +52,15 @@ mat-icon {
 
 .main-content {
   display        : flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items    : center;
+  margin-top: 150px;
+  margin-right: 20px;
+}
 
-  .card {
-    width: 500px;
-  }
+.fondo{
+  background-image: url('https://i.ibb.co/d6Lynny/poli-background-1.png') !important;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
 }

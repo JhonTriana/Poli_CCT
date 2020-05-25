@@ -15,6 +15,7 @@ const SedeModel = require("../model/sede.model");
 const UbicacionModel = require("../model/ubicacion.model");
 const UserModel = require("../model/user.model");
 const VerVideoModel = require("../model/verVideo.model");
+const SolicitudIngresoModel = require("../model/solicitudIngreso.model");
 //INITIALIZE MODELS
 const Actividad = ActividadModel (sequelizeConnection, Sequelize);
 const Ciudad = CiudadModel (sequelizeConnection, Sequelize);
@@ -28,6 +29,7 @@ const Sede = SedeModel (sequelizeConnection,Sequelize);
 const Ubicacion = UbicacionModel (sequelizeConnection,Sequelize);
 const User = UserModel (sequelizeConnection, Sequelize);
 const VerVideo = VerVideoModel (sequelizeConnection, Sequelize);
+const SolicitudIngreso = SolicitudIngresoModel (sequelizeConnection, Sequelize);
 //CREATE RELATIONS BETWEEN MODELS
 //Criterio.hasMany(Actividad   , { foreignKey: 'idActividad', sourceKey: 'idActividad' });
 //Actividad.belongsTo(Criterio , { foreignKey: 'idActividad', sourceKey: 'idActividad' });
@@ -47,7 +49,8 @@ const models = {
   Sede: Sede,
   Ubicacion: Ubicacion,
   User: User,
-  VerVideo: VerVideo
+  VerVideo: VerVideo,
+  SolicitudIngreso: SolicitudIngreso
 };
 /**
  * Create object to manage the models and database

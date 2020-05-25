@@ -1,5 +1,13 @@
 <h1 mat-dialog-title>Crear Nuevo Registro</h1>
   <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label >Seleccione el contratista</mat-label>
+      <mat-select required [(ngModel)]="data.contratistas">
+        <mat-option *ngFor="let contratista of contratistas" [value]="contratista" >
+          {{contratista.nombreRegistro}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <mat-form-field>
       <mat-label>NIT / CC</mat-label>

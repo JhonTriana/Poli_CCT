@@ -19,6 +19,7 @@ var sedesRouter = require('./routes/sede.router');
 var ubicacionRouter = require('./routes/ubicacion.route');
 var usersRouter = require('./routes/users.route');
 var verVideosRouter = require('./routes/verVideos.route');
+var solicitudIngresoRouter = require('./routes/solicitudIngreso.route');
 // IMPORT DB CONNECTION MANAGER
 const dbManager = require ("./database.config/db.manager");
 var app = express();
@@ -42,6 +43,7 @@ app.use('/sedes', sedesRouter);
 app.use('/ubicacion', ubicacionRouter);
 app.use('/users', usersRouter);
 app.use('/vervideos', verVideosRouter);
+app.use('/solicitudIngreso', solicitudIngresoRouter);
 
 /**
  * Testing the connection to the database and recreate the models if the tables doesn´t exists  
