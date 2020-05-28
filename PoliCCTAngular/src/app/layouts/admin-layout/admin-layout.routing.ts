@@ -14,6 +14,7 @@ import { CiudadComponent } from 'app/ciudad/ciudad.component';
 import { SedeComponent } from 'app/sede/sede.component';
 import { UbicacionComponent } from 'app/ubicacion/ubicacion.component';
 import { UsuarioComponent } from 'app/usuario/usuario.component';
+import { RestorePswdComponent } from 'app/restore-pswd/restore-pswd.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -31,5 +32,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'ubicacion', component: UbicacionComponent },
     { path: 'Formulario-Usuario', component: UsuarioComponent },
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'video', component: VideoComponent }
+    { path: 'video', component: VideoComponent },
+    { path: 'restore', component: RestorePswdComponent}
 ];
