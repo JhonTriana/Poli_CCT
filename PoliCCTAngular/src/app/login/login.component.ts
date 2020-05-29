@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     if(this.username == 'admin' && this.password == 'admin'){
      this.router.navigate(["dashboard"]);
     }else {
-      alert("Invalid credentials");
+      alert("Credenciales inválidas, por favor intente nuevamente");
     }
 
     
