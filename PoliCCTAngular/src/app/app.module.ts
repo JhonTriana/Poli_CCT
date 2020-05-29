@@ -32,6 +32,7 @@ import { CriterioService } from './services/criterio.service';
 import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
+import { RestorePswdComponent } from './restore-pswd/restore-pswd.component';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import { LoginComponent } from './login/login.component';
     AdminLayoutComponent,
     LoginComponent,
     PageNotFoundComponent,
+    RestorePswdComponent,
   ],
   providers: [ //Importar los los servicios
     ActividadService,

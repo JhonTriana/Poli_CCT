@@ -1,0 +1,84 @@
+.colorButton {
+    background-color: #0f385a;
+    color           : white;
+    width           : 200px;
+    height          : 35px;
+    margin          : 16px;
+  }
+  
+  .fondoInferior {
+    background-color: #0f385a;
+    border-radius   : 8px;
+    text-align      : center;
+    color           : #A6CE38;
+    font-family     : Arial, Helvetica, sans-serif;
+    font-weight     : bolder;
+    margin          : 2rem auto;
+  }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+  }
+
+  
+  .seleccion {
+    width: 200px;
+  }
+  
+  .input {
+    border       : 2px solid #1FB2DE;
+    border-radius: 5px;
+    margin-right : 30%;
+    margin-left  : 30%;
+    outline      : none;
+    padding      : 8px;
+    box-sizing   : border-box;
+    transition   : 3s;
+  }
+  
+  .label {
+    color: white;
+  }
+  
+  mat-icon {
+    color: #0f385a;
+  }
+  
+  .card-header {
+    display        : flex;
+    justify-content: center;
+    flex-direction : column;
+    align-items    : center;
+  }
+  
+  .documentoUser {
+    padding: 16px;
+  }
+  
+  .main-content {
+    display        : flex;
+    justify-content: flex-end;
+    align-items    : center;
+    margin-top: 150px;
+    margin-right: 20px;
+  }
+  
+ 
+  .fondop{
+    background-image: url('https://i.ibb.co/d6Lynny/poli-background-1.png') !important;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
+  .centrar{
+    align-content: center;
+  }
+  .fondoP{
+    background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.poli.edu.co%2Fnoticias%2Fel-poli-mantiene-sus-tres-certificaciones-en-normas-iso&psig=AOvVaw0LxCgTccruekrw9DEDy3Zk&ust=1590535553370000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCpg-yU0OkCFQAAAAAdAAAAABAL);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  
