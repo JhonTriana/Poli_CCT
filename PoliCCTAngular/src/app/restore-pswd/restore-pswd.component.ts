@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class RestorePswdComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
 documento: string;
 
@@ -25,6 +25,11 @@ documento: string;
     }
 
     
+  }
+  login() : void {
+    {
+     this.router.navigate(["login"]);
+    }
   }
 
 }
