@@ -45,7 +45,7 @@
     "jquery": "^3.5.1",
     "mat-select-filter": "^2.3.6",
     "materialize-css": "^1.0.0-rc.2",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "perfect-scrollbar": "1.1.0",
     "popper.js": "1.15.0",
     "rxjs": "6.5.5",
